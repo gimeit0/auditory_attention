@@ -144,3 +144,12 @@ prelim_binaural_figs/diff_min_same_confusion_at_0_elev.pdf
 *.pkl
 notebooks/Final_Figures_old/
 !figure_1.svg
+# ---- reproduction repo: exclude local data/audio/IDE/bundles ----
+*.mp3
+*.DS_Store
+.idea/
+transfer_3070/
+eval_stimuli/
+export_audio/
+音频示例_SNR演示/
+hakusan_deploy/logs/
