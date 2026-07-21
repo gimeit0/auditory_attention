@@ -152,4 +152,20 @@ transfer_3070/
 eval_stimuli/
 export_audio/
 音频示例_SNR演示/
-hakusan_deploy/logs/
+reproduction/deployment/hakusan/logs/
+!reproduction/deployment/hakusan/logs/
+!reproduction/deployment/hakusan/logs/.gitkeep
+selftrain/artifacts/
+selftrain/experiments/
+selftrain/hakusan/selftrain_clips_list.txt
+
+# Keep the organized reproduction sources and compact result artifacts tracked.
+!reproduction/**/*.py
+!reproduction/**/*.sh
+!reproduction/**/*.sbatch
+!reproduction/**/*.md
+!reproduction/**/*.csv
+!reproduction/**/*.json
+!reproduction/**/*.png
+!reproduction/**/*.pptx
+!reproduction/**/*.pdf

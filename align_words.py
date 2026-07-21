@@ -27,7 +27,9 @@
   词表里没有带连字符或含数字的词,所以连字符删除、含数字词判为不可对齐,都不影响匹配。
 
 用法:
-    python align_words.py --pairs pairs_test.csv --out alignments.json
+    python align_words.py \
+      --pairs reproduction/experiment_1_gender/archive/pairs_test.csv \
+      --out reproduction/experiment_1_gender/archive/alignments.json
     # 先小样本: --limit 20 只处理前 20 条唯一录音
 
 输出: 一个 JSON,key 是录音文件名,value 见 main() 里的组装结构。
@@ -189,11 +191,19 @@ def process_clip(model, tokenizer, aligner, wav16, dur_s, sentence, word2ix):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pairs", default="pairs_test.csv", help="build_pairs.py 输出的配对 CSV")
+    ap.add_argument(
+        "--pairs",
+        default="reproduction/experiment_1_gender/archive/pairs_test.csv",
+        help="build_pairs.py 输出的配对 CSV",
+    )
     ap.add_argument("--cv_dir",
                     default="/Users/gigi/论文/计划书/cv-corpus-9.0-2022-04-27/en",
                     help="CV 英语根目录(内含 clips/)")
-    ap.add_argument("--out", default="alignments.json", help="输出 JSON 路径")
+    ap.add_argument(
+        "--out",
+        default="reproduction/experiment_1_gender/archive/alignments.json",
+        help="输出 JSON 路径",
+    )
     ap.add_argument("--word_table", default="cv_800_word_label_to_int_dict.pkl",
                     help="800 词表 pkl(word -> 分类标签号)")
     ap.add_argument("--limit", type=int, default=None, help="只处理前 N 条唯一录音(调试用)")

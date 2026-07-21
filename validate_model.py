@@ -15,7 +15,7 @@ clean 验证(无干扰)是最容易的情形,用来确认"模型+我的切片管
 SNR/distractor 混音是 Task C/D。
 
 用法:
-    python validate_model.py --manifest eval_manifest.csv --stim_dir eval_stimuli
+    python validate_model.py
 """
 import scipy.signal
 if not hasattr(scipy.signal, "hann"):
@@ -102,8 +102,12 @@ def demo_gate(model, coch, tfm, ix_to_word):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--manifest", default="eval_manifest.csv")
-    ap.add_argument("--stim_dir", default="eval_stimuli")
+    ap.add_argument(
+        "--manifest", default="reproduction/experiment_1_gender/archive/eval_manifest.csv"
+    )
+    ap.add_argument(
+        "--stim_dir", default="reproduction/experiment_1_gender/archive/eval_stimuli"
+    )
     ap.add_argument("--word_table", default="cv_800_word_label_to_int_dict.pkl")
     args = ap.parse_args()
 

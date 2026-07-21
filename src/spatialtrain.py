@@ -6,9 +6,8 @@ import json
 import pickle
 import torch
 from pytorch_lightning import Trainer, seed_everything
-from pytorch_lightning.callbacks import ModelCheckpoint
+from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from src.spatial_attn_lightning import BinauralAttentionModule #probably need to change this to the new name
-from src.saddler_w_gains_lightning import SaddlerBackBoneModule
 # get nodename 
 import socket
 
@@ -19,7 +18,7 @@ torch.backends.cudnn.allow_tf32 = True
 hostname = socket.gethostname()
 
 def run_train(args):
-    seed_everything(123)
+    seed_everything(args.random_seed, workers=True)
 
     if args.config != "":
         config_path = args.config
@@ -54,19 +53,23 @@ def run_train(args):
     ckpt_paths = sorted(checkpoint_dir.glob("*.ckpt"), key=os.path.getctime)
 
     if "saddler" in config_path.stem:
+        try:
+            from src.saddler_w_gains_lightning import SaddlerBackBoneModule
+        except ModuleNotFoundError as error:
+            raise ModuleNotFoundError(
+                "This checkout does not include src/saddler_w_gains_lightning.py; "
+                "use a binaural-attention config or restore that optional module."
+            ) from error
         module = SaddlerBackBoneModule
     else:
         module = BinauralAttentionModule
 
     ckpt_path = None 
     if args.resume_training:
-        if args.ckpt_path != '':
-            ckpt_path = args.ckpt_path
-            model = module.load_from_checkpoint(checkpoint_path=args.ckpt_path, config=config)
-        elif 'learned_gains' in config_path.stem and args.ckpt_path == '':
+        if 'learned_gains' in config_path.stem and args.ckpt_path == '':
             model = module(config)
-            ckpt_path = args.init_ckpt_path
-            state_dict = torch.load(ckpt_path)['state_dict']
+            init_ckpt_path = args.init_ckpt_path
+            state_dict = torch.load(init_ckpt_path)['state_dict']
             # update state dict so saved weights are loaded correctly
             new_state_dict = {}
             for key, param in state_dict.items():
@@ -75,9 +78,19 @@ def run_train(args):
                 new_state_dict[new_key] = param
             # init weights to model
             model.load_state_dict(new_state_dict, strict=False)
-        elif len(ckpt_paths) != 0:
-            ckpt_path = ckpt_paths[-1]
-            model = module.load_from_checkpoint(checkpoint_path=ckpt_path, config=config)
+            print('Initialized learned gains from checkpoint: ', init_ckpt_path)
+        else:
+            if args.ckpt_path != '':
+                ckpt_path = args.ckpt_path
+            elif len(ckpt_paths) != 0:
+                ckpt_path = ckpt_paths[-1]
+            else:
+                raise FileNotFoundError(
+                    "--resume_training was requested, but no checkpoint "
+                    f"was found in {checkpoint_dir}"
+                )
+            # Trainer restores model, optimizer, scheduler, epoch, and step.
+            model = module(config)
         print('Resuming training from checkpoint: ', ckpt_path)
     else:
         model = module(config)
@@ -92,6 +105,7 @@ def run_train(args):
                 monitor=value,
                 mode="max",
                 save_top_k=1,
+                save_last=config['hparas'].get('save_last', False),
                 # save_weights_only=True,
                 verbose=True,
             ))
@@ -102,23 +116,40 @@ def run_train(args):
             monitor=f"{config['val_metric']}",
             mode="max" if 'acc' in config['val_metric'] else "min",
             save_top_k=1,
+            save_last=config['hparas'].get('save_last', False),
             # save_weights_only=True,
             verbose=True,
         ))
 
-    train_checkpoint = ModelCheckpoint(
-        checkpoint_dir,
-        monitor="train_loss",
-        mode="min",
-        save_top_k=1,
-        # save_weights_only=True,
-        verbose=True,
-    )
+    if config['hparas'].get('save_train_checkpoint', True):
+        train_checkpoint = ModelCheckpoint(
+            checkpoint_dir,
+            monitor="train_loss",
+            mode="min",
+            save_top_k=1,
+            # save_weights_only=True,
+            verbose=True,
+        )
+        callbacks.append(train_checkpoint)
 
-    callbacks.append(train_checkpoint)
+    early_stopping = config['hparas'].get('early_stopping')
+    if early_stopping:
+        callbacks.append(EarlyStopping(
+            monitor=early_stopping.get('monitor', config['val_metric']),
+            mode=early_stopping.get(
+                'mode',
+                'max' if 'acc' in config['val_metric'] else 'min',
+            ),
+            patience=early_stopping.get('patience', 3),
+            min_delta=early_stopping.get('min_delta', 0.0),
+            verbose=True,
+        ))
+
+    accelerator = "gpu" if args.gpus > 0 else "cpu"
+    devices = args.gpus if args.gpus > 0 else 1
 
     trainer = Trainer(
-        precision="32",
+        precision=args.precision,
         # precision=16,# 16 if 'binaural' in args.config else 32,
         default_root_dir=args.exp_dir / config_path.stem,
         max_epochs=config['hparas']['epochs'],
@@ -126,8 +157,11 @@ def run_train(args):
         # detect_anomaly=True,
         benchmark=True,
         num_nodes=args.num_nodes,
-        devices=args.gpus,
-        accelerator="gpu", 
+        devices=devices,
+        accelerator=accelerator,
+        num_sanity_val_steps=config['hparas'].get(
+            'num_sanity_val_steps', 2
+        ),
         limit_val_batches=config['hparas'].get('limit_val_batches', 1.0),
         # resume_from_checkpoint = ckpt_path,  
         val_check_interval=config['hparas']['valid_step'],
@@ -143,7 +177,10 @@ def run_train(args):
     #     trainer.fit(model,  ckpt_path = ckpt_path if args.resume_training else None)
     # except KeyError as e:
     #     print(e)
-    trainer.fit(model) 
+    trainer.fit(
+        model,
+        ckpt_path=ckpt_path if args.resume_training else None,
+    )
 
 
 def cli_main():
@@ -170,10 +207,10 @@ def cli_main():
         help="Number of nodes to use for training. (Default: 1)",
     )
     parser.add_argument(
-        "--mixed_precision",
-        default=True,
-        action='store_true',
-        help="Use 16 bit precision in training. (Default: False)",
+        "--precision",
+        default="32-true",
+        choices=["32-true", "16-mixed", "bf16-mixed"],
+        help="Lightning numerical precision.",
     )
     parser.add_argument(
         "--gpus",
@@ -194,7 +231,11 @@ def cli_main():
         help="Path to initial checkpoint for model.",
     )
     parser.add_argument('--random_seed', default=0, type=int, help='Random seed for dataset.')
-    parser.add_argument('--resume_training', default=False, help='Resume training from checkpoint.')
+    parser.add_argument(
+        '--resume_training',
+        action='store_true',
+        help='Resume full training state from a checkpoint.',
+    )
     parser.add_argument('--negative_elevs', default=False, help='Use negative elevations in training.')
     parser.add_argument('--clean_percentage', default=0.0, type=float, help='Percentage of clean speech data to use in training.')
     args = parser.parse_args()

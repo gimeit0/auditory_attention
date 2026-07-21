@@ -20,7 +20,7 @@
   - eval_manifest.csv  每行一个 trial,记录词/label/来源/切片中心等
 
 用法:
-    python slice_stimuli.py --pairs pairs_test.csv --align alignments.json --out_dir eval_stimuli
+    python slice_stimuli.py
 """
 
 import argparse
@@ -81,11 +81,19 @@ def middle_word(align_entry):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pairs", default="pairs_test.csv")
-    ap.add_argument("--align", default="alignments.json")
+    ap.add_argument(
+        "--pairs", default="reproduction/experiment_1_gender/archive/pairs_test.csv"
+    )
+    ap.add_argument(
+        "--align", default="reproduction/experiment_1_gender/archive/alignments.json"
+    )
     ap.add_argument("--cv_dir", default="/Users/gigi/论文/计划书/cv-corpus-9.0-2022-04-27/en")
-    ap.add_argument("--out_dir", default="eval_stimuli")
-    ap.add_argument("--manifest", default="eval_manifest.csv")
+    ap.add_argument(
+        "--out_dir", default="reproduction/experiment_1_gender/archive/eval_stimuli"
+    )
+    ap.add_argument(
+        "--manifest", default="reproduction/experiment_1_gender/archive/eval_manifest.csv"
+    )
     args = ap.parse_args()
 
     clips_dir = os.path.join(args.cv_dir, "clips")

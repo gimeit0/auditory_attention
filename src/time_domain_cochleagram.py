@@ -11,6 +11,11 @@ import torchaudio.functional as F
 import torchaudio.transforms as T
 from scipy import signal as sig
 
+# scipy.signal.hann was moved to scipy.signal.windows in recent SciPy releases.
+# Keep the original cochleagram implementation working in both environments.
+if not hasattr(sig, "hann"):
+    sig.hann = sig.windows.hann
+
 
 class TimeDomainCochleagram(torch.nn.Module):
     """
