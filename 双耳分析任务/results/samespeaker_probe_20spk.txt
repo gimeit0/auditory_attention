@@ -1,0 +1,13 @@
+/Users/gigi/projects/auditory_attention/src/audio_transforms.py:336: UserWarning: "kaiser_window" resampling method name is being deprecated and replaced by "sinc_interp_kaiser" in the next release. The default behavior remains unchanged.
+  self.downsampling_op = self.downsampling(self.sr,
+checkpoint: epoch=1-step=24679-v1.ckpt
+Using explicit dim specification for demeaning in audio transforms
+
+=== 双耳分听决定性验证(同说话人, 20 说话人, 80 trials)===
+命中(跟随被cue耳)   : 58/80 = 72.5%
+耳混淆(报成对侧耳)  : 0/80 = 0.0%
+其他(两耳词都不是)  : 22/80 = 27.5%
+随机基线(2选1中间词): ~50% (仅两耳词之间); 全词表随机 0.1%
+右耳命中率 28/40=70.0%  vs 左耳 30/40=75.0%  (看是否有耳偏)
+
+=> 命中显著高于耳混淆: 单耳 cue 能路由目标耳,双耳分听方案可行,可进入正式建集。

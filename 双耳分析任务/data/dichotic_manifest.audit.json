@@ -1,0 +1,12 @@
+{
+  "project": "Task 1: same-speaker dichotic listening",
+  "date": "2026-07-21",
+  "speakers_with_two_distinct_target_recordings": 119,
+  "included_speakers": 110,
+  "trials": 440,
+  "trials_per_speaker": 4,
+  "skipped": {
+    "no_strict_pair_and_third_cue": 9
+  },
+  "selection": "deterministic lexical/path order; no model predictions used; two distinct target recordings and a third cue recording"
+}

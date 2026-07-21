@@ -1,0 +1,9 @@
+metric,successes,n,rate,ci95_low,ci95_high
+dichotic_hit,8,8,1.0,0.6755843804891231,1.0
+ear_confusion,0,8,0.0,0.0,0.3244156195108769
+other_word,0,8,0.0,0.0,0.3244156195108769
+routing_given_presented_word,8,8,1.0,0.6755843804891231,1.0
+monaural_matched_correct,8,8,1.0,0.6755843804891231,1.0
+diotic_clean_correct,8,8,1.0,0.6755843804891231,1.0
+dichotic_hit_left,4,4,1.0,0.5100999795960008,1.0
+dichotic_hit_right,4,4,1.0,0.5100999795960008,1.0

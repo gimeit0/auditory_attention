@@ -169,3 +169,11 @@ selftrain/hakusan/selftrain_clips_list.txt
 !reproduction/**/*.png
 !reproduction/**/*.pptx
 !reproduction/**/*.pdf
+
+# Keep the dated dichotic-listening Task 1 project and compact outputs tracked.
+!双耳分析任务/**/*.py
+!双耳分析任务/**/*.md
+!双耳分析任务/**/*.csv
+!双耳分析任务/**/*.json
+!双耳分析任务/**/*.png
+!双耳分析任务/**/*.txt
