@@ -1,0 +1,33 @@
+# HAKUSAN (x86_64 Linux + NVIDIA A40/A100) 原生 conda 环境
+# 对应本仓库 requirements.txt 的规范版本(torch 2.1.1 / CUDA 11.8)。
+# 只锁版本号, 不锁 mac 的 build 串 —— 可跨平台重建。
+# 注意: 这是 repo 原生环境, 不需要 Mac 上那些兼容补丁。
+# chcochleagram 不在这里 —— 它用 chcochleagram.tar.gz 单独装(见 setup_env_hakusan.sh)。
+name: audattn
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pytorch=2.1.1
+  - torchaudio=2.1.1
+  - pytorch-cuda=11.8
+  - numpy=1.26
+  - scipy=1.11
+  - pandas=2.1
+  - matplotlib=3.8
+  - librosa=0.10
+  - pysoundfile
+  - scikit-learn=1.3
+  - h5py
+  - pyyaml
+  - tqdm
+  - pip
+  - pip:
+      - pytorch-lightning==2.1.1
+      - torchmetrics==1.2.0
+      - num2words
+      - hydra-core==1.3.2
+      - omegaconf==2.3.0
+      - einops

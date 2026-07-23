@@ -1,0 +1,1782 @@
+{
+  "common_voice_en_495996.mp3": {
+    "sentence": "The actor's authentic facial expression was convincing the jury.",
+    "duration_s": 5.208,
+    "words": [
+      {
+        "idx": 0,
+        "word": "The",
+        "norm": "the",
+        "start_s": 0.941,
+        "end_s": 1.042,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "actor's",
+        "norm": "actor's",
+        "start_s": 1.142,
+        "end_s": 1.502,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "authentic",
+        "norm": "authentic",
+        "start_s": 1.602,
+        "end_s": 2.023,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "facial",
+        "norm": "facial",
+        "start_s": 2.103,
+        "end_s": 2.424,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "expression",
+        "norm": "expression",
+        "start_s": 2.464,
+        "end_s": 2.945,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "was",
+        "norm": "was",
+        "start_s": 3.045,
+        "end_s": 3.165,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "convincing",
+        "norm": "convincing",
+        "start_s": 3.225,
+        "end_s": 3.746,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "the",
+        "norm": "the",
+        "start_s": 3.766,
+        "end_s": 3.866,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "jury.",
+        "norm": "jury",
+        "start_s": 3.906,
+        "end_s": 4.166,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_218464.mp3": {
+    "sentence": "He decided to return to his friend's stable by the longest route possible.",
+    "duration_s": 6.936,
+    "words": [
+      {
+        "idx": 0,
+        "word": "He",
+        "norm": "he",
+        "start_s": 1.062,
+        "end_s": 1.123,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "decided",
+        "norm": "decided",
+        "start_s": 1.203,
+        "end_s": 1.764,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "to",
+        "norm": "to",
+        "start_s": 1.844,
+        "end_s": 1.944,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "return",
+        "norm": "return",
+        "start_s": 2.005,
+        "end_s": 2.446,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "to",
+        "norm": "to",
+        "start_s": 2.506,
+        "end_s": 2.586,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "his",
+        "norm": "his",
+        "start_s": 2.646,
+        "end_s": 2.786,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "friend's",
+        "norm": "friend's",
+        "start_s": 2.867,
+        "end_s": 3.247,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "stable",
+        "norm": "stable",
+        "start_s": 3.288,
+        "end_s": 3.769,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "by",
+        "norm": "by",
+        "start_s": 3.909,
+        "end_s": 4.009,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "the",
+        "norm": "the",
+        "start_s": 4.029,
+        "end_s": 4.109,
+        "aligned": true
+      },
+      {
+        "idx": 10,
+        "word": "longest",
+        "norm": "longest",
+        "start_s": 4.19,
+        "end_s": 4.631,
+        "aligned": true
+      },
+      {
+        "idx": 11,
+        "word": "route",
+        "norm": "route",
+        "start_s": 4.711,
+        "end_s": 4.931,
+        "aligned": true
+      },
+      {
+        "idx": 12,
+        "word": "possible.",
+        "norm": "possible",
+        "start_s": 4.971,
+        "end_s": 5.553,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 3,
+        "word": "return",
+        "norm": "return",
+        "label": 582,
+        "anchor_center_s": 2.226,
+        "start_s": 2.005,
+        "end_s": 2.446
+      },
+      {
+        "idx": 11,
+        "word": "route",
+        "norm": "route",
+        "label": 592,
+        "anchor_center_s": 4.821,
+        "start_s": 4.711,
+        "end_s": 4.931
+      },
+      {
+        "idx": 12,
+        "word": "possible.",
+        "norm": "possible",
+        "label": 520,
+        "anchor_center_s": 5.262,
+        "start_s": 4.971,
+        "end_s": 5.553
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_18901671.mp3": {
+    "sentence": "Miss Barrey displayed ample cleavage and full frontal nudity.",
+    "duration_s": 5.112,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Miss",
+        "norm": "miss",
+        "start_s": 0.902,
+        "end_s": 1.062,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "Barrey",
+        "norm": "barrey",
+        "start_s": 1.163,
+        "end_s": 1.383,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "displayed",
+        "norm": "displayed",
+        "start_s": 1.443,
+        "end_s": 1.824,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "ample",
+        "norm": "ample",
+        "start_s": 1.945,
+        "end_s": 2.145,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "cleavage",
+        "norm": "cleavage",
+        "start_s": 2.205,
+        "end_s": 2.606,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "and",
+        "norm": "and",
+        "start_s": 2.706,
+        "end_s": 2.807,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "full",
+        "norm": "full",
+        "start_s": 2.867,
+        "end_s": 3.027,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "frontal",
+        "norm": "frontal",
+        "start_s": 3.087,
+        "end_s": 3.368,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "nudity.",
+        "norm": "nudity",
+        "start_s": 3.408,
+        "end_s": 3.689,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_19641776.mp3": {
+    "sentence": "Eos published the third edition of Nobilis and a supplement.",
+    "duration_s": 5.496,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Eos",
+        "norm": "eos",
+        "start_s": 0.742,
+        "end_s": 1.023,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "published",
+        "norm": "published",
+        "start_s": 1.103,
+        "end_s": 1.544,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "the",
+        "norm": "the",
+        "start_s": 1.585,
+        "end_s": 1.665,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "third",
+        "norm": "third",
+        "start_s": 1.725,
+        "end_s": 1.946,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "edition",
+        "norm": "edition",
+        "start_s": 2.006,
+        "end_s": 2.387,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "of",
+        "norm": "of",
+        "start_s": 2.447,
+        "end_s": 2.547,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "Nobilis",
+        "norm": "nobilis",
+        "start_s": 2.628,
+        "end_s": 3.129,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "and",
+        "norm": "and",
+        "start_s": 3.31,
+        "end_s": 3.45,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "a",
+        "norm": "a",
+        "start_s": 3.49,
+        "end_s": 3.51,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "supplement.",
+        "norm": "supplement",
+        "start_s": 3.611,
+        "end_s": 4.132,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 3,
+        "word": "third",
+        "norm": "third",
+        "label": 708,
+        "anchor_center_s": 1.836,
+        "start_s": 1.725,
+        "end_s": 1.946
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_24013842.mp3": {
+    "sentence": "She has a degree in philosophy from Miranda House, Delhi University.",
+    "duration_s": 4.752,
+    "words": [
+      {
+        "idx": 0,
+        "word": "She",
+        "norm": "she",
+        "start_s": 0.401,
+        "end_s": 0.501,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "has",
+        "norm": "has",
+        "start_s": 0.541,
+        "end_s": 0.662,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "a",
+        "norm": "a",
+        "start_s": 0.682,
+        "end_s": 0.702,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "degree",
+        "norm": "degree",
+        "start_s": 0.762,
+        "end_s": 1.043,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "in",
+        "norm": "in",
+        "start_s": 1.083,
+        "end_s": 1.123,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "philosophy",
+        "norm": "philosophy",
+        "start_s": 1.183,
+        "end_s": 1.684,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "from",
+        "norm": "from",
+        "start_s": 1.764,
+        "end_s": 1.925,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "Miranda",
+        "norm": "miranda",
+        "start_s": 2.165,
+        "end_s": 2.566,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "House,",
+        "norm": "house",
+        "start_s": 2.627,
+        "end_s": 2.887,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "Delhi",
+        "norm": "delhi",
+        "start_s": 3.008,
+        "end_s": 3.228,
+        "aligned": true
+      },
+      {
+        "idx": 10,
+        "word": "University.",
+        "norm": "university",
+        "start_s": 3.348,
+        "end_s": 3.87,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 8,
+        "word": "House,",
+        "norm": "house",
+        "label": 318,
+        "anchor_center_s": 2.757,
+        "start_s": 2.627,
+        "end_s": 2.887
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_672768.mp3": {
+    "sentence": "The international space station is an awesome project.",
+    "duration_s": 4.704,
+    "words": [
+      {
+        "idx": 0,
+        "word": "The",
+        "norm": "the",
+        "start_s": 1.025,
+        "end_s": 1.106,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "international",
+        "norm": "international",
+        "start_s": 1.186,
+        "end_s": 1.769,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "space",
+        "norm": "space",
+        "start_s": 1.829,
+        "end_s": 2.151,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "station",
+        "norm": "station",
+        "start_s": 2.171,
+        "end_s": 2.553,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "is",
+        "norm": "is",
+        "start_s": 2.674,
+        "end_s": 2.754,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "an",
+        "norm": "an",
+        "start_s": 2.794,
+        "end_s": 2.875,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "awesome",
+        "norm": "awesome",
+        "start_s": 3.015,
+        "end_s": 3.337,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "project.",
+        "norm": "project",
+        "start_s": 3.397,
+        "end_s": 3.92,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 2,
+        "word": "space",
+        "norm": "space",
+        "label": 642,
+        "anchor_center_s": 1.99,
+        "start_s": 1.829,
+        "end_s": 2.151
+      },
+      {
+        "idx": 3,
+        "word": "station",
+        "norm": "station",
+        "label": 657,
+        "anchor_center_s": 2.362,
+        "start_s": 2.171,
+        "end_s": 2.553
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_26939481.mp3": {
+    "sentence": "Augustine was convinced that men needed firm handling.",
+    "duration_s": 6.444,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Augustine",
+        "norm": "augustine",
+        "start_s": 1.265,
+        "end_s": 1.987,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "was",
+        "norm": "was",
+        "start_s": 2.048,
+        "end_s": 2.188,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "convinced",
+        "norm": "convinced",
+        "start_s": 2.268,
+        "end_s": 2.871,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "that",
+        "norm": "that",
+        "start_s": 2.911,
+        "end_s": 3.112,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "men",
+        "norm": "men",
+        "start_s": 3.172,
+        "end_s": 3.413,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "needed",
+        "norm": "needed",
+        "start_s": 3.553,
+        "end_s": 3.915,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "firm",
+        "norm": "firm",
+        "start_s": 4.035,
+        "end_s": 4.356,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "handling.",
+        "norm": "handling",
+        "start_s": 4.497,
+        "end_s": 5.079,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 5,
+        "word": "needed",
+        "norm": "needed",
+        "label": 449,
+        "anchor_center_s": 3.734,
+        "start_s": 3.553,
+        "end_s": 3.915
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_22184875.mp3": {
+    "sentence": "Lake Hefner Parkway borders the east side of the lake.",
+    "duration_s": 5.256,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Lake",
+        "norm": "lake",
+        "start_s": 0.702,
+        "end_s": 0.943,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "Hefner",
+        "norm": "hefner",
+        "start_s": 0.983,
+        "end_s": 1.404,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "Parkway",
+        "norm": "parkway",
+        "start_s": 1.525,
+        "end_s": 2.006,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "borders",
+        "norm": "borders",
+        "start_s": 2.126,
+        "end_s": 2.568,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "the",
+        "norm": "the",
+        "start_s": 2.668,
+        "end_s": 2.768,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "east",
+        "norm": "east",
+        "start_s": 2.949,
+        "end_s": 3.17,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "side",
+        "norm": "side",
+        "start_s": 3.27,
+        "end_s": 3.591,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "of",
+        "norm": "of",
+        "start_s": 3.611,
+        "end_s": 3.691,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "the",
+        "norm": "the",
+        "start_s": 3.751,
+        "end_s": 3.872,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "lake.",
+        "norm": "lake",
+        "start_s": 3.972,
+        "end_s": 4.313,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_8556763.mp3": {
+    "sentence": "Tyler, do you remember when I gave you that note?",
+    "duration_s": 4.176,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Tyler,",
+        "norm": "tyler",
+        "start_s": 0.803,
+        "end_s": 1.265,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "do",
+        "norm": "do",
+        "start_s": 1.646,
+        "end_s": 1.747,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "you",
+        "norm": "you",
+        "start_s": 1.827,
+        "end_s": 1.947,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "remember",
+        "norm": "remember",
+        "start_s": 2.008,
+        "end_s": 2.429,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "when",
+        "norm": "when",
+        "start_s": 2.469,
+        "end_s": 2.59,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "I",
+        "norm": "i",
+        "start_s": 2.69,
+        "end_s": 2.71,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "gave",
+        "norm": "gave",
+        "start_s": 2.771,
+        "end_s": 3.032,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "you",
+        "norm": "you",
+        "start_s": 3.032,
+        "end_s": 3.132,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "that",
+        "norm": "that",
+        "start_s": 3.172,
+        "end_s": 3.273,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "note?",
+        "norm": "note",
+        "start_s": 3.333,
+        "end_s": 3.694,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 3,
+        "word": "remember",
+        "norm": "remember",
+        "label": 576,
+        "anchor_center_s": 2.218,
+        "start_s": 2.008,
+        "end_s": 2.429
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_24271150.mp3": {
+    "sentence": "Public amenities include number of schools, as well as Churches, Temples and Mosques.",
+    "duration_s": 8.1,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Public",
+        "norm": "public",
+        "start_s": 1.223,
+        "end_s": 1.624,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "amenities",
+        "norm": "amenities",
+        "start_s": 1.724,
+        "end_s": 2.366,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "include",
+        "norm": "include",
+        "start_s": 2.486,
+        "end_s": 2.907,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "number",
+        "norm": "number",
+        "start_s": 3.027,
+        "end_s": 3.388,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "of",
+        "norm": "of",
+        "start_s": 3.549,
+        "end_s": 3.649,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "schools,",
+        "norm": "schools",
+        "start_s": 3.93,
+        "end_s": 4.351,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "as",
+        "norm": "as",
+        "start_s": 4.772,
+        "end_s": 4.872,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "well",
+        "norm": "well",
+        "start_s": 4.912,
+        "end_s": 5.073,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "as",
+        "norm": "as",
+        "start_s": 5.113,
+        "end_s": 5.233,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "Churches,",
+        "norm": "churches",
+        "start_s": 5.333,
+        "end_s": 5.834,
+        "aligned": true
+      },
+      {
+        "idx": 10,
+        "word": "Temples",
+        "norm": "temples",
+        "start_s": 6.195,
+        "end_s": 6.717,
+        "aligned": true
+      },
+      {
+        "idx": 11,
+        "word": "and",
+        "norm": "and",
+        "start_s": 6.857,
+        "end_s": 6.957,
+        "aligned": true
+      },
+      {
+        "idx": 12,
+        "word": "Mosques.",
+        "norm": "mosques",
+        "start_s": 7.017,
+        "end_s": 7.519,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 2,
+        "word": "include",
+        "norm": "include",
+        "label": 326,
+        "anchor_center_s": 2.697,
+        "start_s": 2.486,
+        "end_s": 2.907
+      },
+      {
+        "idx": 3,
+        "word": "number",
+        "norm": "number",
+        "label": 461,
+        "anchor_center_s": 3.208,
+        "start_s": 3.027,
+        "end_s": 3.388
+      },
+      {
+        "idx": 5,
+        "word": "schools,",
+        "norm": "schools",
+        "label": 597,
+        "anchor_center_s": 4.141,
+        "start_s": 3.93,
+        "end_s": 4.351
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_21089957.mp3": {
+    "sentence": "Currently, Student Union membership is compulsory in New Zealand for most university students.",
+    "duration_s": 6.288,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Currently,",
+        "norm": "currently",
+        "start_s": 0.741,
+        "end_s": 1.161,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "Student",
+        "norm": "student",
+        "start_s": 1.402,
+        "end_s": 1.742,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "Union",
+        "norm": "union",
+        "start_s": 1.862,
+        "end_s": 2.083,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "membership",
+        "norm": "membership",
+        "start_s": 2.123,
+        "end_s": 2.543,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "is",
+        "norm": "is",
+        "start_s": 2.623,
+        "end_s": 2.723,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "compulsory",
+        "norm": "compulsory",
+        "start_s": 2.764,
+        "end_s": 3.304,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "in",
+        "norm": "in",
+        "start_s": 3.384,
+        "end_s": 3.464,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "New",
+        "norm": "new",
+        "start_s": 3.524,
+        "end_s": 3.645,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "Zealand",
+        "norm": "zealand",
+        "start_s": 3.705,
+        "end_s": 4.065,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "for",
+        "norm": "for",
+        "start_s": 4.105,
+        "end_s": 4.225,
+        "aligned": true
+      },
+      {
+        "idx": 10,
+        "word": "most",
+        "norm": "most",
+        "start_s": 4.265,
+        "end_s": 4.526,
+        "aligned": true
+      },
+      {
+        "idx": 11,
+        "word": "university",
+        "norm": "university",
+        "start_s": 4.626,
+        "end_s": 5.127,
+        "aligned": true
+      },
+      {
+        "idx": 12,
+        "word": "students.",
+        "norm": "students",
+        "start_s": 5.207,
+        "end_s": 5.647,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 1,
+        "word": "Student",
+        "norm": "student",
+        "label": 668,
+        "anchor_center_s": 1.572,
+        "start_s": 1.402,
+        "end_s": 1.742
+      },
+      {
+        "idx": 2,
+        "word": "Union",
+        "norm": "union",
+        "label": 743,
+        "anchor_center_s": 1.973,
+        "start_s": 1.862,
+        "end_s": 2.083
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_263382.mp3": {
+    "sentence": "The boy owed his pal thirty cents.",
+    "duration_s": 4.224,
+    "words": [
+      {
+        "idx": 0,
+        "word": "The",
+        "norm": "the",
+        "start_s": 0.986,
+        "end_s": 1.066,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "boy",
+        "norm": "boy",
+        "start_s": 1.106,
+        "end_s": 1.388,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "owed",
+        "norm": "owed",
+        "start_s": 1.549,
+        "end_s": 1.71,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "his",
+        "norm": "his",
+        "start_s": 1.75,
+        "end_s": 1.891,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "pal",
+        "norm": "pal",
+        "start_s": 1.971,
+        "end_s": 2.333,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "thirty",
+        "norm": "thirty",
+        "start_s": 2.534,
+        "end_s": 2.836,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "cents.",
+        "norm": "cents",
+        "start_s": 3.017,
+        "end_s": 3.52,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_21917463.mp3": {
+    "sentence": "yes",
+    "duration_s": 1.536,
+    "words": [
+      {
+        "idx": 0,
+        "word": "yes",
+        "norm": "yes",
+        "start_s": 0.465,
+        "end_s": 0.748,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_25004784.mp3": {
+    "sentence": "However, the acidosis, if present, is often mild.",
+    "duration_s": 3.348,
+    "words": [
+      {
+        "idx": 0,
+        "word": "However,",
+        "norm": "however",
+        "start_s": 0.481,
+        "end_s": 0.822,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "the",
+        "norm": "the",
+        "start_s": 0.862,
+        "end_s": 0.962,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "acidosis,",
+        "norm": "acidosis",
+        "start_s": 1.083,
+        "end_s": 1.704,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "if",
+        "norm": "if",
+        "start_s": 1.744,
+        "end_s": 1.804,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "present,",
+        "norm": "present",
+        "start_s": 1.844,
+        "end_s": 2.165,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "is",
+        "norm": "is",
+        "start_s": 2.205,
+        "end_s": 2.285,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "often",
+        "norm": "often",
+        "start_s": 2.346,
+        "end_s": 2.546,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "mild.",
+        "norm": "mild",
+        "start_s": 2.586,
+        "end_s": 3.007,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_159460.mp3": {
+    "sentence": "Multiple women are doing what looks like yoga in room.",
+    "duration_s": 5.736,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Multiple",
+        "norm": "multiple",
+        "start_s": 0.802,
+        "end_s": 1.324,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "women",
+        "norm": "women",
+        "start_s": 1.524,
+        "end_s": 1.845,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "are",
+        "norm": "are",
+        "start_s": 2.066,
+        "end_s": 2.186,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "doing",
+        "norm": "doing",
+        "start_s": 2.226,
+        "end_s": 2.487,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "what",
+        "norm": "what",
+        "start_s": 2.587,
+        "end_s": 2.788,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "looks",
+        "norm": "looks",
+        "start_s": 2.948,
+        "end_s": 3.189,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "like",
+        "norm": "like",
+        "start_s": 3.269,
+        "end_s": 3.67,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "yoga",
+        "norm": "yoga",
+        "start_s": 4.172,
+        "end_s": 4.472,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "in",
+        "norm": "in",
+        "start_s": 4.753,
+        "end_s": 4.833,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "room.",
+        "norm": "room",
+        "start_s": 4.954,
+        "end_s": 5.174,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 1,
+        "word": "women",
+        "norm": "women",
+        "label": 781,
+        "anchor_center_s": 1.684,
+        "start_s": 1.524,
+        "end_s": 1.845
+      },
+      {
+        "idx": 3,
+        "word": "doing",
+        "norm": "doing",
+        "label": 197,
+        "anchor_center_s": 2.357,
+        "start_s": 2.226,
+        "end_s": 2.487
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_588051.mp3": {
+    "sentence": "Look John, I just cannot support that.",
+    "duration_s": 6.816,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Look",
+        "norm": "look",
+        "start_s": 1.243,
+        "end_s": 1.443,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "John,",
+        "norm": "john",
+        "start_s": 1.524,
+        "end_s": 1.784,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "I",
+        "norm": "i",
+        "start_s": 2.205,
+        "end_s": 2.225,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "just",
+        "norm": "just",
+        "start_s": 2.265,
+        "end_s": 2.466,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "cannot",
+        "norm": "cannot",
+        "start_s": 2.546,
+        "end_s": 2.847,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "support",
+        "norm": "support",
+        "start_s": 2.927,
+        "end_s": 3.308,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "that.",
+        "norm": "that",
+        "start_s": 3.348,
+        "end_s": 3.588,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 4,
+        "word": "cannot",
+        "norm": "cannot",
+        "label": 95,
+        "anchor_center_s": 2.696,
+        "start_s": 2.546,
+        "end_s": 2.847
+      },
+      {
+        "idx": 5,
+        "word": "support",
+        "norm": "support",
+        "label": 680,
+        "anchor_center_s": 3.117,
+        "start_s": 2.927,
+        "end_s": 3.308
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_12928042.mp3": {
+    "sentence": "Listen to the solo of the e-guitar!",
+    "duration_s": 3.144,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Listen",
+        "norm": "listen",
+        "start_s": 0.625,
+        "end_s": 0.887,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "to",
+        "norm": "to",
+        "start_s": 0.967,
+        "end_s": 1.028,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "the",
+        "norm": "the",
+        "start_s": 1.068,
+        "end_s": 1.149,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "solo",
+        "norm": "solo",
+        "start_s": 1.27,
+        "end_s": 1.552,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "of",
+        "norm": "of",
+        "start_s": 1.632,
+        "end_s": 1.693,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "the",
+        "norm": "the",
+        "start_s": 1.733,
+        "end_s": 1.814,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "e-guitar!",
+        "norm": "eguitar",
+        "start_s": 1.915,
+        "end_s": 2.479,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_26951037.mp3": {
+    "sentence": "Do nothing and let nature stop the growth through disease, starvation, war and pestilence.",
+    "duration_s": 9.18,
+    "words": [
+      {
+        "idx": 0,
+        "word": "Do",
+        "norm": "do",
+        "start_s": 1.784,
+        "end_s": 1.884,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "nothing",
+        "norm": "nothing",
+        "start_s": 2.024,
+        "end_s": 2.505,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "and",
+        "norm": "and",
+        "start_s": 2.946,
+        "end_s": 3.067,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "let",
+        "norm": "let",
+        "start_s": 3.127,
+        "end_s": 3.287,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "nature",
+        "norm": "nature",
+        "start_s": 3.347,
+        "end_s": 3.788,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "stop",
+        "norm": "stop",
+        "start_s": 3.848,
+        "end_s": 4.109,
+        "aligned": true
+      },
+      {
+        "idx": 6,
+        "word": "the",
+        "norm": "the",
+        "start_s": 4.269,
+        "end_s": 4.329,
+        "aligned": true
+      },
+      {
+        "idx": 7,
+        "word": "growth",
+        "norm": "growth",
+        "start_s": 4.329,
+        "end_s": 4.63,
+        "aligned": true
+      },
+      {
+        "idx": 8,
+        "word": "through",
+        "norm": "through",
+        "start_s": 4.69,
+        "end_s": 4.951,
+        "aligned": true
+      },
+      {
+        "idx": 9,
+        "word": "disease,",
+        "norm": "disease",
+        "start_s": 4.971,
+        "end_s": 5.512,
+        "aligned": true
+      },
+      {
+        "idx": 10,
+        "word": "starvation,",
+        "norm": "starvation",
+        "start_s": 5.712,
+        "end_s": 6.434,
+        "aligned": true
+      },
+      {
+        "idx": 11,
+        "word": "war",
+        "norm": "war",
+        "start_s": 6.634,
+        "end_s": 6.895,
+        "aligned": true
+      },
+      {
+        "idx": 12,
+        "word": "and",
+        "norm": "and",
+        "start_s": 7.075,
+        "end_s": 7.196,
+        "aligned": true
+      },
+      {
+        "idx": 13,
+        "word": "pestilence.",
+        "norm": "pestilence",
+        "start_s": 7.276,
+        "end_s": 7.997,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [
+      {
+        "idx": 1,
+        "word": "nothing",
+        "norm": "nothing",
+        "label": 459,
+        "anchor_center_s": 2.264,
+        "start_s": 2.024,
+        "end_s": 2.505
+      },
+      {
+        "idx": 4,
+        "word": "nature",
+        "norm": "nature",
+        "label": 447,
+        "anchor_center_s": 3.567,
+        "start_s": 3.347,
+        "end_s": 3.788
+      },
+      {
+        "idx": 8,
+        "word": "through",
+        "norm": "through",
+        "label": 714,
+        "anchor_center_s": 4.821,
+        "start_s": 4.69,
+        "end_s": 4.951
+      }
+    ],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_116807.mp3": {
+    "sentence": "The homeless seem to like soup.",
+    "duration_s": 3.24,
+    "words": [
+      {
+        "idx": 0,
+        "word": "The",
+        "norm": "the",
+        "start_s": 0.684,
+        "end_s": 0.765,
+        "aligned": true
+      },
+      {
+        "idx": 1,
+        "word": "homeless",
+        "norm": "homeless",
+        "start_s": 0.845,
+        "end_s": 1.268,
+        "aligned": true
+      },
+      {
+        "idx": 2,
+        "word": "seem",
+        "norm": "seem",
+        "start_s": 1.509,
+        "end_s": 1.69,
+        "aligned": true
+      },
+      {
+        "idx": 3,
+        "word": "to",
+        "norm": "to",
+        "start_s": 1.771,
+        "end_s": 1.831,
+        "aligned": true
+      },
+      {
+        "idx": 4,
+        "word": "like",
+        "norm": "like",
+        "start_s": 1.892,
+        "end_s": 2.133,
+        "aligned": true
+      },
+      {
+        "idx": 5,
+        "word": "soup.",
+        "norm": "soup",
+        "start_s": 2.274,
+        "end_s": 2.516,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  },
+  "common_voice_en_22245720.mp3": {
+    "sentence": "zero",
+    "duration_s": 2.448,
+    "words": [
+      {
+        "idx": 0,
+        "word": "zero",
+        "norm": "zero",
+        "start_s": 0.943,
+        "end_s": 1.344,
+        "aligned": true
+      }
+    ],
+    "anchor_candidates": [],
+    "unaligned_tokens": [],
+    "modified_tokens": []
+  }
+}

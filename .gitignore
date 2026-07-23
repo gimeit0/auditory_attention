@@ -144,3 +144,39 @@ prelim_binaural_figs/diff_min_same_confusion_at_0_elev.pdf
 *.pkl
 notebooks/Final_Figures_old/
 !figure_1.svg
+# ---- reproduction repo: exclude local data/audio/IDE/bundles ----
+*.mp3
+*.DS_Store
+.idea/
+transfer_3070/
+eval_stimuli/
+export_audio/
+音频示例_SNR演示/
+reproduction/deployment/hakusan/logs/
+!reproduction/deployment/hakusan/logs/
+!reproduction/deployment/hakusan/logs/.gitkeep
+selftrain/artifacts/
+selftrain/experiments/
+selftrain/hakusan/selftrain_clips_list.txt
+
+# Keep the organized reproduction sources and compact result artifacts tracked.
+!reproduction/**/*.py
+!reproduction/**/*.sh
+!reproduction/**/*.sbatch
+!reproduction/**/*.md
+!reproduction/**/*.csv
+!reproduction/**/*.json
+!reproduction/**/*.png
+!reproduction/**/*.pptx
+!reproduction/**/*.pdf
+
+# Keep the dated dichotic-listening Task 1 project and compact outputs tracked.
+!双耳分析任务/**/*.py
+!双耳分析任务/**/*.md
+!双耳分析任务/**/*.csv
+!双耳分析任务/**/*.json
+!双耳分析任务/**/*.png
+!双耳分析任务/**/*.txt
+
+# Local licensed audio and browser state for manual dichotic review.
+双耳分析任务/local_review_audio/

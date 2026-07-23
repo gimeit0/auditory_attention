@@ -1,0 +1,18 @@
+# M1/M2-friendly dependencies for the demo and Experiment 1 pipeline.
+# The repo's requirements.txt is a Linux+CUDA conda export and will NOT install on macOS.
+# Install with:  pip install -r requirements_m1.txt
+#                pip install "git+https://github.com/jenellefeather/chcochleagram.git"
+
+torch>=2.1
+torchaudio>=2.1
+pytorch-lightning>=2.1
+torchmetrics>=1.2
+numpy<2.0
+scipy>=1.11
+pandas>=2.0
+matplotlib>=3.7
+librosa>=0.10
+soundfile>=0.12
+h5py>=3.10
+pyyaml>=6.0
+num2words>=0.5.13

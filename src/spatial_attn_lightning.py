@@ -12,6 +12,7 @@ import src.audio_attention_transforms as aat
 import src.custom_modules as cm
 from src.spatial_attn_architecture import  BinauralAuditoryAttentionCNN, BinauralControlCNN
 from corpus.binaural_attention_h5 import BinauralAttentionDataset
+from selftrain.data.diotic_attention import DioticAttentionDataset
 
 
 class AttnBiasConstraint(object):
@@ -51,17 +52,42 @@ class BinauralAttentionModule(LightningModule):
 
         # set dataset as attribute
         self.word_rec_model = False
-        self.dataset = BinauralAttentionDataset 
+        dataset_type = self.corpora_config.get(
+            "dataset_type", "binaural_h5"
+        )
+        if dataset_type == "diotic_manifest":
+            self.dataset = DioticAttentionDataset
+        elif dataset_type == "binaural_h5":
+            self.dataset = BinauralAttentionDataset
+        else:
+            raise ValueError(f"Unsupported corpus.dataset_type: {dataset_type}")
         self.train_val_collate_fn = self._collate_fn
         v2_demean = self.audio_config.get('v2_demean', False)
         if v2_demean:
             print("Using explicit dim specification for demeaning in audio transforms")
+        if self.audio_config.get("per_example_leveling", False):
+            combine_transform = at.BinauralCombineWithRandomDBSNRPerExample(
+                low_snr=config["noise_kwargs"]["low_snr"],
+                high_snr=config["noise_kwargs"]["high_snr"],
+            )
+            normalize_transform = at.BinauralRMSNormalizePerExample(
+                rms_level=0.02
+            )
+        else:
+            combine_transform = at.BinauralCombineWithRandomDBSNR(
+                low_snr=config['noise_kwargs']['low_snr'],
+                high_snr=config['noise_kwargs']['high_snr'],
+                v2_demean=v2_demean,
+            )
+            normalize_transform = (
+                at.BinauralRMSNormalizeForegroundAndBackground(
+                    rms_level=0.02, v2_demean=v2_demean
+                )
+            )
         self.audio_transforms = at.AudioCompose([
             at.AudioToTensor(),
-            at.BinauralCombineWithRandomDBSNR(low_snr=config['noise_kwargs']['low_snr'],
-                                                high_snr=config['noise_kwargs']['high_snr'],
-                                                v2_demean=v2_demean),
-            at.BinauralRMSNormalizeForegroundAndBackground(rms_level=0.02, v2_demean=v2_demean), # 20 * np.log10(0.02/20e-6) = 60 dB SPL 
+            combine_transform,
+            normalize_transform,
         ])
         
         if self.audio_config.get('upsample_audio', False):
@@ -99,7 +125,8 @@ class BinauralAttentionModule(LightningModule):
 
         # check if torch version 2 or greater - if so, compile model
         getting_acts = self.config.get('getting_acts', False)
-        if not getting_acts and int(torch.__version__.split('.')[0]) >= 2 and not self.multi_task and not self.audio_config.get('upsample_audio', False):
+        compile_model = self.config.get("compile_model", True)
+        if compile_model and not getting_acts and int(torch.__version__.split('.')[0]) >= 2 and not self.multi_task and not self.audio_config.get('upsample_audio', False):
             self.model = torch.compile(self.model, mode="default")
 
         ## get local rank
@@ -346,7 +373,7 @@ class BinauralAttentionModule(LightningModule):
         dataloader = torch.utils.data.DataLoader(
             self.train_dataset,
             batch_size=self.dataloader_batch_size ,
-            num_workers=self.config['num_workers'], 
+            num_workers=self.config.get('num_workers', 0),
             collate_fn=self.train_val_collate_fn,
             pin_memory=True,
             # persistent_workers=True,
@@ -359,7 +386,7 @@ class BinauralAttentionModule(LightningModule):
         dataloader = torch.utils.data.DataLoader(
             dataset,
             batch_size=self.dataloader_batch_size ,
-            num_workers=self.config['num_workers'],
+            num_workers=self.config.get('num_workers', 0),
             collate_fn=self.train_val_collate_fn,
             shuffle=False
         )
@@ -370,7 +397,7 @@ class BinauralAttentionModule(LightningModule):
         dataloader = torch.utils.data.DataLoader(
             dataset,
             batch_size=self.hparas_config['batch_size'],
-            num_workers=self.config['num_workers'],
+            num_workers=self.config.get('num_workers', 0),
             collate_fn=self.test_collate_fn)
         self.test_loader_len = len(dataset)
         print("Test set length = ", self.test_loader_len)

@@ -806,6 +806,110 @@ class BinauralCombineWithRandomDBSNR(torch.nn.Module):
         return signal_in_noise, None
 
 
+class BinauralCombineWithRandomDBSNRPerExample(torch.nn.Module):
+    """Mix each item in a binaural batch at an independently sampled SNR."""
+
+    def __init__(self, low_snr=-10, high_snr=10):
+        super().__init__()
+        self.low_snr = low_snr
+        self.high_snr = high_snr
+
+    @staticmethod
+    def _as_batch(waveform):
+        if waveform.ndim == 2:
+            return waveform.unsqueeze(0), True
+        if waveform.ndim != 3:
+            raise ValueError(
+                "Expected [channels, time] or [batch, channels, time], "
+                f"received {tuple(waveform.shape)}"
+            )
+        return waveform, False
+
+    def forward(self, foreground_wav, background_wav):
+        if self.low_snr == "clean" or self.high_snr == "clean":
+            return foreground_wav, None
+        if background_wav is None:
+            return foreground_wav, None
+
+        foreground, squeeze = self._as_batch(foreground_wav)
+        background, background_squeeze = self._as_batch(background_wav)
+        if squeeze != background_squeeze or foreground.shape != background.shape:
+            raise ValueError("Foreground/background batch shapes must match")
+
+        dims = (-2, -1)
+        foreground = foreground - foreground.mean(dim=dims, keepdim=True)
+        background = background - background.mean(dim=dims, keepdim=True)
+        foreground_rms = torch.sqrt(
+            torch.mean(torch.square(foreground), dim=dims, keepdim=True)
+        )
+        background_rms = torch.sqrt(
+            torch.mean(torch.square(background), dim=dims, keepdim=True)
+        )
+        batch_size = foreground.shape[0]
+        snr_db = torch.empty(
+            (batch_size, 1, 1),
+            device=foreground.device,
+            dtype=foreground.dtype,
+        ).uniform_(float(self.low_snr), float(self.high_snr))
+        rms_ratio = torch.pow(
+            torch.tensor(
+                10.0, device=foreground.device, dtype=foreground.dtype
+            ),
+            snr_db / 20.0,
+        )
+        scale = torch.where(
+            background_rms > 0,
+            foreground_rms
+            / torch.clamp(background_rms * rms_ratio, min=1e-12),
+            torch.zeros_like(background_rms),
+        )
+        mixture = foreground + background * scale
+        if squeeze:
+            mixture = mixture.squeeze(0)
+        return mixture, None
+
+
+class BinauralRMSNormalizePerExample(torch.nn.Module):
+    """RMS-normalize each item independently over channel and time."""
+
+    def __init__(self, rms_level=0.02):
+        super().__init__()
+        self.rms_level = rms_level
+
+    @staticmethod
+    def _normalize(waveform, rms_level):
+        if waveform is None:
+            return None
+        squeeze = waveform.ndim == 2
+        if squeeze:
+            waveform = waveform.unsqueeze(0)
+        if waveform.ndim != 3:
+            raise ValueError(
+                "Expected [channels, time] or [batch, channels, time]"
+            )
+        dims = (-2, -1)
+        waveform = waveform - waveform.mean(dim=dims, keepdim=True)
+        waveform_rms = torch.sqrt(
+            torch.mean(torch.square(waveform), dim=dims, keepdim=True)
+        )
+        scale = torch.where(
+            waveform_rms > 0,
+            torch.as_tensor(
+                rms_level, device=waveform.device, dtype=waveform.dtype
+            )
+            / torch.clamp(waveform_rms, min=1e-12),
+            torch.zeros_like(waveform_rms),
+        )
+        waveform = waveform * scale
+        return waveform.squeeze(0) if squeeze else waveform
+
+    def forward(self, foreground_wav, background_wav):
+        return (
+            self._normalize(foreground_wav, self.rms_level),
+            self._normalize(background_wav, self.rms_level),
+        )
+
+
 class DuplicateChannel(torch.nn.Module):
     """
     Duplicates the input channel to the number of output channels.
@@ -897,4 +1001,3 @@ class Resample(torch.nn.Module):
 # Add dict of downsampling operations to be performed on audio representations
 downsampling_reps = {'SincWithKaiserWindow': chcochleagram.downsampling.SincWithKaiserWindow, 
                      'TorchTransformsResample': T.Resample}
-
