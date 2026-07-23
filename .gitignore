@@ -177,3 +177,6 @@ selftrain/hakusan/selftrain_clips_list.txt
 !双耳分析任务/**/*.json
 !双耳分析任务/**/*.png
 !双耳分析任务/**/*.txt
+
+# Local licensed audio and browser state for manual dichotic review.
+双耳分析任务/local_review_audio/

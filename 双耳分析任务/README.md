@@ -2,9 +2,9 @@
 
 **项目名：同说话人双耳分听模型评估（dichotic listening / 両耳分離聴）**
 
-**建立与审查日期：2026-07-21；正式整理日期：2026-07-22**
+**建立与审查日期：2026-07-21；正式整理日期：2026-07-22；人工复核界面：2026-07-23**
 
-**总说明：`docs/说明文档_2026-07-22.md`**
+**最新阶段说明：`docs/双耳任务阶段说明_2026-07-23.md`**
 
 > 导师布置的两个任务之一。本文件夹汇总该任务的背景、已完成的可行性验证、脚本与后续建集计划。
 > 依赖上游仓库 `auditory_attention`(需要 `src/`、checkpoint、config、Common Voice 语料),
@@ -157,6 +157,22 @@ target录音和第三条cue录音。重新严格核查后：
 自建Common Voice刺激和公开的单个checkpoint，不能直接解释为与人类实验的严格数值对比。
 详细说明见`docs/正式评估结果_2026-07-21.md`。
 
+### 4.3 错误与中央2秒声学审查（自动部分已完成）
+
+`scripts/audit_dichotic_errors.py`对440条trial按模型实际使用的中央2秒重新计算RMS、
+低能量帧比例、目标耳与对侧耳的有效电平差、标签字符串近似度和说话人错误聚集。
+
+- 93个错误中：基线与双耳共同错40，双耳特异错53，对侧耳混淆0；
+- 13/93个错误的目标词与预测词字符串相似度≥0.8；
+- 25/40个基线错误在diotic与双耳条件重复了同一个错词；
+- 中央2秒目标耳减对侧耳的有效电平差中位数为0.00 dB，中央95%范围为-1.79到+1.79 dB；
+- 有方向电平差与命中无明显关系（Spearman ρ=0.042，p=0.385）；
+- cue低能量帧比例与说话人错误数无明显关系（ρ=0.074，p=0.444）。
+
+因此，当前没有证据表明静音或目标耳整体更小声是78.9%的主要原因。
+`results/dichotic_manual_review.csv`已按优先级排好93条人工听音任务；人工栏保持空白，
+需要听者判断目标词可听度、对齐、转录、音质和标签等价性。
+
 ---
 
 ## 5. 怎么运行
@@ -185,6 +201,17 @@ python 双耳分析任务/scripts/run_dichotic_eval.py --resume
 
 # 汇总、95%区间和结果图
 python 双耳分析任务/scripts/analyze_dichotic_results.py
+
+# 中央2秒声学审查和93条人工复核表
+python 双耳分析任务/scripts/audit_dichotic_errors.py
+
+# 导出第1–10条的本地听音WAV（WAV不进入git）
+python 双耳分析任务/scripts/export_dichotic_review_audio.py \
+  --start 1 --limit 10
+
+# 导出全93条并生成本地浏览器复核页面
+python 双耳分析任务/scripts/export_dichotic_review_audio.py --all
+python 双耳分析任务/scripts/make_dichotic_review_page.py
 ```
 
 CPU上8条三条件评估约需数分钟，完整440条适合在GPU运行。本地运行会每条保存并支持
@@ -206,18 +233,27 @@ CPU上8条三条件评估约需数分钟，完整440条适合在GPU运行。本�
 │   ├── dichotic_probe_samespeaker.py          # 旧同说话人初步探针
 │   ├── build_dichotic_manifest.py             # 严格正式清单
 │   ├── run_dichotic_eval.py                   # 三条件正式推理，可恢复
-│   └── analyze_dichotic_results.py            # 汇总、区间和画图
+│   ├── analyze_dichotic_results.py            # 汇总、区间和画图
+│   ├── audit_dichotic_errors.py               # 中央2秒声学/错误审查
+│   ├── export_dichotic_review_audio.py        # 本地人工听音批次导出
+│   └── make_dichotic_review_page.py           # 浏览器听音/填写/导出界面
 ├── results/
 │   ├── samespeaker_probe_20spk.txt             # 旧20人初步结果
 │   ├── dichotic_smoke_8.csv                    # 新管线8条smoke
 │   ├── dichotic_smoke_8_summary.*              # smoke汇总与图
 │   ├── dichotic_results.csv                    # 440条正式逐trial结果
 │   ├── dichotic_summary.*                      # 正式汇总CSV/MD/图
-│   └── dichotic_error_audit.csv               # 93个错误的分层审查表
+│   ├── dichotic_error_audit.csv               # 93个错误的基础分层表
+│   ├── dichotic_acoustic_audit.csv            # 440条中央2秒声学诊断
+│   ├── dichotic_manual_review.csv             # 93条人工听音填写表
+│   ├── dichotic_error_audit_summary.md        # 自动审查结论
+│   └── dichotic_error_audit.png               # 电平/低能量/聚类图
 └── docs/
     ├── 设计审查_2026-07-21.md                  # 审查结论与修改依据
-    ├── 正式评估结果_2026-07-21.md              # 正式结果、解释和下一步
-    └── 说明文档_2026-07-22.md                  # 项目过程、结果和复现方法总结
+    ├── 正式评估结果_2026-07-21.md              # 正式结果、解释和下一步
+    ├── 说明文档_2026-07-22.md                  # 项目过程、结果和复现方法总结
+    ├── 人工复核说明_2026-07-23.md              # 93条听音复核界面与判定规则
+    └── 双耳任务阶段说明_2026-07-23.md          # 截至当前的完整阶段记录
 ```
 
 ---
