@@ -1,5 +1,6 @@
 import os 
-from collections import namedtuple
+import random
+from collections import deque, namedtuple
 from typing import List, Tuple, Optional, Union
 import numpy as np
 import torch
@@ -15,25 +16,6 @@ from corpus.binaural_attention_h5 import BinauralAttentionDataset
 from selftrain.data.diotic_attention import DioticAttentionDataset
 
 
-class AttnBiasConstraint(object):
-    def __init__(self, min_val=0, max_val=1):
-        self.min = min_val
-        self.max = max_val
-        
-    def __call__(self, module):
-        if hasattr(module,'bias'):
-            b = module.bias.data
-            module.bias.data = b.clamp(self.min, self.max)
-
-class AttnSlopeConstraint(object):
-    def __init__(self, min_val=0):
-        self.min = min_val
-
-    def __call__(self, module):
-        if hasattr(module,'slope'):
-            s = module.slope.data
-            module.slope.data = s.clamp(self.min) # no max -> max = inf   
-
 class BinauralAttentionModule(LightningModule):
     def __init__(
         self,
@@ -47,6 +29,23 @@ class BinauralAttentionModule(LightningModule):
         self.model_config = config['model']
         self.hparas_config = config['hparas']
         self.multi_task = self.corpora_config['task'] == 'word_and_location'
+        overflow_window_steps = int(
+            self.hparas_config.get("amp_overflow_window_steps", 1000)
+        )
+        if overflow_window_steps <= 0:
+            raise ValueError("amp_overflow_window_steps must be positive")
+        self._amp_overflow_window = deque(maxlen=overflow_window_steps)
+        self._consecutive_amp_overflows = 0
+        self._total_amp_overflows = 0
+        self._total_optimizer_attempts = 0
+        self._successful_optimizer_steps = 0
+        self._amp_epoch_index = -1
+        self._amp_epoch_overflows = 0
+        self._amp_epoch_optimizer_attempts = 0
+        self._amp_epoch_successful_steps = 0
+        self._overflow_this_step = False
+        self._overflow_scale_before = None
+        self._pending_rng_state = None
 
         self.corpora_name = config.get('corpora_name', False)
 
@@ -164,10 +163,7 @@ class BinauralAttentionModule(LightningModule):
 
         # Constraints
         self.attn_modules = [module for name, module in  self.model.model_dict.items() if 'attn' in name]
-        self.bias_constraint = AttnBiasConstraint(min_val=0, max_val=1)
         self.constrain_slope = self.model_config['attn_constraints'].get('slope', False)
-        if self.constrain_slope:
-            self.slope_constraint = AttnSlopeConstraint(min_val=0)
 
     def _step(self, batch, batch_idx, step_type):
         if batch is None:
@@ -206,26 +202,421 @@ class BinauralAttentionModule(LightningModule):
             self.log(f"{step_type}_loss", loss.detach(), on_step=True, on_epoch=True, prog_bar=True, sync_dist=True)
             self.log(f"{step_type}_acc", self.accuracy[step_type], on_step=False, on_epoch=True, prog_bar=True, sync_dist=True)
 
+        if not torch.isfinite(loss.detach()).all():
+            raise FloatingPointError(
+                f"Non-finite {step_type} loss at batch_idx={batch_idx}: "
+                f"{loss.detach().item()}"
+            )
+
         return loss
 
+    def _ensure_amp_epoch_state(self):
+        epoch_index = int(self.current_epoch)
+        if self._amp_epoch_index != epoch_index:
+            self._amp_epoch_index = epoch_index
+            self._amp_epoch_overflows = 0
+            self._amp_epoch_optimizer_attempts = 0
+            self._amp_epoch_successful_steps = 0
+
+    def _record_optimizer_attempt(self, overflow):
+        self._ensure_amp_epoch_state()
+        self._total_optimizer_attempts += 1
+        self._amp_epoch_optimizer_attempts += 1
+        self._amp_overflow_window.append(1 if overflow else 0)
+        if overflow:
+            self._consecutive_amp_overflows += 1
+            self._total_amp_overflows += 1
+            self._amp_epoch_overflows += 1
+        else:
+            self._consecutive_amp_overflows = 0
+
+    def _log_amp_overflow(self, overflow):
+        """Log the per-attempt AMP overflow flag with stable metadata."""
+        self.log(
+            "amp_overflow",
+            torch.tensor(
+                1.0 if overflow else 0.0,
+                device=self.device,
+            ),
+            prog_bar=False,
+            on_step=True,
+            on_epoch=False,
+        )
+
     def on_before_optimizer_step(self, _):
-        def _get_grad_norm(params, scale=1):
-            """Compute grad norm given a gradient scale."""
-            total_norm = 0.0
+        def _get_grad_norm(params):
+            """Compute one-device global L2 norm with a single host sync."""
+            parameter_norms = []
             for p in params:
                 if p.grad is not None:
-                    param_norm = (p.grad.detach().data / scale).norm(2)
-                    total_norm += param_norm.item() ** 2
-            total_norm = total_norm**0.5
-            return total_norm
-        grad_norm = _get_grad_norm(self.model.parameters())
-        self.log("grad_norm", torch.tensor(grad_norm), prog_bar=True, on_step=True, on_epoch=False)
+                    gradient = p.grad.detach().float()
+                    parameter_norms.append(
+                        torch.linalg.vector_norm(gradient, ord=2)
+                    )
+            if not parameter_norms:
+                return 0.0
+            global_norm = torch.linalg.vector_norm(
+                torch.stack(parameter_norms), ord=2
+            )
+            return float(global_norm.item())
 
-    def on_before_zero_grad(self, *args, **kwargs):
+        grad_norm = _get_grad_norm(self.model.parameters())
+        if not np.isfinite(grad_norm):
+            nonfinite_parameters = []
+            nan_elements = 0
+            inf_elements = 0
+            for name, parameter in self.model.named_parameters():
+                if parameter.grad is None:
+                    continue
+                gradient = parameter.grad.detach()
+                parameter_nan = int(torch.isnan(gradient).sum().item())
+                parameter_inf = int(torch.isinf(gradient).sum().item())
+                nan_elements += parameter_nan
+                inf_elements += parameter_inf
+                if parameter_nan or parameter_inf:
+                    nonfinite_parameters.append(
+                        f"{name}(nan={parameter_nan}, inf={parameter_inf})"
+                    )
+
+            scaler = getattr(
+                getattr(self.trainer, "precision_plugin", None),
+                "scaler",
+                None,
+            )
+            if scaler is not None and (nan_elements or inf_elements):
+                self._record_optimizer_attempt(overflow=True)
+                self._overflow_this_step = True
+                max_consecutive = int(
+                    self.hparas_config.get(
+                        "max_consecutive_amp_overflows", 8
+                    )
+                )
+                max_in_window = int(
+                    self.hparas_config.get(
+                        "max_amp_overflows_per_window", 8
+                    )
+                )
+                max_total = int(
+                    self.hparas_config.get("max_total_amp_overflows", 64)
+                )
+                scale = float(scaler.get_scale())
+                self._overflow_scale_before = scale
+                window_overflows = sum(self._amp_overflow_window)
+                details = ", ".join(nonfinite_parameters[:8])
+                print(
+                    "AMP gradient overflow detected; GradScaler will skip "
+                    "this optimizer step and lower the scale. "
+                    f"global_step={self.global_step}, scale={scale}, "
+                    f"consecutive={self._consecutive_amp_overflows}, "
+                    f"total={self._total_amp_overflows}, "
+                    f"window={window_overflows}/"
+                    f"{self._amp_overflow_window.maxlen}, "
+                    f"nan_elements={nan_elements}, "
+                    f"inf_elements={inf_elements}, parameters={details}"
+                )
+                self._log_amp_overflow(True)
+                self.log(
+                    "amp_scale",
+                    torch.tensor(scale, device=self.device),
+                    prog_bar=False,
+                    on_step=True,
+                    on_epoch=False,
+                )
+                if self._consecutive_amp_overflows > max_consecutive:
+                    raise FloatingPointError(
+                        "Too many consecutive AMP gradient overflows: "
+                        f"{self._consecutive_amp_overflows} "
+                        f"(scale={scale})"
+                    )
+                if window_overflows > max_in_window:
+                    raise FloatingPointError(
+                        "Too many AMP gradient overflows in the rolling "
+                        f"window: {window_overflows}/"
+                        f"{self._amp_overflow_window.maxlen} "
+                        f"(allowed={max_in_window}, scale={scale})"
+                    )
+                if self._total_amp_overflows > max_total:
+                    raise FloatingPointError(
+                        "Too many total AMP gradient overflows: "
+                        f"{self._total_amp_overflows} "
+                        f"(allowed={max_total}, scale={scale})"
+                    )
+                return
+
+            raise FloatingPointError(
+                "Non-finite gradient norm that AMP GradScaler cannot "
+                f"recover from: norm={grad_norm}, "
+                f"nan_elements={nan_elements}, inf_elements={inf_elements}"
+            )
+
+        recovered_overflows = self._consecutive_amp_overflows
+        self._record_optimizer_attempt(overflow=False)
+        scaler = getattr(
+            getattr(self.trainer, "precision_plugin", None), "scaler", None
+        )
+        self._log_amp_overflow(False)
+        if scaler is not None and recovered_overflows:
+            recovered_scale = float(scaler.get_scale())
+            print(
+                "AMP gradient recovery confirmed. "
+                f"global_step={self.global_step}, scale={recovered_scale}, "
+                f"previous_consecutive_overflows={recovered_overflows}, "
+                f"grad_norm={grad_norm}"
+            )
+            self.log(
+                "amp_scale",
+                torch.tensor(recovered_scale, device=self.device),
+                prog_bar=False,
+                on_step=True,
+                on_epoch=False,
+            )
+        self.log(
+            "grad_norm",
+            torch.tensor(grad_norm, device=self.device),
+            prog_bar=True,
+            on_step=True,
+            on_epoch=False,
+        )
+
+    @torch.no_grad()
+    def _apply_attn_constraints(self):
         for module in self.attn_modules:
-            module.apply(self.bias_constraint)
-            if self.constrain_slope:
-                module.apply(self.slope_constraint)
+            if hasattr(module, "bias") and module.bias is not None:
+                module.bias.clamp_(0.0, 1.0)
+            if (
+                self.constrain_slope
+                and hasattr(module, "slope")
+                and module.slope is not None
+            ):
+                module.slope.clamp_(min=0.0)
+
+    def optimizer_step(
+        self,
+        epoch,
+        batch_idx,
+        optimizer,
+        optimizer_closure=None,
+    ):
+        # Lightning only calls this at a real optimizer-attempt boundary, not
+        # for every gradient-accumulation microbatch. GradScaler performs its
+        # skip/backoff inside super().optimizer_step().
+        self._overflow_this_step = False
+        self._overflow_scale_before = None
+        super().optimizer_step(
+            epoch,
+            batch_idx,
+            optimizer,
+            optimizer_closure,
+        )
+
+        if self._overflow_this_step:
+            scaler = getattr(
+                getattr(self.trainer, "precision_plugin", None),
+                "scaler",
+                None,
+            )
+            if scaler is None:
+                raise RuntimeError(
+                    "AMP overflow was recorded but GradScaler disappeared"
+                )
+            scale_after = float(scaler.get_scale())
+            if not scale_after < self._overflow_scale_before:
+                raise RuntimeError(
+                    "GradScaler did not lower its scale after an AMP "
+                    "gradient overflow: "
+                    f"before={self._overflow_scale_before}, "
+                    f"after={scale_after}"
+                )
+            print(
+                "AMP optimizer step safely skipped and scale reduced. "
+                f"global_step={self.global_step}, "
+                f"scale_before={self._overflow_scale_before}, "
+                f"scale_after={scale_after}"
+            )
+            self.log(
+                "amp_scale_after_backoff",
+                torch.tensor(scale_after, device=self.device),
+                prog_bar=False,
+                on_step=True,
+                on_epoch=False,
+            )
+        else:
+            self._ensure_amp_epoch_state()
+            self._successful_optimizer_steps += 1
+            self._amp_epoch_successful_steps += 1
+
+        # Project the attention parameters only after the optimizer attempt.
+        # This keeps forward/backward on the same parameter values and ensures
+        # validation and checkpoints always observe constrained parameters.
+        self._apply_attn_constraints()
+
+    def on_train_epoch_end(self):
+        self._ensure_amp_epoch_state()
+        scaler = getattr(
+            getattr(self.trainer, "precision_plugin", None), "scaler", None
+        )
+        scale = float(scaler.get_scale()) if scaler is not None else None
+        window_overflows = sum(self._amp_overflow_window)
+        print(
+            "AMP epoch summary: "
+            f"epoch={self.current_epoch}, "
+            f"epoch_overflows={self._amp_epoch_overflows}, "
+            f"epoch_attempts={self._amp_epoch_optimizer_attempts}, "
+            f"epoch_successful_steps={self._amp_epoch_successful_steps}, "
+            f"total_overflows={self._total_amp_overflows}, "
+            f"total_attempts={self._total_optimizer_attempts}, "
+            f"total_successful_steps={self._successful_optimizer_steps}, "
+            f"window_overflows={window_overflows}/"
+            f"{self._amp_overflow_window.maxlen}, scale={scale}"
+        )
+        self.log(
+            "amp_epoch_overflows",
+            float(self._amp_epoch_overflows),
+            on_step=False,
+            on_epoch=True,
+        )
+        self.log(
+            "amp_total_overflows",
+            float(self._total_amp_overflows),
+            on_step=False,
+            on_epoch=True,
+        )
+        self.log(
+            "amp_successful_optimizer_steps",
+            float(self._successful_optimizer_steps),
+            on_step=False,
+            on_epoch=True,
+        )
+
+    def on_save_checkpoint(self, checkpoint):
+        checkpoint["audattn_amp_state_v1"] = {
+            "consecutive_overflows": self._consecutive_amp_overflows,
+            "total_overflows": self._total_amp_overflows,
+            "total_optimizer_attempts": self._total_optimizer_attempts,
+            "successful_optimizer_steps": self._successful_optimizer_steps,
+            "epoch_index": self._amp_epoch_index,
+            "epoch_overflows": self._amp_epoch_overflows,
+            "epoch_optimizer_attempts": self._amp_epoch_optimizer_attempts,
+            "epoch_successful_steps": self._amp_epoch_successful_steps,
+            "overflow_window": list(self._amp_overflow_window),
+        }
+        run_metadata = {
+            "run_id": os.environ.get("AUDATTN_RUN_ID"),
+            "source_semantic_sha256": os.environ.get(
+                "AUDATTN_SOURCE_SHA256"
+            ),
+            "config_sha256": os.environ.get("AUDATTN_CONFIG_SHA256"),
+        }
+        if any(value is not None for value in run_metadata.values()):
+            if not all(value for value in run_metadata.values()):
+                raise RuntimeError(
+                    "Incomplete AUDATTN run metadata environment: "
+                    f"{run_metadata}"
+                )
+            checkpoint["audattn_run_metadata_v1"] = run_metadata
+        checkpoint["audattn_rng_state_v1"] = {
+            "python": random.getstate(),
+            "numpy": np.random.get_state(),
+            "torch_cpu": torch.get_rng_state(),
+            "torch_cuda": (
+                torch.cuda.get_rng_state_all()
+                if torch.cuda.is_available()
+                else []
+            ),
+        }
+
+    def on_load_checkpoint(self, checkpoint):
+        state = checkpoint.get("audattn_amp_state_v1")
+        if state is not None:
+            def _nonnegative_int(name, default=0):
+                value = int(state.get(name, default))
+                if value < 0:
+                    raise ValueError(
+                        "Invalid negative AMP checkpoint state "
+                        f"{name}={value}"
+                    )
+                return value
+
+            self._consecutive_amp_overflows = _nonnegative_int(
+                "consecutive_overflows"
+            )
+            self._total_amp_overflows = _nonnegative_int("total_overflows")
+            self._total_optimizer_attempts = _nonnegative_int(
+                "total_optimizer_attempts"
+            )
+            self._successful_optimizer_steps = _nonnegative_int(
+                "successful_optimizer_steps"
+            )
+            self._amp_epoch_index = int(state.get("epoch_index", -1))
+            self._amp_epoch_overflows = _nonnegative_int("epoch_overflows")
+            self._amp_epoch_optimizer_attempts = _nonnegative_int(
+                "epoch_optimizer_attempts"
+            )
+            self._amp_epoch_successful_steps = _nonnegative_int(
+                "epoch_successful_steps"
+            )
+            window = [
+                int(value) for value in state.get("overflow_window", [])
+            ]
+            if any(value not in (0, 1) for value in window):
+                raise ValueError("Invalid AMP overflow window in checkpoint")
+            self._amp_overflow_window.clear()
+            self._amp_overflow_window.extend(
+                window[-self._amp_overflow_window.maxlen :]
+            )
+            if (
+                self._successful_optimizer_steps
+                + self._total_amp_overflows
+                != self._total_optimizer_attempts
+            ):
+                raise ValueError(
+                    "Inconsistent AMP checkpoint accounting: "
+                    f"successful={self._successful_optimizer_steps}, "
+                    f"overflows={self._total_amp_overflows}, "
+                    f"attempts={self._total_optimizer_attempts}"
+                )
+            if (
+                self._amp_epoch_successful_steps
+                + self._amp_epoch_overflows
+                != self._amp_epoch_optimizer_attempts
+            ):
+                raise ValueError(
+                    "Inconsistent epoch AMP checkpoint accounting: "
+                    f"successful={self._amp_epoch_successful_steps}, "
+                    f"overflows={self._amp_epoch_overflows}, "
+                    f"attempts={self._amp_epoch_optimizer_attempts}"
+                )
+            if sum(self._amp_overflow_window) > self._total_amp_overflows:
+                raise ValueError(
+                    "AMP overflow window contains more overflows than the "
+                    "checkpoint total"
+                )
+            trailing_overflows = 0
+            for value in reversed(self._amp_overflow_window):
+                if value == 0:
+                    break
+                trailing_overflows += 1
+            if trailing_overflows != self._consecutive_amp_overflows:
+                raise ValueError(
+                    "AMP consecutive-overflow count does not match the "
+                    "checkpoint window: "
+                    f"consecutive={self._consecutive_amp_overflows}, "
+                    f"window_trailing={trailing_overflows}"
+                )
+
+        self._pending_rng_state = checkpoint.get("audattn_rng_state_v1")
+
+    def on_train_start(self):
+        if self._pending_rng_state is None:
+            return
+        state = self._pending_rng_state
+        random.setstate(state["python"])
+        np.random.set_state(state["numpy"])
+        torch.set_rng_state(state["torch_cpu"])
+        if torch.cuda.is_available() and state.get("torch_cuda"):
+            torch.cuda.set_rng_state_all(state["torch_cuda"])
+        self._pending_rng_state = None
+        print("Restored Python/NumPy/Torch RNG state from checkpoint")
 
     def configure_optimizers(self):
         # Optimizer
@@ -368,7 +759,9 @@ class BinauralAttentionModule(LightningModule):
         return cue_features, cue_mask_ixs, scene_features, labels
 
     def train_dataloader(self):
-        self.train_dataset = self.dataset(**self.corpora_config, batch_size=self.dataset_batch_size, mode='train')
+        train_config = dict(self.corpora_config)
+        train_config["epoch"] = int(self.current_epoch)
+        self.train_dataset = self.dataset(**train_config, batch_size=self.dataset_batch_size, mode='train')
         print(f"len training set = {len( self.train_dataset )}")
         dataloader = torch.utils.data.DataLoader(
             self.train_dataset,
