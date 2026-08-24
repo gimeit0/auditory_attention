@@ -72,6 +72,15 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("selftrain/artifacts/splits"),
     )
+    parser.add_argument(
+        "--include-test-in-validation",
+        action="store_true",
+        help=(
+            "Combine the official Common Voice test split with dev for "
+            "validation candidates. Use this only when the speaker-disjoint "
+            "dev pool cannot meet the formal validation-vocabulary gate."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -212,8 +221,18 @@ def main() -> None:
         "official test", official_speakers["test"],
     )
 
+    validation_source_splits = ["dev"]
+    raw_validation = raw_dev
+    if args.include_test_in_validation:
+        validation_source_splits.append("test")
+        raw_validation = pd.concat(
+            [raw_dev, raw_test], ignore_index=True, sort=False
+        )
+
     train, train_summary = keep_usable_rows(raw_train, eval_speakers)
-    validation, validation_summary = keep_usable_rows(raw_dev, eval_speakers)
+    validation, validation_summary = keep_usable_rows(
+        raw_validation, eval_speakers
+    )
 
     train_speakers = set(train["client_id"])
     validation_speakers = set(validation["client_id"])
@@ -249,6 +268,7 @@ def main() -> None:
             "cv_dir": str(args.cv_dir.resolve()),
             "samples": str(args.samples.resolve()),
             "distractor_pool": str(args.distractor_pool.resolve()),
+            "validation_source_splits": validation_source_splits,
         },
         "eval_scope": {
             **eval_counts,
@@ -295,7 +315,8 @@ def main() -> None:
     print(
         "  validation candidates: "
         f"{len(validation):,} rows / "
-        f"{validation['client_id'].nunique():,} speakers"
+        f"{validation['client_id'].nunique():,} speakers "
+        f"from {'+'.join(validation_source_splits)}"
     )
     print("  leakage checks: PASS")
     print(f"  audit: {audit_path}")

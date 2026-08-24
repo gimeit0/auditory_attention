@@ -25,6 +25,8 @@ import soundfile as sf
 import torch
 import torchaudio
 
+from selftrain.data.anchor_index import cue_eligible_target_mask
+
 
 SAMPLE_RATE = 44_100
 CROP_SECONDS = 2.5
@@ -126,6 +128,7 @@ class DioticAttentionDataset(torch.utils.data.Dataset):
         balance_target_gender=True,
         balance_target_words=True,
         seed=20260721,
+        epoch=0,
         cache_items=128,
         **kwargs,
     ):
@@ -149,6 +152,9 @@ class DioticAttentionDataset(torch.utils.data.Dataset):
         self.balance_target_gender = bool(balance_target_gender)
         self.balance_target_words = bool(balance_target_words)
         self.seed = int(seed)
+        self.epoch = int(epoch)
+        if self.epoch < 0:
+            raise ValueError("epoch must be non-negative")
         clips_dir = os.environ.get("CV_CLIPS", clips_dir)
         self.clips_dir = Path(os.path.expanduser(str(clips_dir)))
         self.cache = WaveformCache(max_items=int(cache_items))
@@ -163,32 +169,58 @@ class DioticAttentionDataset(torch.utils.data.Dataset):
         )
         self._validate_anchor_table(self.anchors, manifest)
         self.anchors = self.anchors.reset_index(drop=True)
-        pairable_speakers = self._pairable_speakers(self.anchors)
-        if not pairable_speakers:
+        target_mask = cue_eligible_target_mask(self.anchors)
+        if not target_mask.any():
             raise ValueError(
-                f"No speakers with a valid target/cue pair in {manifest}"
+                f"No rows with a valid target/cue pair in {manifest}"
             )
 
         self.rows = self.anchors.to_dict("records")
         self.row_by_index = {index: row for index, row in enumerate(self.rows)}
         self.cue_candidates: dict[int, np.ndarray] = {}
-        self.distractor_candidates: dict[str, np.ndarray] = {}
-        target_mask = self.anchors["speaker"].isin(pairable_speakers).to_numpy()
         self.all_target_indices = np.flatnonzero(target_mask)
+
+        # Build speaker-local indices once.  The previous implementation made
+        # a full-table boolean mask for every target row and every speaker,
+        # which is quadratic in the number of anchors and becomes unusable for
+        # the full 90k-row catalog.
+        speaker_row_indices = {
+            str(speaker): group.index.to_numpy(dtype=np.int64, copy=True)
+            for speaker, group in self.anchors.groupby(
+                "speaker", sort=False
+            )
+        }
+        self.speaker_names = tuple(speaker_row_indices)
+        self.speaker_row_indices = tuple(
+            speaker_row_indices[speaker]
+            for speaker in self.speaker_names
+        )
+        self.speaker_position_by_name = {
+            speaker: position
+            for position, speaker in enumerate(self.speaker_names)
+        }
+        if len(self.speaker_names) <= self.max_distractors:
+            raise ValueError(
+                "Not enough distinct speakers for the requested distractors"
+            )
+
         for target_index in self.all_target_indices:
             target = self.row_by_index[int(target_index)]
+            same_speaker_indices = speaker_row_indices[
+                str(target["speaker"])
+            ]
+            same_speaker_rows = self.anchors.iloc[same_speaker_indices]
             cue_mask = (
-                (self.anchors["speaker"] == target["speaker"])
-                & (self.anchors["path"] != target["path"])
-                & (self.anchors["norm"] != target["norm"])
+                (same_speaker_rows["path"].to_numpy() != target["path"])
+                & (same_speaker_rows["norm"].to_numpy() != target["norm"])
             )
-            self.cue_candidates[int(target_index)] = np.flatnonzero(
-                cue_mask.to_numpy()
+            self.cue_candidates[int(target_index)] = (
+                same_speaker_indices[cue_mask]
             )
-        for speaker in self.anchors["speaker"].unique():
-            self.distractor_candidates[str(speaker)] = np.flatnonzero(
-                (self.anchors["speaker"] != speaker).to_numpy()
-            )
+            if not len(self.cue_candidates[int(target_index)]):
+                raise RuntimeError(
+                    "Internal target/cue eligibility index mismatch"
+                )
 
         self.target_indices_by_gender = {
             gender: np.flatnonzero(
@@ -233,16 +265,6 @@ class DioticAttentionDataset(torch.utils.data.Dataset):
         if not anchors["label"].between(0, 799).all():
             raise ValueError(f"Label outside [0, 799] in {manifest}")
 
-    @staticmethod
-    def _pairable_speakers(anchors: pd.DataFrame) -> set[str]:
-        keep: set[str] = set()
-        for _, group in anchors.groupby("speaker"):
-            paths = group["path"].nunique()
-            words = group["norm"].nunique()
-            if paths >= 2 and words >= 2:
-                keep.add(str(group.iloc[0]["speaker"]))
-        return keep
-
     def class_map(self):
         import pickle
 
@@ -251,12 +273,15 @@ class DioticAttentionDataset(torch.utils.data.Dataset):
 
     def _rng(self, index: int) -> np.random.Generator:
         if self.mode == "train":
-            # Worker seeds change when a new DataLoader iterator is created,
-            # providing new mixtures across epochs while remaining reproducible.
-            base = int(torch.initial_seed() % (2**32))
+            # Derive every stochastic mixture from stable semantic coordinates,
+            # not a worker-process seed. This makes an epoch reproducible after
+            # an epoch-end checkpoint is resumed in a new Slurm process.
+            seed = np.random.SeedSequence(
+                [self.seed, self.epoch, int(index)]
+            )
         else:
-            base = self.seed
-        return np.random.default_rng(base + int(index))
+            seed = np.random.SeedSequence([self.seed, int(index)])
+        return np.random.default_rng(seed)
 
     def _sample_target_index(self, rng: np.random.Generator) -> int:
         if self.balance_target_gender and len(self.available_genders) == 2:
@@ -297,25 +322,26 @@ class DioticAttentionDataset(torch.utils.data.Dataset):
                 self.min_distractors, self.max_distractors + 1
             )
         )
-        distractor_pool = self.distractor_candidates[
+        target_speaker_position = self.speaker_position_by_name[
             str(target_row["speaker"])
         ]
-        chosen: list[int] = []
-        used_speakers = {str(target_row["speaker"])}
-        shuffled = rng.permutation(distractor_pool)
-        for candidate_index in shuffled:
-            candidate = self.row_by_index[int(candidate_index)]
-            speaker = str(candidate["speaker"])
-            if speaker in used_speakers:
-                continue
-            chosen.append(int(candidate_index))
-            used_speakers.add(speaker)
-            if len(chosen) == distractor_count:
-                break
-        if len(chosen) < distractor_count:
-            raise RuntimeError(
-                "Not enough distinct distractor speakers in anchor catalog"
-            )
+        # Sample from an integer range with the target speaker removed, then
+        # map positions at or above the removed slot back to the full range.
+        distractor_speaker_positions = np.asarray(
+            rng.choice(
+                len(self.speaker_names) - 1,
+                size=distractor_count,
+                replace=False,
+            ),
+            dtype=np.int64,
+        )
+        distractor_speaker_positions += (
+            distractor_speaker_positions >= target_speaker_position
+        )
+        chosen = [
+            int(rng.choice(self.speaker_row_indices[int(position)]))
+            for position in distractor_speaker_positions
+        ]
 
         target = self._load_crop(target_row)
         cue = self._load_crop(cue_row)

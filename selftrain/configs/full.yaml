@@ -6,7 +6,10 @@ corpus:
   validation_anchor_manifest: "selftrain/artifacts/anchors/validation_anchors.tsv.gz"
   # On HAKUSAN, the CV_CLIPS environment variable overrides this local path.
   clips_dir: "/Users/gigi/论文/计划书/cv-corpus-9.0-2022-04-27/en/clips"
-  examples_per_epoch: 500000
+  # 499,968 = 32 (microbatch) x 9 (accumulation) x 1,736 updates.
+  # Keeping the epoch exactly divisible avoids a final update with only one
+  # microbatch, so every optimizer attempt has effective batch size 288.
+  examples_per_epoch: 499968
   validation_examples: 10000
   min_distractors: 1
   max_distractors: 4
@@ -46,6 +49,7 @@ audio:
     power: 0.3
 
 compile_model: true
+deterministic: true
 val_metric: "val_acc"
 model_name: "diotic_selftrain_full_random_init"
 
@@ -55,21 +59,28 @@ noise_kwargs:
 
 hparas:
   valid_step: 1.0
-  epochs: 10
+  # 作者训练无 early stopping（epochs=1000，人工按验证曲线停）。从随机初始化
+  # 训练存在长平台期：作业529550在epoch 3被 patience=2 的 early stopping 提前
+  # 终止（val_acc 0.28% vs 随机 0.125%），因此改为不做自动停止，作业间人工判停。
+  epochs: 40
   optimizer: "AdamW"
   lr: 0.00005
   eps: 0.0000001
   gradient_clip_val: 100
+  gradient_clip_algorithm: "norm"
+  max_consecutive_amp_overflows: 8
+  amp_overflow_window_steps: 1000
+  max_amp_overflows_per_window: 8
+  max_total_amp_overflows: 64
   batch_size: 32
-  accumulate_grad_batches: 2
+  # 32 x 9 = 288，与作者配置的有效batch一致（作者 batch_size: 288、lr 5e-5）。
+  accumulate_grad_batches: 9
   mask_cues: false
   save_last: true
+  save_stage_zero: true
+  checkpoint_every_n_epochs: 1
+  checkpoint_every_n_train_steps: 1000
   save_train_checkpoint: false
-  early_stopping:
-    monitor: "val_acc"
-    mode: "max"
-    patience: 2
-    min_delta: 0.0001
 
 model:
   input_sr: 10000

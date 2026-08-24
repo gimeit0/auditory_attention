@@ -1,19 +1,26 @@
+# 学习性诊断：干净目标（无干扰混音），其余与 full.yaml 完全一致。
+# 目的：作业529550训练2M样本后 train_loss 仍停在 ln(800)≈6.685 附近，
+# 需要区分"任务太难/平台期"与"管线有bug"。干净800词识别应在1个epoch内
+# 明显高于随机（0.125%）。若本诊断也学不动，则是管线问题，不要再提交全量训练。
+# 预计 A100 上每 epoch 约 2 小时。
+
 corpus:
   dataset_type: "diotic_manifest"
   cue_type: "voice"
   task: "word"
   train_anchor_manifest: "selftrain/artifacts/anchors/train_anchors.tsv.gz"
   validation_anchor_manifest: "selftrain/artifacts/anchors/validation_anchors.tsv.gz"
+  # On HAKUSAN, the CV_CLIPS environment variable overrides this local path.
   clips_dir: "/Users/gigi/论文/计划书/cv-corpus-9.0-2022-04-27/en/clips"
-  examples_per_epoch: 2
-  validation_examples: 2
+  examples_per_epoch: 150000
+  validation_examples: 10000
   min_distractors: 1
   max_distractors: 4
   cue_free_percentage: 0.1
   balance_target_gender: true
   balance_target_words: true
   seed: 20260721
-  cache_items: 64
+  cache_items: 256
 
 audio:
   rep_type: "cochlea_filt"
@@ -44,18 +51,19 @@ audio:
     clip_value: 5
     power: 0.3
 
-compile_model: false
+compile_model: true
 deterministic: true
 val_metric: "val_acc"
-model_name: "diotic_selftrain_smoke_random_init"
+model_name: "diotic_selftrain_diag_clean"
 
+# "clean" 使 CombineWithRandomDBSNR 直接返回 target，不混入 distractor。
 noise_kwargs:
-  low_snr: -10
-  high_snr: 10
+  low_snr: "clean"
+  high_snr: "clean"
 
 hparas:
-  valid_step: 1.0
-  epochs: 1
+  valid_step: 0.5
+  epochs: 4
   optimizer: "AdamW"
   lr: 0.00005
   eps: 0.0000001
@@ -65,15 +73,13 @@ hparas:
   amp_overflow_window_steps: 1000
   max_amp_overflows_per_window: 8
   max_total_amp_overflows: 64
-  batch_size: 2
+  batch_size: 32
   accumulate_grad_batches: 1
   mask_cues: false
-  early_stopping:
-    monitor: "val_acc"
-    mode: "max"
-    patience: 2
-    min_delta: 0.0001
-  num_sanity_val_steps: 0
+  save_last: true
+  checkpoint_every_n_epochs: 1
+  checkpoint_every_n_train_steps: 1000
+  save_train_checkpoint: false
 
 model:
   input_sr: 10000
