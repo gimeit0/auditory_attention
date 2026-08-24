@@ -27,17 +27,27 @@ selftrain/
 │   └── run_training.sbatch
 ├── docs/
 │   └── 训练模型_设计方案.md
+├── full_scale_task2_2026-07-23/ # 会议任务2的正式全量实验计划与记录
 ├── artifacts/               # 生成的划分、对齐和锚点（Git忽略）
 └── experiments/             # 自训checkpoint与日志（Git忽略）
 ```
 
 `src/` 中的训练入口和音频变换是整个仓库共用的底层代码，因此没有移动进来。
 
+任务2正式全量实验的范围、启动门槛、HAKUSAN操作步骤和记录模板见：
+
+```text
+selftrain/full_scale_task2_2026-07-23/README.md
+```
+
 ## 当前状态
 
 - 数据划分已完成，train / validation / 既有复现实验说话人重叠为0。
 - 小规模锚点目录、动态数据集和随机初始化 smoke training 已通过。
-- 当前目录只适合检查程序；正式训练前仍需扩大强制对齐目录。
+- 2026-07-26两轮HAKUSAN对齐后，训练已覆盖800/800个可配对词，
+  dev-only验证覆盖681/800，低于700词门槛。
+- dev候选已经耗尽，因此验证候选已显式扩展为官方dev+test；两者与训练及既有
+  评测说话人仍保持零重叠。正式训练前需对新增test候选完成强制对齐。
 
 查看 readiness：
 

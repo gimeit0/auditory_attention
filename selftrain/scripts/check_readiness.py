@@ -9,6 +9,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from selftrain.data.anchor_index import cue_eligible_target_mask
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
@@ -60,14 +62,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def pairable_target_rows(anchors: pd.DataFrame) -> pd.DataFrame:
-    stats = anchors.groupby("speaker").agg(
-        unique_clips=("path", "nunique"),
-        unique_words=("norm", "nunique"),
-    )
-    speakers = stats.index[
-        (stats["unique_clips"] >= 2) & (stats["unique_words"] >= 2)
-    ]
-    return anchors[anchors["speaker"].isin(speakers)].copy()
+    return anchors.loc[cue_eligible_target_mask(anchors)].copy()
 
 
 def summarize(anchors: pd.DataFrame) -> tuple[dict, pd.DataFrame]:
