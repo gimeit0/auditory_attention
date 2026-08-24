@@ -1,0 +1,51 @@
+{
+  "notice": "Export completed with explicit settings. This report does not establish visual, accessibility, scientific-integrity, or journal-submission compliance.",
+  "outputs": [
+    {
+      "format": "png",
+      "kind": "raster",
+      "path": "/Users/gigi/projects/auditory_attention/全量任务/発表図/fig4_learning_curve_v2.png",
+      "size_bytes": 269593
+    },
+    {
+      "format": "pdf",
+      "kind": "vector-container",
+      "path": "/Users/gigi/projects/auditory_attention/全量任务/発表図/fig4_learning_curve_v2.pdf",
+      "size_bytes": 37410
+    }
+  ],
+  "provenance": {
+    "missing_data": "epochs >= 13 not yet confirmed, therefore not plotted",
+    "notes": "validation is an internal aggregate metric (1-4 distractors, SNR, clean mixed); final evaluation will be stratified on the frozen 10,000-scene bank",
+    "raw_data": [
+      "全量任务/2026-08-16_Job575142_full-distribution四轮pilot训练记录.md (epochs 0-3)",
+      "全量任务/2026-08-20_Job587802_full训练第一分段_epoch4至12中期记录.md (epochs 4-12)"
+    ],
+    "transformations": [
+      "fraction -> percent only; no smoothing, interpolation, or exclusion"
+    ],
+    "uncertainty": "point estimates only (epoch summaries from training logs; no interval estimates)"
+  },
+  "schema_version": "1.0",
+  "settings": {
+    "bbox_inches": null,
+    "dpi": 300.0,
+    "facecolor": "white",
+    "figure_size_inches": [
+      9.2,
+      5.4
+    ],
+    "font_mode": "truetype",
+    "formats": [
+      "png",
+      "pdf"
+    ],
+    "pad_inches": 0.1,
+    "transparent": false
+  },
+  "versions": {
+    "matplotlib": "3.10.6",
+    "pillow": "12.0.0"
+  },
+  "warnings": []
+}

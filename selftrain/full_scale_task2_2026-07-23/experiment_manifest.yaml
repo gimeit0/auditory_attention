@@ -1,0 +1,68 @@
+experiment_id: "task2_diotic_full_20260723_seed20260721"
+created: "2026-07-23"
+meeting_source: "/Users/gigi/projects/ntt会议 /0721/新录音 12.txt"
+meeting_task: 2
+status: "planning_not_ready"
+
+scope:
+  initialization: "random"
+  architecture_count: 1
+  spatialization: "diotic_left_equals_right"
+  distractor_type: "speech_only"
+  common_voice_version: "v9 English"
+  validation_sources: ["dev", "test"]
+  validation_source_change: "2026-07-26: dev-only exhausted at 681 pairable words; official test added without lowering the 700-word gate"
+  feature_gain_model: true
+  faithful_replication_of_paper_training: false
+
+canonical_files:
+  training_config: "selftrain/configs/full.yaml"
+  dataset: "selftrain/data/diotic_attention.py"
+  trainer: "src/spatialtrain.py"
+  alignment_job: "selftrain/hakusan/run_alignment.sbatch"
+  training_job: "selftrain/hakusan/run_training.sbatch"
+  output_root: "selftrain/experiments/full"
+
+training:
+  seed: 20260721
+  vocabulary_size: 800
+  examples_per_epoch: 500000
+  validation_examples: 10000
+  maximum_epochs: 10
+  batch_size_per_gpu: 32
+  gradient_accumulation: 2
+  effective_batch_size: 64
+  optimizer: "AdamW"
+  learning_rate: 0.00005
+  precision: "16-mixed"
+  snr_db: [-10, 10]
+  distractor_talkers: [1, 4]
+  cue_free_probability: 0.1
+
+launch_gates:
+  train_pairable_words: 800
+  minimum_validation_pairable_words: 700
+  maximum_speaker_overlap: 0
+  gpu_preflight_passed: false
+  epoch_runtime_below_job_limit_verified: false
+  developmental_checkpoint_policy_implemented: false
+
+current_readiness_2026_07_23:
+  ready: false
+  train_pairable_words: 54
+  validation_pairable_words: 17
+  train_validation_speaker_overlap: 0
+  train_eval_speaker_overlap: 0
+  validation_eval_speaker_overlap: 0
+
+current_readiness_2026_07_26:
+  ready: false
+  train_pairable_words: 800
+  validation_pairable_words_before_test_alignment: 681
+  validation_candidate_rows_dev_plus_test: 4510
+  validation_candidate_speakers_dev_plus_test: 2270
+  train_validation_speaker_overlap: 0
+  train_eval_speaker_overlap: 0
+  validation_eval_speaker_overlap: 0
+
+reporting_label: "diotic-trained, speech-only, single-architecture model"
