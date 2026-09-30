@@ -1,0 +1,86 @@
+[
+  {
+    "figure": "fig1_model_performance_by_condition",
+    "size_mm": [
+      180.0,
+      120.0
+    ],
+    "files": {
+      "pdf": {
+        "path": "/Users/gigi/发表/超算/docs/superpowers/evidence/p10-delivery-20260919/figures/fig1_model_performance_by_condition.pdf",
+        "sha256": "f9cd013208ce0f684aafbe4f2552f636d3b90499b488a6fca94e08400d9b85f7",
+        "bytes": 42010
+      },
+      "png": {
+        "path": "/Users/gigi/发表/超算/docs/superpowers/evidence/p10-delivery-20260919/figures/fig1_model_performance_by_condition.png",
+        "sha256": "b1863ea65e86fbf4e85e1955f98cf3c6c1eadd8be6e16ebc12e3d922a26fcb41",
+        "bytes": 409770
+      }
+    },
+    "source_statistics": "/Users/gigi/发表/超算/docs/superpowers/evidence/p09-statistics-20260919/STATISTICS.json",
+    "source_sha256": "c609fa726b30e60faca2b9a3dd648b466e3bdaa770e56f2209202a41ba3e341d",
+    "job_id": "728520",
+    "results_csv_sha256": "c705f29ed97d61d29c2e0ecf7433c03ec05957ad63969019f8d02e523654c921",
+    "uncertainty": "95% target-speaker cluster bootstrap CI (10,000 draws, fixed configuration); seed 20260829 with fixed stratum offsets",
+    "transformations": "none; point estimates and CI bounds plotted as stored; accuracy differences scaled to percentage points",
+    "missing_data": "none; every predeclared stratum is populated",
+    "publisher": "not specified; general manuscript layout (180 mm width), pending verification",
+    "matplotlib": "3.11.0"
+  },
+  {
+    "figure": "fig2_paired_differences_vs_author",
+    "size_mm": [
+      180.0,
+      105.0
+    ],
+    "files": {
+      "pdf": {
+        "path": "/Users/gigi/发表/超算/docs/superpowers/evidence/p10-delivery-20260919/figures/fig2_paired_differences_vs_author.pdf",
+        "sha256": "fe36b80bdaf1860454b5f1d586e0530ad8154c8c5f86105788e1a93adb0d35b9",
+        "bytes": 43966
+      },
+      "png": {
+        "path": "/Users/gigi/发表/超算/docs/superpowers/evidence/p10-delivery-20260919/figures/fig2_paired_differences_vs_author.png",
+        "sha256": "92f14003b95b6e511a7b456dd47c2310e20ec93e466f0ddf386f2f7729ceb0ad",
+        "bytes": 349157
+      }
+    },
+    "source_statistics": "/Users/gigi/发表/超算/docs/superpowers/evidence/p09-statistics-20260919/STATISTICS.json",
+    "source_sha256": "c609fa726b30e60faca2b9a3dd648b466e3bdaa770e56f2209202a41ba3e341d",
+    "job_id": "728520",
+    "results_csv_sha256": "c705f29ed97d61d29c2e0ecf7433c03ec05957ad63969019f8d02e523654c921",
+    "uncertainty": "95% target-speaker cluster bootstrap CI (10,000 draws, fixed configuration); seed 20260829 with fixed stratum offsets",
+    "transformations": "none; point estimates and CI bounds plotted as stored; accuracy differences scaled to percentage points",
+    "missing_data": "none; every predeclared stratum is populated",
+    "publisher": "not specified; general manuscript layout (180 mm width), pending verification",
+    "matplotlib": "3.11.0"
+  },
+  {
+    "figure": "fig3_cue_controls",
+    "size_mm": [
+      180.0,
+      62.0
+    ],
+    "files": {
+      "pdf": {
+        "path": "/Users/gigi/发表/超算/docs/superpowers/evidence/p10-delivery-20260919/figures/fig3_cue_controls.pdf",
+        "sha256": "93d78016b4b9636ac88d9d26ee54e1f8cf794b953d99b38d176f05a58909c38c",
+        "bytes": 40917
+      },
+      "png": {
+        "path": "/Users/gigi/发表/超算/docs/superpowers/evidence/p10-delivery-20260919/figures/fig3_cue_controls.png",
+        "sha256": "0af47adf4d8e8df3b133909303b53174da266e6523391bba840a7fc3889ed530",
+        "bytes": 267411
+      }
+    },
+    "source_statistics": "/Users/gigi/发表/超算/docs/superpowers/evidence/p09-statistics-20260919/STATISTICS.json",
+    "source_sha256": "c609fa726b30e60faca2b9a3dd648b466e3bdaa770e56f2209202a41ba3e341d",
+    "job_id": "728520",
+    "results_csv_sha256": "c705f29ed97d61d29c2e0ecf7433c03ec05957ad63969019f8d02e523654c921",
+    "uncertainty": "95% target-speaker cluster bootstrap CI (10,000 draws, fixed configuration); seed 20260829 with fixed stratum offsets",
+    "transformations": "none; point estimates and CI bounds plotted as stored; accuracy differences scaled to percentage points",
+    "missing_data": "none; every predeclared stratum is populated",
+    "publisher": "not specified; general manuscript layout (180 mm width), pending verification",
+    "matplotlib": "3.11.0"
+  }
+]

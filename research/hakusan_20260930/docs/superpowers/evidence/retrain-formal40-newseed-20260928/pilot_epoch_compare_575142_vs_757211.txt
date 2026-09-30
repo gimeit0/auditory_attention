@@ -1,0 +1,22 @@
+== formal40_pilot_575142 ==
+25189546
+epoch 0: train_loss_step=5.820 val_acc=0.0298 train_loss_epoch=6.380 
+epoch 1: train_loss_step=4.940 val_acc=0.135 train_loss_epoch=5.340 
+epoch 2: train_loss_step=4.680 val_acc=0.218 train_loss_epoch=4.340 
+epoch 3: train_loss_step=3.450 val_acc=0.279 train_loss_epoch=3.630 
+Epoch 0, global step 1736: 'val_acc' reached 0.02975
+Epoch 1, global step 3472: 'val_acc' reached 0.13538
+Epoch 2, global step 5208: 'val_acc' reached 0.21755
+Epoch 3, global step 6944: 'val_acc' reached 0.27865
+== newseed_pilot_757211 ==
+25126756
+epoch 0: train_loss_step=4.950 val_acc=0.076 train_loss_epoch=6.130 
+epoch 1: train_loss_step=3.720 val_acc=0.223 train_loss_epoch=4.650 
+epoch 2: train_loss_step=3.060 val_acc=0.294 train_loss_epoch=3.620 
+epoch 3: train_loss_step=2.880 val_acc=0.341 train_loss_epoch=3.040 
+Epoch 0, global step 1736: 'val_acc' reached 0.07598
+Epoch 1, global step 3472: 'val_acc' reached 0.22334
+Epoch 2, global step 5208: 'val_acc' reached 0.29443
+Epoch 3, global step 6944: 'val_acc' reached 0.34105
+== formal40 PILOT4_COMPLETE overflow/steps ==
+{'amp_overflows': 3, 'successful_optimizer_steps': 6941, 'global_step': 6944, 'job_id': '575142'}

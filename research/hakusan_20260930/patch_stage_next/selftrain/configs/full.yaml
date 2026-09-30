@@ -1,0 +1,104 @@
+corpus:
+  dataset_type: "diotic_manifest"
+  cue_type: "voice"
+  task: "word"
+  train_anchor_manifest: "selftrain/artifacts/anchors/train_anchors.tsv.gz"
+  validation_anchor_manifest: "selftrain/artifacts/anchors/validation_anchors.tsv.gz"
+  # On HAKUSAN, the CV_CLIPS environment variable overrides this local path.
+  clips_dir: "/Users/gigi/论文/计划书/cv-corpus-9.0-2022-04-27/en/clips"
+  # 499,968 = 32 (microbatch) x 9 (accumulation) x 1,736 updates.
+  # Keeping the epoch exactly divisible avoids a final update with only one
+  # microbatch, so every optimizer attempt has effective batch size 288.
+  examples_per_epoch: 499968
+  validation_examples: 10000
+  min_distractors: 1
+  max_distractors: 4
+  cue_free_percentage: 0.1
+  balance_target_gender: true
+  balance_target_words: true
+  seed: 20260721
+  cache_items: 256
+
+audio:
+  rep_type: "cochlea_filt"
+  v2_demean: true
+  per_example_leveling: true
+  rep_kwargs:
+    sr: 44100
+    env_sr: 10000
+    n_channels: 40
+    low_lim: 40
+    use_pad: true
+    binaural: true
+    rep_on_gpu: true
+    center_crop: true
+    out_dur: 2
+    impulse_len: 0.25
+    env_extraction_type: "Half-wave Rectification"
+    downsampling_type: "TorchTransformsResample"
+    downsampling_kwargs:
+      lowpass_filter_width: 64
+      rolloff: 0.9475937167399596
+      resampling_method: "kaiser_window"
+      beta: 14.769656459379492
+  compression_type: "coch_p3"
+  compression_kwargs:
+    scale: 1
+    offset: 0.0000001
+    clip_value: 5
+    power: 0.3
+
+compile_model: true
+deterministic: true
+val_metric: "val_acc"
+model_name: "diotic_selftrain_full_random_init"
+
+noise_kwargs:
+  low_snr: -10
+  high_snr: 10
+
+hparas:
+  valid_step: 1.0
+  # 作者训练无 early stopping（epochs=1000，人工按验证曲线停）。从随机初始化
+  # 训练存在长平台期：作业529550在epoch 3被 patience=2 的 early stopping 提前
+  # 终止（val_acc 0.28% vs 随机 0.125%），因此改为不做自动停止，作业间人工判停。
+  epochs: 40
+  optimizer: "AdamW"
+  lr: 0.00005
+  eps: 0.0000001
+  gradient_clip_val: 100
+  gradient_clip_algorithm: "norm"
+  max_consecutive_amp_overflows: 8
+  amp_overflow_window_steps: 1000
+  max_amp_overflows_per_window: 8
+  max_total_amp_overflows: 64
+  batch_size: 32
+  # 32 x 9 = 288，与作者配置的有效batch一致（作者 batch_size: 288、lr 5e-5）。
+  accumulate_grad_batches: 9
+  mask_cues: false
+  save_last: true
+  save_stage_zero: true
+  checkpoint_every_n_epochs: 1
+  checkpoint_every_n_train_steps: 1000
+  save_train_checkpoint: false
+
+model:
+  input_sr: 10000
+  out_channels: [32, 64, 256, 512, 512, 512, 512]
+  kernel: [[2, 34], [2, 14], [5, 5], [5, 5], [6, 6], [5, 5], [6, 6]]
+  stride: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+  padding: ["valid_time", "valid_time", "valid_time", "valid_time", "valid_time", "valid_time", "valid_time"]
+  pool_stride: [[2, 4], [2, 4], [1, 5], [1, 4], [1, 1], [1, 1], [2, 4]]
+  pool_size: [[9, 13], [9, 13], [1, 13], [1, 13], [1, 1], [1, 1], [6, 13]]
+  pool_padding: [[4, 6], [4, 6], [0, 6], [0, 6], [0, 0], [0, 0], [3, 6]]
+  attn: [1, 1, 1, 1, 1, 1, 1]
+  num_classes:
+    num_words: 800
+  fc_size: 512
+  global_avg_cue: false
+  dropout: 0.5
+  attn_constraints:
+    slope: true
+  v08: true
+  norm_first: true
+  ln_affine: true

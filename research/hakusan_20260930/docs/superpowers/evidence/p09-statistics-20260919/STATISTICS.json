@@ -1,0 +1,3692 @@
+{
+  "computed_utc": "2026-09-19T01:04:28.556815+00:00",
+  "limitations": [
+    "Reused validation/pilot bank audit; not an independent test set; no generalisation claim.",
+    "author_external is a system-level external reference with its own native preprocessing.",
+    "Accuracy differences carry the P06-4 numeric upper bound per model; NLL differences are checked against the P06-3 envelope (P06-5).",
+    "The primary checkpoint (formal40) and the secondary (valbest33) were fixed before this evaluation and are not re-selected on these results."
+  ],
+  "margin_strata": {
+    "by_model_condition": {
+      "author_external__correct": {
+        "above_high": 9585,
+        "between_low_and_high": 379,
+        "minimum_margin": 6.008148193359375e-05,
+        "trials": 10000,
+        "within_envelope_fraction": 0.0036,
+        "within_envelope_le_low": 36
+      },
+      "author_external__distractor": {
+        "above_high": 1871,
+        "between_low_and_high": 117,
+        "minimum_margin": 0.00055694580078125,
+        "trials": 2000,
+        "within_envelope_fraction": 0.006,
+        "within_envelope_le_low": 12
+      },
+      "author_external__shuffled": {
+        "above_high": 1836,
+        "between_low_and_high": 151,
+        "minimum_margin": 0.00019073486328125,
+        "trials": 2000,
+        "within_envelope_fraction": 0.0065,
+        "within_envelope_le_low": 13
+      },
+      "author_external__silent": {
+        "above_high": 1893,
+        "between_low_and_high": 98,
+        "minimum_margin": 0.000152587890625,
+        "trials": 2000,
+        "within_envelope_fraction": 0.0045,
+        "within_envelope_le_low": 9
+      },
+      "formal40__correct": {
+        "above_high": 9715,
+        "between_low_and_high": 256,
+        "minimum_margin": 0.00012302398681640625,
+        "trials": 10000,
+        "within_envelope_fraction": 0.0029,
+        "within_envelope_le_low": 29
+      },
+      "formal40__distractor": {
+        "above_high": 1934,
+        "between_low_and_high": 58,
+        "minimum_margin": 0.0005705356597900391,
+        "trials": 2000,
+        "within_envelope_fraction": 0.004,
+        "within_envelope_le_low": 8
+      },
+      "formal40__shuffled": {
+        "above_high": 1906,
+        "between_low_and_high": 89,
+        "minimum_margin": 0.0007681846618652344,
+        "trials": 2000,
+        "within_envelope_fraction": 0.0025,
+        "within_envelope_le_low": 5
+      },
+      "formal40__silent": {
+        "above_high": 1950,
+        "between_low_and_high": 44,
+        "minimum_margin": 0.00014257431030273438,
+        "trials": 2000,
+        "within_envelope_fraction": 0.003,
+        "within_envelope_le_low": 6
+      },
+      "valbest33__correct": {
+        "above_high": 9758,
+        "between_low_and_high": 219,
+        "minimum_margin": 0.00014309585094451904,
+        "trials": 10000,
+        "within_envelope_fraction": 0.0023,
+        "within_envelope_le_low": 23
+      },
+      "valbest33__distractor": {
+        "above_high": 1927,
+        "between_low_and_high": 65,
+        "minimum_margin": 0.000354766845703125,
+        "trials": 2000,
+        "within_envelope_fraction": 0.004,
+        "within_envelope_le_low": 8
+      },
+      "valbest33__shuffled": {
+        "above_high": 1906,
+        "between_low_and_high": 86,
+        "minimum_margin": 0.000141143798828125,
+        "trials": 2000,
+        "within_envelope_fraction": 0.004,
+        "within_envelope_le_low": 8
+      },
+      "valbest33__silent": {
+        "above_high": 1947,
+        "between_low_and_high": 45,
+        "minimum_margin": 0.0007061958312988281,
+        "trials": 2000,
+        "within_envelope_fraction": 0.004,
+        "within_envelope_le_low": 8
+      }
+    },
+    "edges": [
+      0.004,
+      0.04
+    ]
+  },
+  "p06_4_accuracy_uncertainty_upper_bound": {
+    "author_external": 0.0036,
+    "formal40": 0.0029,
+    "valbest33": 0.0023
+  },
+  "p06_5_error_budget": {
+    "formal40_vs_author_external/clean": {
+      "ci_half_width": 0.20800338592678247,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_1": {
+      "ci_half_width": 0.1509959541635599,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_1__snr_bin_0": {
+      "ci_half_width": 0.27330314763605634,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_1__snr_bin_1": {
+      "ci_half_width": 0.26135882292885393,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_1__snr_bin_2": {
+      "ci_half_width": 0.25805183959625644,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_1__snr_bin_3": {
+      "ci_half_width": 0.26067221129959434,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_1__snr_bin_4": {
+      "ci_half_width": 0.2630628783244764,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_2": {
+      "ci_half_width": 0.1448191800907904,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_2__snr_bin_0": {
+      "ci_half_width": 0.24697488983303922,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_2__snr_bin_1": {
+      "ci_half_width": 0.24233136537142186,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_2__snr_bin_2": {
+      "ci_half_width": 0.222731431935628,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_2__snr_bin_3": {
+      "ci_half_width": 0.2905920097628498,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_2__snr_bin_4": {
+      "ci_half_width": 0.26581545411581897,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_3": {
+      "ci_half_width": 0.16591768875242177,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_3__snr_bin_0": {
+      "ci_half_width": 0.24788982724673658,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_3__snr_bin_1": {
+      "ci_half_width": 0.2546627579909947,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_3__snr_bin_2": {
+      "ci_half_width": 0.2406957026864509,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_3__snr_bin_3": {
+      "ci_half_width": 0.2909137011265638,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_3__snr_bin_4": {
+      "ci_half_width": 0.2842158864125883,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_4": {
+      "ci_half_width": 0.14994000524631687,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_4__snr_bin_0": {
+      "ci_half_width": 0.23460625928218465,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_4__snr_bin_1": {
+      "ci_half_width": 0.22934000768229143,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_4__snr_bin_2": {
+      "ci_half_width": 0.29542378868078856,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_4__snr_bin_3": {
+      "ci_half_width": 0.27257688672665803,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/distractors_4__snr_bin_4": {
+      "ci_half_width": 0.29127059164662544,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/mixed": {
+      "ci_half_width": 0.12229860256631371,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/overall": {
+      "ci_half_width": 0.1191577803882198,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/snr_bin_0": {
+      "ci_half_width": 0.15103165586600067,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/snr_bin_1": {
+      "ci_half_width": 0.15279059455659802,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/snr_bin_2": {
+      "ci_half_width": 0.15397089303698802,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/snr_bin_3": {
+      "ci_half_width": 0.17500107939242368,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/snr_bin_4": {
+      "ci_half_width": 0.183228549602533,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/target_gender_female": {
+      "ci_half_width": 0.20848031176829177,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_author_external/target_gender_male": {
+      "ci_half_width": 0.11419111136408579,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/clean": {
+      "ci_half_width": 0.09859166418084298,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_1": {
+      "ci_half_width": 0.07142542888046452,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_1__snr_bin_0": {
+      "ci_half_width": 0.14063417402552605,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_1__snr_bin_1": {
+      "ci_half_width": 0.13534562851196164,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_1__snr_bin_2": {
+      "ci_half_width": 0.13514511546811048,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_1__snr_bin_3": {
+      "ci_half_width": 0.1291378602481266,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_1__snr_bin_4": {
+      "ci_half_width": 0.1212890474570011,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_2": {
+      "ci_half_width": 0.07454926599963854,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_2__snr_bin_0": {
+      "ci_half_width": 0.1241395992440101,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_2__snr_bin_1": {
+      "ci_half_width": 0.13788934570510028,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_2__snr_bin_2": {
+      "ci_half_width": 0.12514965319169136,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_2__snr_bin_3": {
+      "ci_half_width": 0.13910425827606532,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_2__snr_bin_4": {
+      "ci_half_width": 0.12327557791478463,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_3": {
+      "ci_half_width": 0.07720088481839998,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_3__snr_bin_0": {
+      "ci_half_width": 0.15748087450068587,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_3__snr_bin_1": {
+      "ci_half_width": 0.13536731062179408,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_3__snr_bin_2": {
+      "ci_half_width": 0.11919284438687097,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_3__snr_bin_3": {
+      "ci_half_width": 0.12174640600242517,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_3__snr_bin_4": {
+      "ci_half_width": 0.14235791603462553,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_4": {
+      "ci_half_width": 0.07225515830645537,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_4__snr_bin_0": {
+      "ci_half_width": 0.13267187899277405,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_4__snr_bin_1": {
+      "ci_half_width": 0.14986400141934292,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_4__snr_bin_2": {
+      "ci_half_width": 0.14298770775411593,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_4__snr_bin_3": {
+      "ci_half_width": 0.12077945535339815,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/distractors_4__snr_bin_4": {
+      "ci_half_width": 0.12206945919173234,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/mixed": {
+      "ci_half_width": 0.05635471434197826,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/overall": {
+      "ci_half_width": 0.05453391586137137,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/snr_bin_0": {
+      "ci_half_width": 0.07800437124286051,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/snr_bin_1": {
+      "ci_half_width": 0.08189110900610468,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/snr_bin_2": {
+      "ci_half_width": 0.07695646584190774,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/snr_bin_3": {
+      "ci_half_width": 0.07659339476856751,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/snr_bin_4": {
+      "ci_half_width": 0.08261678174517367,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/target_gender_female": {
+      "ci_half_width": 0.09760476063731365,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "formal40_vs_valbest33/target_gender_male": {
+      "ci_half_width": 0.0528120065936692,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/clean": {
+      "ci_half_width": 0.20087607596560797,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_1": {
+      "ci_half_width": 0.15319040320183758,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_1__snr_bin_0": {
+      "ci_half_width": 0.2834615087330926,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_1__snr_bin_1": {
+      "ci_half_width": 0.2593900971601569,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_1__snr_bin_2": {
+      "ci_half_width": 0.26855694091784205,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_1__snr_bin_3": {
+      "ci_half_width": 0.2425383622284201,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_1__snr_bin_4": {
+      "ci_half_width": 0.2651759395665083,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_2": {
+      "ci_half_width": 0.13597552453936312,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_2__snr_bin_0": {
+      "ci_half_width": 0.24251730065211077,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_2__snr_bin_1": {
+      "ci_half_width": 0.23803030464880012,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_2__snr_bin_2": {
+      "ci_half_width": 0.21341793025595057,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_2__snr_bin_3": {
+      "ci_half_width": 0.26645357069510955,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_2__snr_bin_4": {
+      "ci_half_width": 0.25425634372646433,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_3": {
+      "ci_half_width": 0.15270337039766194,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_3__snr_bin_0": {
+      "ci_half_width": 0.22386138518634274,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_3__snr_bin_1": {
+      "ci_half_width": 0.2316210656113354,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_3__snr_bin_2": {
+      "ci_half_width": 0.2379854476764216,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_3__snr_bin_3": {
+      "ci_half_width": 0.28621241150398036,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_3__snr_bin_4": {
+      "ci_half_width": 0.28885304286706504,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_4": {
+      "ci_half_width": 0.14514168803720492,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_4__snr_bin_0": {
+      "ci_half_width": 0.2349128474395496,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_4__snr_bin_1": {
+      "ci_half_width": 0.21707530346850418,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_4__snr_bin_2": {
+      "ci_half_width": 0.26141911465095635,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_4__snr_bin_3": {
+      "ci_half_width": 0.2483025339274006,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/distractors_4__snr_bin_4": {
+      "ci_half_width": 0.2833693030270503,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/mixed": {
+      "ci_half_width": 0.11689901528999123,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/overall": {
+      "ci_half_width": 0.11512137424824663,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/snr_bin_0": {
+      "ci_half_width": 0.15297138964693563,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/snr_bin_1": {
+      "ci_half_width": 0.14650230998297734,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/snr_bin_2": {
+      "ci_half_width": 0.14823082463069856,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/snr_bin_3": {
+      "ci_half_width": 0.162269478356449,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/snr_bin_4": {
+      "ci_half_width": 0.1811838445467292,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/target_gender_female": {
+      "ci_half_width": 0.19943203336301368,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    },
+    "valbest33_vs_author_external/target_gender_male": {
+      "ci_half_width": 0.11084836992929958,
+      "envelope_nll": 0.002,
+      "numeric_perturbation_negligible": true
+    }
+  },
+  "role": "REUSED_VALIDATION_BANK_AUDIT_NOT_INDEPENDENT_TEST",
+  "source": {
+    "archive": "/Users/gigi/\u53d1\u8868/\u8d85\u7b97/docs/superpowers/evidence/p08full-production-20260919-r2/frozen/collect-vvv4ed4a/collected/received/full10k",
+    "candidate_sha256": "09cb0c4816d001d172215ead49a1a0c9efde07b794125da4980dd822883a4d5b",
+    "job_id": "728520",
+    "logits_npz_sha256": "54059d741c0cadac00c01e41218e3fdf0e4decdce027ddeaf504eee272e2f648",
+    "predictions": 48000,
+    "receipt_sha256": "21a42644fd60e73a3668fd07cfe656a49b8ca95635438fd23ef6c7b92b8881ab",
+    "results_csv_sha256": "c705f29ed97d61d29c2e0ecf7433c03ec05957ad63969019f8d02e523654c921",
+    "v4_source_sha256": "31399fdf63233023d0d4047a5a9ec4f9d4e77f821831e75a52ef8f5e1ec803c4"
+  },
+  "status": "P09_STATISTICS_COMPUTED",
+  "v4_summary": {
+    "bootstrap": {
+      "draw_policy": "same seed/draws within every identical stratum speaker vector",
+      "numpy_version": "2.4.6",
+      "performed": true,
+      "quantile_method": "linear",
+      "repetitions": 10000,
+      "seed": 20260829,
+      "smoke_policy": "not run; smoke is a sparse engineering canary",
+      "unit": "target_speaker"
+    },
+    "comparison_scope": "same frozen validation/pilot bank; author uses native preprocessing and is an external system reference",
+    "engineering_status": "PASS",
+    "models": {
+      "author_external": {
+        "cue_controls": {
+          "correct_accuracy": 0.379,
+          "correct_minus_distractor": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.315,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.28758398251055234,
+              0.3430133205824882
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "correct_minus_shuffled": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.253,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.22886032212876276,
+              0.27755444087415554
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "correct_minus_silent": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.153,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.130158530748983,
+              0.17644277354657872
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "distractor_accuracy": 0.064,
+          "distractor_cue_p_probe_delta": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.11433570915388847,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.10391674083750521,
+              0.12517288094663667
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "shuffled_accuracy": 0.126,
+          "silent_accuracy": 0.226,
+          "trials": 2000
+        },
+        "role": "external_system_reference",
+        "strata": {
+          "clean": {
+            "accuracy": 0.785,
+            "cross_entropy": 0.873947549207026,
+            "trials": 1000
+          },
+          "distractors_1": {
+            "accuracy": 0.47555555555555556,
+            "cross_entropy": 2.6214702278504793,
+            "trials": 2250
+          },
+          "distractors_1__snr_bin_0": {
+            "accuracy": 0.31333333333333335,
+            "cross_entropy": 3.716174502828572,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_1": {
+            "accuracy": 0.38,
+            "cross_entropy": 3.31384280421189,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_2": {
+            "accuracy": 0.44666666666666666,
+            "cross_entropy": 2.5264612400715203,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_3": {
+            "accuracy": 0.5822222222222222,
+            "cross_entropy": 1.9957313146948723,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_4": {
+            "accuracy": 0.6555555555555556,
+            "cross_entropy": 1.5551412774455422,
+            "trials": 450
+          },
+          "distractors_2": {
+            "accuracy": 0.388,
+            "cross_entropy": 3.191232698999739,
+            "trials": 2250
+          },
+          "distractors_2__snr_bin_0": {
+            "accuracy": 0.18222222222222223,
+            "cross_entropy": 4.847306789996154,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_1": {
+            "accuracy": 0.25333333333333335,
+            "cross_entropy": 4.020958385735285,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_2": {
+            "accuracy": 0.4222222222222222,
+            "cross_entropy": 2.983133692970978,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_3": {
+            "accuracy": 0.47555555555555556,
+            "cross_entropy": 2.3917327540994866,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_4": {
+            "accuracy": 0.6066666666666667,
+            "cross_entropy": 1.7130318721967908,
+            "trials": 450
+          },
+          "distractors_3": {
+            "accuracy": 0.33155555555555555,
+            "cross_entropy": 3.5166187854701514,
+            "trials": 2250
+          },
+          "distractors_3__snr_bin_0": {
+            "accuracy": 0.1,
+            "cross_entropy": 5.3625647937589225,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_1": {
+            "accuracy": 0.2088888888888889,
+            "cross_entropy": 4.402975234946028,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_2": {
+            "accuracy": 0.3711111111111111,
+            "cross_entropy": 3.325008267000602,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_3": {
+            "accuracy": 0.4266666666666667,
+            "cross_entropy": 2.6232633049608824,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_4": {
+            "accuracy": 0.5511111111111111,
+            "cross_entropy": 1.8692823266843213,
+            "trials": 450
+          },
+          "distractors_4": {
+            "accuracy": 0.3231111111111111,
+            "cross_entropy": 3.6267054520130912,
+            "trials": 2250
+          },
+          "distractors_4__snr_bin_0": {
+            "accuracy": 0.08,
+            "cross_entropy": 5.5513370696703594,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_1": {
+            "accuracy": 0.1688888888888889,
+            "cross_entropy": 4.618266138884549,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_2": {
+            "accuracy": 0.3466666666666667,
+            "cross_entropy": 3.3610295170231255,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_3": {
+            "accuracy": 0.43333333333333335,
+            "cross_entropy": 2.7233107920322315,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_4": {
+            "accuracy": 0.5866666666666667,
+            "cross_entropy": 1.8795837424551913,
+            "trials": 450
+          },
+          "mixed": {
+            "accuracy": 0.37955555555555553,
+            "cross_entropy": 3.2390067910833653,
+            "trials": 9000
+          },
+          "overall": {
+            "accuracy": 0.4201,
+            "cross_entropy": 3.0025008668957316,
+            "trials": 10000
+          },
+          "snr_bin_0": {
+            "accuracy": 0.1688888888888889,
+            "cross_entropy": 4.869345789063502,
+            "trials": 1800
+          },
+          "snr_bin_1": {
+            "accuracy": 0.25277777777777777,
+            "cross_entropy": 4.089010640944438,
+            "trials": 1800
+          },
+          "snr_bin_2": {
+            "accuracy": 0.39666666666666667,
+            "cross_entropy": 3.0489081792665567,
+            "trials": 1800
+          },
+          "snr_bin_3": {
+            "accuracy": 0.47944444444444445,
+            "cross_entropy": 2.433509541446868,
+            "trials": 1800
+          },
+          "snr_bin_4": {
+            "accuracy": 0.6,
+            "cross_entropy": 1.7542598046954612,
+            "trials": 1800
+          },
+          "target_gender_female": {
+            "accuracy": 0.4554,
+            "cross_entropy": 2.7165197226112214,
+            "trials": 5000
+          },
+          "target_gender_male": {
+            "accuracy": 0.3848,
+            "cross_entropy": 3.2884820111802417,
+            "trials": 5000
+          }
+        }
+      },
+      "formal40": {
+        "cue_controls": {
+          "correct_accuracy": 0.4215,
+          "correct_minus_distractor": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.377,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.34728814812068853,
+              0.40661161337505985
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "correct_minus_shuffled": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.307,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.2804302285917199,
+              0.333667385173573
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "correct_minus_silent": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.167,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.1443138977926714,
+              0.1898422090729783
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "distractor_accuracy": 0.0445,
+          "distractor_cue_p_probe_delta": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.2069036301074916,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.19230946228804277,
+              0.22234250861477275
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "shuffled_accuracy": 0.1145,
+          "silent_accuracy": 0.2545,
+          "trials": 2000
+        },
+        "role": "primary_fixed_40_epoch",
+        "strata": {
+          "clean": {
+            "accuracy": 0.644,
+            "cross_entropy": 1.7438158601100482,
+            "trials": 1000
+          },
+          "distractors_1": {
+            "accuracy": 0.49866666666666665,
+            "cross_entropy": 2.5235420290656854,
+            "trials": 2250
+          },
+          "distractors_1__snr_bin_0": {
+            "accuracy": 0.4222222222222222,
+            "cross_entropy": 3.117121773479262,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_1": {
+            "accuracy": 0.3888888888888889,
+            "cross_entropy": 3.053008968462414,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_2": {
+            "accuracy": 0.48,
+            "cross_entropy": 2.4564113217089742,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_3": {
+            "accuracy": 0.5911111111111111,
+            "cross_entropy": 2.0779223796772515,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_4": {
+            "accuracy": 0.6111111111111112,
+            "cross_entropy": 1.9132457020005247,
+            "trials": 450
+          },
+          "distractors_2": {
+            "accuracy": 0.41955555555555557,
+            "cross_entropy": 3.084666219464745,
+            "trials": 2250
+          },
+          "distractors_2__snr_bin_0": {
+            "accuracy": 0.2577777777777778,
+            "cross_entropy": 4.213840218615304,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_1": {
+            "accuracy": 0.37777777777777777,
+            "cross_entropy": 3.4684435897576624,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_2": {
+            "accuracy": 0.43333333333333335,
+            "cross_entropy": 2.7100601834526725,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_3": {
+            "accuracy": 0.4822222222222222,
+            "cross_entropy": 2.75952447724942,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_4": {
+            "accuracy": 0.5466666666666666,
+            "cross_entropy": 2.271462628248667,
+            "trials": 450
+          },
+          "distractors_3": {
+            "accuracy": 0.3768888888888889,
+            "cross_entropy": 3.351579873377197,
+            "trials": 2250
+          },
+          "distractors_3__snr_bin_0": {
+            "accuracy": 0.18888888888888888,
+            "cross_entropy": 4.686913219010975,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_1": {
+            "accuracy": 0.28444444444444444,
+            "cross_entropy": 3.825741498095636,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_2": {
+            "accuracy": 0.4066666666666667,
+            "cross_entropy": 3.1016397874159543,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_3": {
+            "accuracy": 0.48,
+            "cross_entropy": 2.692641753688727,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_4": {
+            "accuracy": 0.5244444444444445,
+            "cross_entropy": 2.450963108674694,
+            "trials": 450
+          },
+          "distractors_4": {
+            "accuracy": 0.3635555555555556,
+            "cross_entropy": 3.4919487015821087,
+            "trials": 2250
+          },
+          "distractors_4__snr_bin_0": {
+            "accuracy": 0.1622222222222222,
+            "cross_entropy": 5.059547464752363,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_1": {
+            "accuracy": 0.26222222222222225,
+            "cross_entropy": 4.276128786832592,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_2": {
+            "accuracy": 0.3511111111111111,
+            "cross_entropy": 3.310051820600604,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_3": {
+            "accuracy": 0.43333333333333335,
+            "cross_entropy": 2.800136717351646,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_4": {
+            "accuracy": 0.6088888888888889,
+            "cross_entropy": 2.0138787183733378,
+            "trials": 450
+          },
+          "mixed": {
+            "accuracy": 0.4146666666666667,
+            "cross_entropy": 3.112934205872434,
+            "trials": 9000
+          },
+          "overall": {
+            "accuracy": 0.4376,
+            "cross_entropy": 2.9760223712961955,
+            "trials": 10000
+          },
+          "snr_bin_0": {
+            "accuracy": 0.2577777777777778,
+            "cross_entropy": 4.269355668964476,
+            "trials": 1800
+          },
+          "snr_bin_1": {
+            "accuracy": 0.3283333333333333,
+            "cross_entropy": 3.6558307107870758,
+            "trials": 1800
+          },
+          "snr_bin_2": {
+            "accuracy": 0.4177777777777778,
+            "cross_entropy": 2.8945407782945516,
+            "trials": 1800
+          },
+          "snr_bin_3": {
+            "accuracy": 0.49666666666666665,
+            "cross_entropy": 2.5825563319917606,
+            "trials": 1800
+          },
+          "snr_bin_4": {
+            "accuracy": 0.5727777777777778,
+            "cross_entropy": 2.162387539324306,
+            "trials": 1800
+          },
+          "target_gender_female": {
+            "accuracy": 0.461,
+            "cross_entropy": 2.8711709331622615,
+            "trials": 5000
+          },
+          "target_gender_male": {
+            "accuracy": 0.4142,
+            "cross_entropy": 3.080873809430129,
+            "trials": 5000
+          }
+        }
+      },
+      "valbest33": {
+        "cue_controls": {
+          "correct_accuracy": 0.4225,
+          "correct_minus_distractor": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.3715,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.3409888734432321,
+              0.4022267274900355
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "correct_minus_shuffled": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.2895,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.26201330399189177,
+              0.3180862523528139
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "correct_minus_silent": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.1705,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.14500794919429336,
+              0.19560674675753095
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "distractor_accuracy": 0.051,
+          "distractor_cue_p_probe_delta": {
+            "bootstrap_status": "PERFORMED",
+            "mean": 0.2036100196386433,
+            "target_speaker_cluster_bootstrap_95ci": [
+              0.18952105311388723,
+              0.21803255561969279
+            ],
+            "trials": 2000,
+            "unique_target_speakers": 601
+          },
+          "shuffled_accuracy": 0.133,
+          "silent_accuracy": 0.252,
+          "trials": 2000
+        },
+        "role": "validation_selected_secondary",
+        "strata": {
+          "clean": {
+            "accuracy": 0.663,
+            "cross_entropy": 1.5747530297866361,
+            "trials": 1000
+          },
+          "distractors_1": {
+            "accuracy": 0.5088888888888888,
+            "cross_entropy": 2.4162846355527017,
+            "trials": 2250
+          },
+          "distractors_1__snr_bin_0": {
+            "accuracy": 0.41555555555555557,
+            "cross_entropy": 2.97992935899943,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_1": {
+            "accuracy": 0.37555555555555553,
+            "cross_entropy": 3.001782458467201,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_2": {
+            "accuracy": 0.5333333333333333,
+            "cross_entropy": 2.281587959423523,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_3": {
+            "accuracy": 0.5866666666666667,
+            "cross_entropy": 1.9953704077274244,
+            "trials": 450
+          },
+          "distractors_1__snr_bin_4": {
+            "accuracy": 0.6333333333333333,
+            "cross_entropy": 1.8227529931459283,
+            "trials": 450
+          },
+          "distractors_2": {
+            "accuracy": 0.43777777777777777,
+            "cross_entropy": 2.925647863899217,
+            "trials": 2250
+          },
+          "distractors_2__snr_bin_0": {
+            "accuracy": 0.26222222222222225,
+            "cross_entropy": 4.1210271299029575,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_1": {
+            "accuracy": 0.3688888888888889,
+            "cross_entropy": 3.3651535642423105,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_2": {
+            "accuracy": 0.4822222222222222,
+            "cross_entropy": 2.5278531902103873,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_3": {
+            "accuracy": 0.5133333333333333,
+            "cross_entropy": 2.4758429253247436,
+            "trials": 450
+          },
+          "distractors_2__snr_bin_4": {
+            "accuracy": 0.5622222222222222,
+            "cross_entropy": 2.138362509815687,
+            "trials": 450
+          },
+          "distractors_3": {
+            "accuracy": 0.392,
+            "cross_entropy": 3.273097139775209,
+            "trials": 2250
+          },
+          "distractors_3__snr_bin_0": {
+            "accuracy": 0.16,
+            "cross_entropy": 4.725186632482542,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_1": {
+            "accuracy": 0.2866666666666667,
+            "cross_entropy": 3.7690004521528295,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_2": {
+            "accuracy": 0.43555555555555553,
+            "cross_entropy": 2.929561868586614,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_3": {
+            "accuracy": 0.5133333333333333,
+            "cross_entropy": 2.6106256388858635,
+            "trials": 450
+          },
+          "distractors_3__snr_bin_4": {
+            "accuracy": 0.5644444444444444,
+            "cross_entropy": 2.3311111067681956,
+            "trials": 450
+          },
+          "distractors_4": {
+            "accuracy": 0.37244444444444447,
+            "cross_entropy": 3.358187863018901,
+            "trials": 2250
+          },
+          "distractors_4__snr_bin_0": {
+            "accuracy": 0.15333333333333332,
+            "cross_entropy": 4.9549070568620746,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_1": {
+            "accuracy": 0.24888888888888888,
+            "cross_entropy": 4.203224331291745,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_2": {
+            "accuracy": 0.37333333333333335,
+            "cross_entropy": 3.08663183041946,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_3": {
+            "accuracy": 0.4688888888888889,
+            "cross_entropy": 2.6004130172511837,
+            "trials": 450
+          },
+          "distractors_4__snr_bin_4": {
+            "accuracy": 0.6177777777777778,
+            "cross_entropy": 1.945763079270042,
+            "trials": 450
+          },
+          "mixed": {
+            "accuracy": 0.42777777777777776,
+            "cross_entropy": 2.993304375561507,
+            "trials": 9000
+          },
+          "overall": {
+            "accuracy": 0.4513,
+            "cross_entropy": 2.85144924098402,
+            "trials": 10000
+          },
+          "snr_bin_0": {
+            "accuracy": 0.2477777777777778,
+            "cross_entropy": 4.195262544561751,
+            "trials": 1800
+          },
+          "snr_bin_1": {
+            "accuracy": 0.32,
+            "cross_entropy": 3.584790201538522,
+            "trials": 1800
+          },
+          "snr_bin_2": {
+            "accuracy": 0.45611111111111113,
+            "cross_entropy": 2.706408712159996,
+            "trials": 1800
+          },
+          "snr_bin_3": {
+            "accuracy": 0.5205555555555555,
+            "cross_entropy": 2.420562997297304,
+            "trials": 1800
+          },
+          "snr_bin_4": {
+            "accuracy": 0.5944444444444444,
+            "cross_entropy": 2.0594974222499633,
+            "trials": 1800
+          },
+          "target_gender_female": {
+            "accuracy": 0.4668,
+            "cross_entropy": 2.7498342162518323,
+            "trials": 5000
+          },
+          "target_gender_male": {
+            "accuracy": 0.4358,
+            "cross_entropy": 2.9530642657162076,
+            "trials": 5000
+          }
+        }
+      }
+    },
+    "paired_model_differences": {
+      "formal40_vs_author_external": {
+        "model_a": "formal40",
+        "model_b": "author_external",
+        "strata": {
+          "clean": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.141,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.18034356297297743,
+                -0.10212282555558592
+              ],
+              "trials": 1000,
+              "unique_target_speakers": 439
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.8698683109030221,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -1.0817026137097991,
+                -0.6656958418562342
+              ],
+              "trials": 1000,
+              "unique_target_speakers": 439
+            },
+            "trials": 1000
+          },
+          "distractors_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.02311111111111111,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.0013947121071307869,
+                0.048177836858944965
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 618
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.09792819878479415,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.05405659919313528,
+                0.24793530913398454
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 618
+            },
+            "trials": 2250
+          },
+          "distractors_1__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.10888888888888888,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.061172113289760355,
+                0.15646406388642412
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.5990527293493101,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.3236749243211002,
+                0.8702812195932128
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.008888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.03862660944206009,
+                0.05895196506550218
+              ],
+              "trials": 450,
+              "unique_target_speakers": 283
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.2608338357494762,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.0018386564332152266,
+                0.5245563022909231
+              ],
+              "trials": 450,
+              "unique_target_speakers": 283
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.03333333333333333,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.01489441092410289,
+                0.08149872172746382
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.07004991836254604,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.18748390343088783,
+                0.32861977576162504
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.008888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.04195804195804196,
+                0.05787071689953426
+              ],
+              "trials": 450,
+              "unique_target_speakers": 272
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.08219106498237908,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.34176633004371343,
+                0.17957809255547524
+              ],
+              "trials": 450,
+              "unique_target_speakers": 272
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.044444444444444446,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.09808532974553309,
+                0.008869179600886918
+              ],
+              "trials": 450,
+              "unique_target_speakers": 271
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.3581044245549826,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.6229431878438142,
+                -0.09681743119486136
+              ],
+              "trials": 450,
+              "unique_target_speakers": 271
+            },
+            "trials": 450
+          },
+          "distractors_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.03155555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.006131678783682419,
+                0.05606288610803104
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 601
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.10656647953499361,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.04332974116120227,
+                0.2463086190203785
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 601
+            },
+            "trials": 2250
+          },
+          "distractors_2__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.07555555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.036613272311212815,
+                0.11374511288332104
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.6334665713808499,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.38337452068910105,
+                0.8773243003551795
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.12444444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.08163146377432091,
+                0.16812275379680797
+              ],
+              "trials": 450,
+              "unique_target_speakers": 275
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.5525147959776223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.3047466408426025,
+                0.7894093715854462
+              ],
+              "trials": 450,
+              "unique_target_speakers": 275
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.011111111111111112,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.04298771407297096,
+                0.06387665198237885
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.2730735095183051,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.04890984153127173,
+                0.49437270540252776
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.006666666666666667,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.03935185185185185,
+                0.05066155423374408
+              ],
+              "trials": 450,
+              "unique_target_speakers": 280
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.367791723149933,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.6669043818215274,
+                -0.08572036229582776
+              ],
+              "trials": 450,
+              "unique_target_speakers": 280
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.06,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.11276676512669036,
+                -0.008349431301379967
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.5584307560518763,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.8303228776545889,
+                -0.2986919694229509
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "trials": 450
+          },
+          "distractors_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.04533333333333334,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.01909988896213664,
+                0.07181519228250788
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 613
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.16503891209295407,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.0019506724116372474,
+                0.3298847050932063
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 613
+            },
+            "trials": 2250
+          },
+          "distractors_3__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.08888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.045946514600781564,
+                0.13242354252946792
+              ],
+              "trials": 450,
+              "unique_target_speakers": 274
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.6756515747479473,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.42936218118996294,
+                0.9251418356834361
+              ],
+              "trials": 450,
+              "unique_target_speakers": 274
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.07555555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.032325848164627365,
+                0.1188345401749614
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.5772337368503918,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.31456246565195045,
+                0.8238879816339398
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.035555555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.01569506726457399,
+                0.08801997383918272
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.22336847958464812,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.01846835493208591,
+                0.4629230504408159
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.05333333333333334,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.004415011037527594,
+                0.10177091258559243
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.06937844872784454,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.3635956585895689,
+                0.21823174366355869
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.02666666666666667,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.08259351908866995,
+                0.027843846112340125
+              ],
+              "trials": 450,
+              "unique_target_speakers": 277
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.5816807819903723,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.8733597043606361,
+                -0.30492793153545944
+              ],
+              "trials": 450,
+              "unique_target_speakers": 277
+            },
+            "trials": 450
+          },
+          "distractors_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.04044444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.016149976613853586,
+                0.06518753354370693
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 617
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.13475675043098292,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.015496467314111652,
+                0.2843835431785221
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 617
+            },
+            "trials": 2250
+          },
+          "distractors_4__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.08222222222222222,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.04195804195804196,
+                0.12412257283478094
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.49178960491799645,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.25914894451899195,
+                0.7283614630833612
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.09333333333333334,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.04845548724403351,
+                0.13938053097345132
+              ],
+              "trials": 450,
+              "unique_target_speakers": 284
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.34213735205195717,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.1152628673183023,
+                0.5739428826828852
+              ],
+              "trials": 450,
+              "unique_target_speakers": 284
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0044444444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.04731386638128726,
+                0.05458515283842795
+              ],
+              "trials": 450,
+              "unique_target_speakers": 278
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.050977696422521916,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.25343583471027453,
+                0.3374117426513026
+              ],
+              "trials": 450,
+              "unique_target_speakers": 278
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.054321658615136874,
+                0.054632775850967694
+              ],
+              "trials": 450,
+              "unique_target_speakers": 281
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.07682592531941433,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.3510826186847238,
+                0.19407115476859232
+              ],
+              "trials": 450,
+              "unique_target_speakers": 281
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.022222222222222223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.027211953963975525,
+                0.07173069034224096
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.13429497591814651,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.4204612454527968,
+                0.1620799378404541
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "mixed": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.035111111111111114,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.01806431162462406,
+                0.05170778873170152
+              ],
+              "trials": 9000,
+              "unique_target_speakers": 789
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.12607258521093118,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.0034294800313901266,
+                0.24802668516401755
+              ],
+              "trials": 9000,
+              "unique_target_speakers": 789
+            },
+            "trials": 9000
+          },
+          "overall": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0175,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.0015100679783422236,
+                0.033669323259368625
+              ],
+              "trials": 10000,
+              "unique_target_speakers": 795
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.02647849559953587,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.0932330741985338,
+                0.1450824865779058
+              ],
+              "trials": 10000,
+              "unique_target_speakers": 795
+            },
+            "trials": 10000
+          },
+          "snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.08888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.06406674355849583,
+                0.11412103746397695
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 576
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.599990120099026,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.4473643038278486,
+                0.7494276155598499
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 576
+            },
+            "trials": 1800
+          },
+          "snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.07555555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.051686405737398425,
+                0.10128069916039364
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 579
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.43317993015736184,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.27921545272601617,
+                0.5847966418392122
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 579
+            },
+            "trials": 1800
+          },
+          "snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.021111111111111112,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.008876068376068375,
+                0.050339562908496734
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 564
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.15436740097200527,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.0009191383904648551,
+                0.3070226476835112
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 564
+            },
+            "trials": 1800
+          },
+          "snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.017222222222222222,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.01041848776223776,
+                0.04540418215713025
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 573
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.14904679054489273,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.32339984935995175,
+                0.026602309424895623
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 573
+            },
+            "trials": 1800
+          },
+          "snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.02722222222222222,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.05946241858943281,
+                0.004350638234238342
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 572
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.4081277346288444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.5937721943169222,
+                -0.2273150951118562
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 572
+            },
+            "trials": 1800
+          },
+          "target_gender_female": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0056,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.021942331722838666,
+                0.03189729026860599
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 123
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.15465121055104059,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.3693676781674424,
+                0.04759294536914109
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 123
+            },
+            "trials": 5000
+          },
+          "target_gender_male": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0294,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.010818254934299866,
+                0.04788339822136494
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 672
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.20760820175011233,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.09169405350597323,
+                0.3200762762341448
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 672
+            },
+            "trials": 5000
+          }
+        }
+      },
+      "formal40_vs_valbest33": {
+        "model_a": "formal40",
+        "model_b": "valbest33",
+        "strata": {
+          "clean": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.019,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.043256832536625725,
+                0.004044489383215369
+              ],
+              "trials": 1000,
+              "unique_target_speakers": 439
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.16906283032341213,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.26815473939097517,
+                -0.07097141102928921
+              ],
+              "trials": 1000,
+              "unique_target_speakers": 439
+            },
+            "trials": 1000
+          },
+          "distractors_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.010222222222222223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.026778701258799248,
+                0.006554491432952901
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 618
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.107257393512984,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.17881577284901107,
+                -0.03596491508808204
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 618
+            },
+            "trials": 2250
+          },
+          "distractors_1__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.006666666666666667,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.031746031746031744,
+                0.04458740900818924
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.13719241447983224,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.2770558428230922,
+                0.004212505227959892
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.013333333333333334,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.01656376026610933,
+                0.043859649122807015
+              ],
+              "trials": 450,
+              "unique_target_speakers": 283
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.05122650999521285,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.18833355285256537,
+                0.08235770417135788
+              ],
+              "trials": 450,
+              "unique_target_speakers": 283
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.05333333333333334,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.09382313411209817,
+                -0.013635590599876325
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.17482336228545137,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.3085971406487763,
+                -0.03830690971255532
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0044444444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.02511559198771198,
+                0.03426283449056491
+              ],
+              "trials": 450,
+              "unique_target_speakers": 272
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.08255197194982705,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.21227035277917145,
+                0.04600536771708177
+              ],
+              "trials": 450,
+              "unique_target_speakers": 272
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.022222222222222223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.055794230916615575,
+                0.009389671361502348
+              ],
+              "trials": 450,
+              "unique_target_speakers": 271
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.09049270885459641,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.21304115271226048,
+                0.02953694220174172
+              ],
+              "trials": 450,
+              "unique_target_speakers": 271
+            },
+            "trials": 450
+          },
+          "distractors_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.018222222222222223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.034101391132183606,
+                -0.0022257617902932715
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 601
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.15901835556552804,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.23334997906013008,
+                -0.08425144706085298
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 601
+            },
+            "trials": 2250
+          },
+          "distractors_2__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.0044444444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.033937492194329955,
+                0.024943310657596373
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.09281308871234716,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.21643268930772344,
+                0.03184650918029674
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.008888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.02283199954432831,
+                0.04026885397118228
+              ],
+              "trials": 450,
+              "unique_target_speakers": 275
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.10329002551535164,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.239220117125749,
+                0.03655857428445157
+              ],
+              "trials": 450,
+              "unique_target_speakers": 275
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.04888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.08525345622119816,
+                -0.01152073732718894
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.18220699324228512,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.3057334688745071,
+                -0.05543416249112437
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.03111111111111111,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.06265360141866166,
+                -0.00207415627902222
+              ],
+              "trials": 450,
+              "unique_target_speakers": 280
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.28368155192467637,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.42343155460153814,
+                -0.14522303804940753
+              ],
+              "trials": 450,
+              "unique_target_speakers": 280
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.015555555555555555,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.05263157894736842,
+                0.02050113895216401
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.13310011843297995,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.2559530001024963,
+                -0.009401844272927016
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "trials": 450
+          },
+          "distractors_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.015111111111111112,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.03302793977770957,
+                0.0030239545323164935
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 613
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.07848273360198825,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.15564027128123262,
+                -0.0012385016444326547
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 613
+            },
+            "trials": 2250
+          },
+          "distractors_3__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.028888888888888888,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.004193758559708537,
+                0.06167400881057269
+              ],
+              "trials": 450,
+              "unique_target_speakers": 274
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.038273413471567166,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.11801479621205169,
+                0.1969469527893201
+              ],
+              "trials": 450,
+              "unique_target_speakers": 274
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.0022222222222222222,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.03644646924829157,
+                0.03286384976525822
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.05674104594280632,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.19523735121748184,
+                0.07549727002610632
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.028888888888888888,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.0651685393258427,
+                0.0071263148965049145
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.17207791882934037,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.29122947484170425,
+                -0.0528437860679623
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.03333333333333333,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.06881720430107527,
+                0.0
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.08201611480286372,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.20261701864706386,
+                0.04087579335778648
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.04,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.07623318385650224,
+                -0.004524886877828055
+              ],
+              "trials": 450,
+              "unique_target_speakers": 277
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.11985200190649796,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.26185492361155005,
+                0.022860908457700987
+              ],
+              "trials": 450,
+              "unique_target_speakers": 277
+            },
+            "trials": 450
+          },
+          "distractors_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.008888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.02515445879708893,
+                0.007455905468000164
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 617
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.13376083856320747,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.2069272567427107,
+                -0.062416940129799946
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 617
+            },
+            "trials": 2250
+          },
+          "distractors_4__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.008888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.020596146579052337,
+                0.037975435220541795
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.10464040789028836,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.23732105730069905,
+                0.028022700684849057
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.013333333333333334,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.017977528089887642,
+                0.04464443277310922
+              ],
+              "trials": 450,
+              "unique_target_speakers": 284
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.07290445554084728,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.22382259814672564,
+                0.07590540469196022
+              ],
+              "trials": 450,
+              "unique_target_speakers": 284
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.022222222222222223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.05630630630630631,
+                0.01126126126126126
+              ],
+              "trials": 450,
+              "unique_target_speakers": 278
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.2234199901811436,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.37016538625337136,
+                -0.08418997074513951
+              ],
+              "trials": 450,
+              "unique_target_speakers": 278
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.035555555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.07317335996635828,
+                0.0022125120185232405
+              ],
+              "trials": 450,
+              "unique_target_speakers": 281
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.1997237001004622,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.31852403030042825,
+                -0.07696511959363196
+              ],
+              "trials": 450,
+              "unique_target_speakers": 281
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.008888888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.04666666666666667,
+                0.027523421707354993
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.06811563910329586,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.18918693439828307,
+                0.054951983985181606
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "mixed": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.013111111111111112,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.023836311365771034,
+                -0.0025850875702280716
+              ],
+              "trials": 9000,
+              "unique_target_speakers": 789
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.11962983031092694,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.17577486413106905,
+                -0.06306543544711253
+              ],
+              "trials": 9000,
+              "unique_target_speakers": 789
+            },
+            "trials": 9000
+          },
+          "overall": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.0137,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.02357973753286523,
+                -0.004097751711961859
+              ],
+              "trials": 10000,
+              "unique_target_speakers": 795
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.12457313031217546,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.17966993792462915,
+                -0.07060210620188641
+              ],
+              "trials": 10000,
+              "unique_target_speakers": 795
+            },
+            "trials": 10000
+          },
+          "snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.01,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.007821338346381206,
+                0.02724177071509648
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 576
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.07409312440272516,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.15268244714843338,
+                0.003326295337287651
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 576
+            },
+            "trials": 1800
+          },
+          "snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.008333333333333333,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.00700532474827819,
+                0.023934778892640934
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 579
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.07104050924855453,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.1519454867770187,
+                0.01183673123519066
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 579
+            },
+            "trials": 1800
+          },
+          "snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.03833333333333333,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.059668537721826,
+                -0.01749218700841077
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 564
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.18813206613455513,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.2657992383033631,
+                -0.11188630661954764
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 564
+            },
+            "trials": 1800
+          },
+          "snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.02388888888888889,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.042735167837626854,
+                -0.004600081093287967
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 573
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.16199333469445734,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.23734941379305216,
+                -0.08416262425591714
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 573
+            },
+            "trials": 1800
+          },
+          "snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.021666666666666667,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.041863201530612244,
+                -0.0022370116251198484
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 572
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.10289011707434254,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.1862297994977767,
+                -0.020996236007429375
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 572
+            },
+            "trials": 1800
+          },
+          "target_gender_female": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.0058,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.021643382274537253,
+                0.00941141368873618
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 123
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.12133671691042944,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.21809938174364651,
+                -0.02288986046901923
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 123
+            },
+            "trials": 5000
+          },
+          "target_gender_male": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.0216,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.03376472411400324,
+                -0.009790063171652631
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 672
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.1278095437139215,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.18083752937468078,
+                -0.07521351618734239
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 672
+            },
+            "trials": 5000
+          }
+        }
+      },
+      "valbest33_vs_author_external": {
+        "model_a": "valbest33",
+        "model_b": "author_external",
+        "strata": {
+          "clean": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.122,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.16211248949231982,
+                -0.0829353978492945
+              ],
+              "trials": 1000,
+              "unique_target_speakers": 439
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.7008054805796099,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.9068442854363544,
+                -0.5050921335051385
+              ],
+              "trials": 1000,
+              "unique_target_speakers": 439
+            },
+            "trials": 1000
+          },
+          "distractors_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.03333333333333333,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.009704455227172474,
+                0.057238997213406084
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 618
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.20518559229777814,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.049640859545359205,
+                0.35602166594903434
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 618
+            },
+            "trials": 2250
+          },
+          "distractors_1__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.10222222222222223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.055774581488431424,
+                0.14945260347129502
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.7362451438291424,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.44881766321986993,
+                1.0157406806860552
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.0044444444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.05360836757743974,
+                0.04398148148148148
+              ],
+              "trials": 450,
+              "unique_target_speakers": 283
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.3120603457446891,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.057591409868292406,
+                0.5763716041886061
+              ],
+              "trials": 450,
+              "unique_target_speakers": 283
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.08666666666666667,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.03562760622855635,
+                0.13686598239117406
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.24487328064799738,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.026318708555782576,
+                0.5107951732799015
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0044444444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.0425103687504713,
+                0.050328603117536015
+              ],
+              "trials": 450,
+              "unique_target_speakers": 272
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.00036090696744799463,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.24284340512957195,
+                0.24223331932726824
+              ],
+              "trials": 450,
+              "unique_target_speakers": 272
+            },
+            "trials": 450
+          },
+          "distractors_1__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.022222222222222223,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.07565106708308933,
+                0.0321215141893721
+              ],
+              "trials": 450,
+              "unique_target_speakers": 271
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.26761171570038617,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.5360340568700734,
+                -0.00568217773705685
+              ],
+              "trials": 450,
+              "unique_target_speakers": 271
+            },
+            "trials": 450
+          },
+          "distractors_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.049777777777777775,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.0253865946844849,
+                0.07326046798029556
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 601
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.26558483510052167,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.12453063423931819,
+                0.39648168331804445
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 601
+            },
+            "trials": 2250
+          },
+          "distractors_2__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.08,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.0342461566801755,
+                0.12415349887133183
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.7262796600931971,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.48090426488538024,
+                0.9659388661896018
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.11555555555555555,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.07564962155074796,
+                0.1555581761006289
+              ],
+              "trials": 450,
+              "unique_target_speakers": 275
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.6558048214929739,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.41733587600646355,
+                0.8933964853040638
+              ],
+              "trials": 450,
+              "unique_target_speakers": 275
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.06,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.009614234449760768,
+                0.10755328318847418
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.45528050276059023,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.23436442771601992,
+                0.6612002882279211
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.03777777777777778,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.009009009009009009,
+                0.08421169331310537
+              ],
+              "trials": 450,
+              "unique_target_speakers": 280
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.08411017122525663,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.3621335473660328,
+                0.1707735940241863
+              ],
+              "trials": 450,
+              "unique_target_speakers": 280
+            },
+            "trials": 450
+          },
+          "distractors_2__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.044444444444444446,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.09417160388319681,
+                0.006451960511679639
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.42533063761889633,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.6871967172533171,
+                -0.17868402980038847
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "trials": 450
+          },
+          "distractors_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.060444444444444446,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.03640138708364579,
+                0.08445117147590946
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 613
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.24352164569494233,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.09180053756281838,
+                0.39720727835814224
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 613
+            },
+            "trials": 2250
+          },
+          "distractors_3__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.06,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.02262350525425776,
+                0.09598305766978922
+              ],
+              "trials": 450,
+              "unique_target_speakers": 274
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.6373781612763803,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.41049481963096757,
+                0.858217590003653
+              ],
+              "trials": 450,
+              "unique_target_speakers": 274
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.07777777777777778,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.03416722926208528,
+                0.1206896551724138
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.6339747827931981,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.3990894157734,
+                0.8623315469960708
+              ],
+              "trials": 450,
+              "unique_target_speakers": 282
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.06444444444444444,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.015418502202643172,
+                0.11447122080700832
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.3954463984139885,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.15807460676066076,
+                0.634045502113504
+              ],
+              "trials": 450,
+              "unique_target_speakers": 279
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.08666666666666667,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.04044717085705648,
+                0.134293460753785
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.012637666075019196,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.2795339955531834,
+                0.29289082745477735
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "distractors_3__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.013333333333333334,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.03964803693450931,
+                0.06741952626784081
+              ],
+              "trials": 450,
+              "unique_target_speakers": 277
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.46182878008387435,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.7564399861156558,
+                -0.1787339003815257
+              ],
+              "trials": 450,
+              "unique_target_speakers": 277
+            },
+            "trials": 450
+          },
+          "distractors_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.04933333333333333,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.026090118298202132,
+                0.07327388809705059
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 617
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.26851758899419037,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.12146092484114547,
+                0.4117443009155553
+              ],
+              "trials": 2250,
+              "unique_target_speakers": 617
+            },
+            "trials": 2250
+          },
+          "distractors_4__snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.07333333333333333,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.034619706440058996,
+                0.11320855507176261
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.5964300128082848,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.36099311902317655,
+                0.8308188139022757
+              ],
+              "trials": 450,
+              "unique_target_speakers": 276
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.08,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.0400890868596882,
+                0.12240302587547719
+              ],
+              "trials": 450,
+              "unique_target_speakers": 284
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.4150418075928044,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.19749911106908083,
+                0.6316497180060892
+              ],
+              "trials": 450,
+              "unique_target_speakers": 284
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.02666666666666667,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.021834061135371178,
+                0.07510729613733906
+              ],
+              "trials": 450,
+              "unique_target_speakers": 278
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.27439768660366554,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.006816245448409119,
+                0.5296544747503218
+              ],
+              "trials": 450,
+              "unique_target_speakers": 278
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.035555555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.01185046205703039,
+                0.08428510327460757
+              ],
+              "trials": 450,
+              "unique_target_speakers": 281
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.12289777478104788,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.12635380701986307,
+                0.3702512608349381
+              ],
+              "trials": 450,
+              "unique_target_speakers": 281
+            },
+            "trials": 450
+          },
+          "distractors_4__snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.03111111111111111,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.02128001275684541,
+                0.08407183028699032
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.06617933681485066,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.3471451970336258,
+                0.2195934090204748
+              ],
+              "trials": 450,
+              "unique_target_speakers": 273
+            },
+            "trials": 450
+          },
+          "mixed": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.04822222222222222,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.03188721083781016,
+                0.0643278281180481
+              ],
+              "trials": 9000,
+              "unique_target_speakers": 789
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.2457024155218581,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.12690188000264804,
+                0.3606999105826305
+              ],
+              "trials": 9000,
+              "unique_target_speakers": 789
+            },
+            "trials": 9000
+          },
+          "overall": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0312,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.015685069448887305,
+                0.04700594079369884
+              ],
+              "trials": 10000,
+              "unique_target_speakers": 795
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.15105162591171134,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.035194202928802404,
+                0.26543695142529566
+              ],
+              "trials": 10000,
+              "unique_target_speakers": 795
+            },
+            "trials": 10000
+          },
+          "snr_bin_0": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.07888888888888888,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.05357142857142857,
+                0.10416727299185098
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 576
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.6740832445017512,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.5213874497381185,
+                0.8273302290319897
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 576
+            },
+            "trials": 1800
+          },
+          "snr_bin_1": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.06722222222222222,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.044818675456772476,
+                0.09007102599072213
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 579
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.5042204394059164,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.35640951324874065,
+                0.6494141332146953
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 579
+            },
+            "trials": 1800
+          },
+          "snr_bin_2": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.059444444444444446,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.03146443447406989,
+                0.08680153008984014
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 564
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.34249946710656043,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.1916315523155528,
+                0.4880932015769499
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 564
+            },
+            "trials": 1800
+          },
+          "snr_bin_3": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.04111111111111111,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.01590865616137835,
+                0.06638774268293703
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 573
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.012946544149564608,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.1511193250531652,
+                0.1734196316597328
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 573
+            },
+            "trials": 1800
+          },
+          "snr_bin_4": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.005555555555555556,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.039024456314371216,
+                0.027427609923194242
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 572
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.30523761755450185,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.4874535058954519,
+                -0.12508581680199346
+              ],
+              "trials": 1800,
+              "unique_target_speakers": 572
+            },
+            "trials": 1800
+          },
+          "target_gender_female": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.0114,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.014846267334367112,
+                0.03733411996066863
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 123
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": -0.033314493640611155,
+              "target_speaker_cluster_bootstrap_95ci": [
+                -0.24206389779460533,
+                0.156800168931422
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 123
+            },
+            "trials": 5000
+          },
+          "target_gender_male": {
+            "accuracy_difference_a_minus_b_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.051,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.03389475855408738,
+                0.06818192983082941
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 672
+            },
+            "cross_entropy_improvement_b_minus_a_positive_favors_a": {
+              "bootstrap_status": "PERFORMED",
+              "mean": 0.3354177454640338,
+              "target_speaker_cluster_bootstrap_95ci": [
+                0.22307244053120417,
+                0.44476918038980334
+              ],
+              "trials": 5000,
+              "unique_target_speakers": 672
+            },
+            "trials": 5000
+          }
+        }
+      }
+    },
+    "schema_version": 1,
+    "scientific_decision": "NOT_GATED_EXTERNAL_AUDIT"
+  }
+}

@@ -1,0 +1,197 @@
+# formal40 批大小数值诊断工具
+
+状态：2026-09-08 已通过独立本地发布复审。尚未上传或提交；下方远端命令
+须在 Task 10 核验远端状态并完成受控部署后使用，不要自行跳过部署检查。
+
+## 目标与已知事实
+
+最终目标是 formal40、valbest33 和作者 checkpoint 的同 bank 对比。本包只解决
+之前的数值一致性阻塞，不执行三模型完整 10k audit，也不重新训练模型。
+
+v4 smoke Job646900 在 2026-09-01 完成两次 32-trial 推理后失败：
+`formal40_nll max_abs=0.0077362060546875`。这证明批大小 canary 不一致，
+并未证明模型损坏、预处理错误、AMP 或 TF32 是原因。本包不放宽原有阈值，
+不修改 v4、bank、checkpoint、SNR、模型角色或科学协议，不发布 SMOKE_PASS。
+
+所有产物仍属于 `REUSED_VALIDATION_BANK_AUDIT_NOT_INDEPENDENT_TEST`，
+不能称为独立测试成绩。作者模型最终只作为 system-level external reference，
+不是任务条件完全匹配的模型排名。
+
+本包仅加载 formal40，改变了 Job646900 三模型同时驻留的分配上下文。
+即使 A2 不复现，也不能排除原始多模型驻留或编译器缓存上下文的影响。
+
+## 文件与固定身份
+
+七个文件：诊断入口 `diagnose_batch_invariance.py`、追踪原语 `numeric_trace.py`、
+单次提交器 `submit_numeric_diag.py`、runner `run_numeric_diag.sbatch`、两个
+`test_*.py` 和本 README。远端生产 tools 只放前四个文件；测试和 README 保留本地。
+
+固定诊断根：
+`/home/s2510040/audattn_external_eval_diag/same_bank_v4_job646900_2026-09-03_v1`
+
+冻结 v4 根：
+`/home/s2510040/audattn_external_eval/same_bank_2026-08-29_v4`
+
+诊断协议：`formal40_batch_invariance_diag_20260903_v1`。
+v4 协议：`fullpilot4_same_bank_audit_20260829_v4_nfs_portable_identity_v1`。
+训练 run：`fullpilot4_accum9_20260815_181000`，formal40 为 epoch40、global_step69440。
+
+| 冻结对象 | SHA-256 |
+| --- | --- |
+| v4 evaluator | `31399fdf63233023d0d4047a5a9ec4f9d4e77f821831e75a52ef8f5e1ec803c4` |
+| v4 runner | `b3531dce087b781a57b17e2ced9fecf570d6a7b1b56b5d32e6581b6dc1d59495` |
+| v4 input_freeze.json | `1f6a881098ee298ce5ff3392cca9aa62ced0760e93b56f00355dd32d33114ce5` |
+| v4 evaluation.lock | `63e6a3c031802b31928037aa246d87b7f29d18be9463bbe29739becbb1f1f710` |
+| formal-final.ckpt | `2c2a0f9b78248dd82726c63156360f7c125a927cc2e0aa7cc8a4ed58fca1c9ff` |
+
+其余输入身份由上述 v4 manifest、24 项 pinned files、冻结快照源清单、选定
+32 个 trial 及所用音频清单共同绑定，不能用当前工作目录文件替代。诊断 freeze
+是以后在新根生成的新文件，其哈希不是上表中的 v4 manifest 哈希。
+
+## 本地校验与测试（Mac）
+
+先进入本 README 所在目录。下面只读验证已记录的六个候选哈希，不是重新生成
+expected 值。最终发布还须在外部验收记录核对 README 自身哈希。
+
+```bash
+sed -n '/^<!-- RELEASE_SHA256_BEGIN -->$/,/^<!-- RELEASE_SHA256_END -->$/p' README.md |
+  sed '1d;$d' |
+  /usr/bin/shasum -a 256 -c -
+```
+
+```bash
+P=/opt/anaconda3/envs/audattn/bin/python
+export PYTHONNOUSERSITE=1
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONHASHSEED=0
+"$P" -I -B test_numeric_diag.py
+"$P" -I -B test_submit_numeric_diag.py
+/bin/bash -n run_numeric_diag.sbatch
+ruff check --no-cache .
+ruff format --check --no-cache .
+```
+
+各命令必须退出 0。模拟集成启动五个真实本地进程，但使用合成 CPU 张量、GPU
+元数据和调度器响应；实际验证了传输、持久记录和验收链路，不代表 A100 结果。
+
+## 发布流程：仅在 Task 9 发布复审通过后
+
+1. 在 Mac 核对外部验收记录中的 README 哈希及上面的六个文件哈希。
+2. 只使用固定的新诊断根；若已存在，停止并只读检查，不能删除、覆盖或自动重试。
+3. 在新根 staging 上传四个生产文件，逐一核对本 README 的预期哈希；拒绝符号链接。
+4. 以 create-once 操作发布到 tools，核对最终文件身份后才清理本次 staging。
+   不能覆盖既有 tools，也不能修改或清理 v4 与失败作业证据。
+5. audit → freeze → 人工核对新 freeze 哈希 → check-only → 单次提交。
+
+这是受控部署流程，不是授权执行。实际创建／上传命令由 Task 10 根据远端只读
+检查结果给出，不能靠重复运行整个部署块恢复。
+
+## 远端命令契约（HAKUSAN；现在不要运行）
+
+以下命令仅用于发布批准后已创建、已核验的根。使用短变量和数组，避免把参数
+中间的换行当成新命令。不要把中文说明或提示符复制进终端。
+
+```bash
+R="$HOME/audattn_external_eval_diag"
+R="$R/same_bank_v4_job646900_2026-09-03_v1"
+P="$HOME/miniconda3/envs/attn/bin/python"
+D="$R/tools/diagnose_batch_invariance.py"
+S="$R/tools/submit_numeric_diag.py"
+export PYTHONNOUSERSITE=1
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONHASHSEED=0
+"$P" -I -B "$D" audit-inputs
+```
+
+audit 通过后，只 freeze 一次。失败时保留现场，不重新创建根或复用 v4 的 freeze。
+
+```bash
+A=(freeze-inputs --confirm-protocol)
+A+=(formal40_batch_invariance_diag_20260903_v1)
+"$P" -I -B "$D" "${A[@]}"
+```
+
+从已审阅的 freeze 输出／外部记录输入新诊断 freeze SHA，不能自动对当前文件
+计算哈希后把它当作可信 expected 值。check-only 通过后才考虑提交。
+
+```bash
+read -r -p 'Reviewed diagnostic freeze SHA-256: ' F
+A=(check-only --expected-input-freeze-sha256 "$F")
+"$P" -I -B "$D" "${A[@]}"
+```
+
+下列提交器先验证输入、队列和持久记录，然后最多调用一次 sbatch。不要直接
+调用 runner、协调器或内部 `_child-*` 入口。
+
+```bash
+A=(submit --confirm-action)
+A+=(SUBMIT_V4_FORMAL40_NUMERIC_DIAGNOSTIC)
+A+=(--confirm-v4-job-id 646900)
+A+=(--expected-input-freeze-sha256 "$F")
+"$P" -I -B "$S" "${A[@]}"
+```
+
+输出不确定、断线、超时、已有 INTENT／执行证据时，只查 status，绝不自动重提。
+确认 sbatch 成功后，作业由调度器负责，不依赖 SSH 或 tmux 连接；tmux 只用于
+观察。交互式 srun 不是这里的提交方式。
+
+```bash
+"$P" -I -B "$S" status
+```
+
+status 只报告调度／记录状态，不证明数值结果有效。Slurm COMPLETED 也不等于
+通过。作业结束后，从已核对回执输入诊断 Job ID，并运行真正的只读结果验证：
+
+```bash
+read -r -p 'Diagnostic job ID from reviewed receipt: ' J
+A=(verify-results --expected-input-freeze-sha256 "$F")
+A+=(--job-id "$J")
+"$P" -I -B "$D" "${A[@]}"
+```
+
+## 执行矩阵与产物
+
+依次运行五个独立进程：reference_cold → A2 → A1 → B1 → B2。
+参考走冻结 predict_batch；各 cell 为相同 32 个 trial 的两次推理。
+
+| cell | autocast | 两次 batch size |
+| --- | --- | --- |
+| A2 | 开启 | 16、1 |
+| A1 | 开启 | 16、16 |
+| B1 | 关闭 | 16、16 |
+| B2 | 关闭 | 16、1 |
+
+每个子进程使用独立 scratch／缓存，父进程绑定 PID、参数、输入哈希、完成记录
+及持久文件。正式产物在 attempts/slurm-JOB 下，含 reference_cold、cells、
+输入／环境记录、边界与输出证据、比较摘要及工件清单；state 存终态记录，
+submitted_runners 保存实际 runner，logs 保存作业日志。schema_version 为 1，
+每份结果同时绑定协议、Job ID、freeze SHA、trial／源身份及大小／哈希清单。
+序列化数组和受控工件有全局 1 GiB 最坏情况预算，不能改成无限 dump；日志和
+scratch 不是可用这一预算替代管理的正式数值工件。
+
+## 如何解释结果
+
+- DIFF：身份和数值有效，但超过固定一致性判据；这是诊断发现，不自动判实验失败。
+- INVALID：非有限值、来源／结构／追踪等有效性失败；不得解释成可比较模型结果。
+- DIAGNOSTIC_COMPLETE：协调器完成证据链；仍须 verify-results 重新核验文件及比较。
+- DIAGNOSTIC_RESULTS_VERIFIED：只读结果验证通过，才进入人工数值原因分析。
+- DIAGNOSTIC_FAILURE_RECORDED：失败证据可核对，不代表数值结果可解释。
+- Slurm 已结束但缺少终态：未完整结束，需要调查；不得补写成功标记。
+- ACCOUNTING_PENDING／STOP_AMBIGUOUS：等待再次只读查询或调查，不自动重试。
+
+诊断不会自动修复 v4、放宽阈值、发布 smoke 成功、提交新评估或推导三模型排名。
+之后须审阅 A2 复现、冷参考等价和边界差异，再决定有证据支持的修复与新的 smoke，
+最后才是完整 10k 对比。
+
+## 六文件候选哈希
+
+下面是机器可读取的固定值。README 自身哈希只记录在外部报告，避免自哈希循环。
+
+<!-- RELEASE_SHA256_BEGIN -->
+7c34a2714c109e7217c2fd704d7c9296f471215aefc9832f3d86ebe03c9045ce  diagnose_batch_invariance.py
+fa950c751f5accb9176733c05faefe0a9b907a68135efe29cbae2b01e61ae38b  numeric_trace.py
+d2afe42f976a27c905ae1cd296ebc4e58af266a3df453dcff4cd70a980790df1  submit_numeric_diag.py
+1f32a9814db1156d4f57d5219e69d3ce609065c625963973e6751237f3e6d8d4  run_numeric_diag.sbatch
+8007b6d28e549f6257ed49c13db31dce83d7a37dc537a48227ca8009e2c5f0b6  test_numeric_diag.py
+4fcbe4a6307a9fb70f8bf35f11d5099246b89180eba415282d186bfccc7b055b  test_submit_numeric_diag.py
+<!-- RELEASE_SHA256_END -->

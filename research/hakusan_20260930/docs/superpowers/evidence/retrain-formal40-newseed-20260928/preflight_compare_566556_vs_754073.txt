@@ -1,0 +1,13 @@
+status|PASS|PASS
+global_step|3000|3000
+successful_optimizer_steps|2999|2999
+amp_overflows|1|1
+confirmed_amp_skip_backoffs|1|1
+grad_scaler_scale|65536.0|65536.0
+effective_batch_size|288|288
+precision|16-mixed|16-mixed
+base_config_sha256|3efe0f455d7c902c772f5d1a6fb30cf0a4f13e46f0b72024ff5bfa7b9f3229b4|5e270475c612e8596d935c3b8a807236007950a2f50ae45d758f48c1db79da65
+source_semantic_sha256|496cf41c8abedb4673a83a4ec148bc74ea92e6c059ea4bc998610a0db1ab9038|ccddb1f3c03bfe68fbcbaeb19f00ec7c3397536c2fdd0db8dc608cfba7258d3c
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+NameError: name 'environment' is not defined

@@ -1,0 +1,342 @@
+{
+  "gpu_jobs_submitted": 0,
+  "legacy_files_verified": 255,
+  "network_access": false,
+  "package_check": {
+    "argv": [
+      "/opt/anaconda3/envs/audattn/bin/python",
+      "-I",
+      "-B",
+      "/Users/gigi/发表/超算/alpha_mechanism_local_20260923/release_fine_alpha_20260929_candidate_v4/package/fine_alpha_entry.py",
+      "check",
+      "0b067f57d612987d9c80a56e385658b1414095e46b5956b0bff43a7760668a2a"
+    ],
+    "elapsed_seconds": 0.4019728749990463,
+    "log": {
+      "sha256": "3f75bc742abb23643ec385e25e0b484a21ac16b5135cfc8316b71d02c17a16e2",
+      "size": 236
+    },
+    "returncode": 0
+  },
+  "pending": [
+    "remote_publish",
+    "native_source_check",
+    "gpu_budget",
+    "single_held_submit",
+    "resource_review",
+    "separate_release_authorization",
+    "inference",
+    "offline_verification",
+    "science_readout"
+  ],
+  "production_checkpoint_loaded": false,
+  "regression": {
+    "argv": [
+      "/opt/anaconda3/envs/audattn/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/Users/gigi/发表/超算/alpha_mechanism_local_20260923",
+      "-v"
+    ],
+    "elapsed_seconds": 69.0225255000405,
+    "log": {
+      "sha256": "f3fee3c7fd01f1f7f3336e3a34ab96188886ddb33e40d9ef7d17c339006e84d2",
+      "size": 67765
+    },
+    "returncode": 0
+  },
+  "release_sha256": "0b067f57d612987d9c80a56e385658b1414095e46b5956b0bff43a7760668a2a",
+  "scientific_results_obtained": false,
+  "skipped_until_frozen": [
+    "test_fine_alpha_upload_v4",
+    "test_fine_alpha_v4_chain",
+    "test_fine_alpha_v4_followup"
+  ],
+  "source_files": {
+    "analyze_fine_alpha_756262.py": {
+      "sha256": "068a6e3d0dc66e852932868c7020f008413edba645225c6411672a0a9414c13e",
+      "size": 7537
+    },
+    "build_fine_alpha_package.py": {
+      "sha256": "c8988806562eec92ba6a6235964d3eb6095d4c7be804ac239edd1e482cc7f610",
+      "size": 3430
+    },
+    "check_fine_alpha_v2_native_cpu.py": {
+      "sha256": "911551d8cd8936cd5d93f8d10973fefdacc2a6f7453d4285f6ad13afe320c7db",
+      "size": 4789
+    },
+    "collect_fine_alpha_753729.py": {
+      "sha256": "11bfa5db88139535608c0a4a236d27d0f9480e025e1526f0b9f884c471af24be",
+      "size": 7534
+    },
+    "collect_fine_alpha_v3.py": {
+      "sha256": "62ca3fe227000b39c5b7c9574fd9a5d15c1bdb82d921cb837a024d9f1d1caf48",
+      "size": 8101
+    },
+    "collect_fine_alpha_v4.py": {
+      "sha256": "9e9cb3a91b78324b28764cfdb2d2856fbe2cf0ea58bc0ac0c6beadf752d8dc81",
+      "size": 8775
+    },
+    "correct_fine_alpha_753729_once.py": {
+      "sha256": "651f6f409ba2a3fb78abb6cd83a713f6e5726938ca3826ed0c2a4050b4621e1b",
+      "size": 11975
+    },
+    "correct_fine_alpha_v3_once.py": {
+      "sha256": "5434074d6dbbb23d03246cac13173c871c11ba67c8854a902504698594aee12e",
+      "size": 18419
+    },
+    "correct_fine_alpha_v4_once.py": {
+      "sha256": "b5d0f69d9a03a7f6689bf3ba3d38f2badf97a342a332c4e9e828ba8f73f5c358",
+      "size": 18419
+    },
+    "fine_alpha_archive.py": {
+      "sha256": "7bc59b050b35f24c02e2795e0d0621e62c652eb2e6e19cbdfbe686cb5357a9fe",
+      "size": 11761
+    },
+    "fine_alpha_contract.py": {
+      "sha256": "9daba451040a8f805c98b4342d17a5e819cb6885e7d454b0105081d5c9fba275",
+      "size": 3878
+    },
+    "fine_alpha_entry.py": {
+      "sha256": "fc92a193a570eaf2e936a67b4eb6df7c1b5e6899a1245fb52d032623f06e003c",
+      "size": 6921
+    },
+    "fine_alpha_execution.py": {
+      "sha256": "ad35b45be371c6e215e6063a9b4facd28e0236e6cb4e782f485051219e4c81f6",
+      "size": 6510
+    },
+    "fine_alpha_gain.py": {
+      "sha256": "7904c23f33506390157e14a5fc6fe300cf7e8c25d0fdc7c84b5cbc5e050b73be",
+      "size": 3907
+    },
+    "fine_alpha_pipeline.py": {
+      "sha256": "3f3efa7e85d34e29a5d6c93da518f5ec8c4590ee8fe97daa76fece0cb25e85f3",
+      "size": 2142
+    },
+    "fine_alpha_provenance_cpu_probe.py": {
+      "sha256": "febae186451f0926c39f340529fe78e23d17904d6319393fbb0fdcc4d482baaf",
+      "size": 4085
+    },
+    "fine_alpha_statistics.py": {
+      "sha256": "44b74c8e41a55df5e148a03e12f6015ff888b24238f08b5ed5f7baf712595fe5",
+      "size": 16996
+    },
+    "fine_alpha_submission_queue.py": {
+      "sha256": "ecd4772acc304d79c8d7509189e5f233a9b5f6a938cf0853a9791132e2c3be1d",
+      "size": 6698
+    },
+    "fine_alpha_submit_once.py": {
+      "sha256": "543c52f60453074d7b8fe2ffdfdec0593042b64b4353b2b0528690c4431c168e",
+      "size": 6962
+    },
+    "fine_alpha_upload_transport.py": {
+      "sha256": "5234db7684e93c631be158557039d855a17d0b27cd3cb33458d94e5ee5215bd5",
+      "size": 7628
+    },
+    "fine_alpha_v4_anchor.py": {
+      "sha256": "d2f8b5ded2ddcd3c99cdf5898493fa18dcbf93d2e173aa94b797c8e5b1eae7ef",
+      "size": 1851
+    },
+    "make_fine_alpha_figures.py": {
+      "sha256": "2d0e27286662bb4bcf43d9bb8a4fda8a42922376236ddd9e26f92e1fec25683f",
+      "size": 12072
+    },
+    "make_fine_alpha_snr_figures.py": {
+      "sha256": "149fbf74fd4fbee8ddbc8ae60f9ebd09b5cd71d0ca8130d1bc8373d0e575f339",
+      "size": 12957
+    },
+    "preflight_fine_alpha.py": {
+      "sha256": "208610138696a4ff1de31bb22d974e11f46865a74a695c2573e27bc038fa1a19",
+      "size": 6996
+    },
+    "preflight_fine_alpha_v2.py": {
+      "sha256": "a767d1c285dace8b294f7d50f7d221191d01742566e7ed9b9996a0f017ce091f",
+      "size": 2323
+    },
+    "preflight_fine_alpha_v3.py": {
+      "sha256": "b25352011433157db3b23fad3c5cf7dfc596e99cf9c773d4114999252dae6aaa",
+      "size": 2364
+    },
+    "preflight_fine_alpha_v4.py": {
+      "sha256": "63e21fdbab416e5de8d67c4b9b72cde1481ac293c85d6bfb763f09a23133c1b4",
+      "size": 2496
+    },
+    "prepare_fine_alpha_local.py": {
+      "sha256": "71c50d1f6e3a1b9b5dc4878c64317c31a9fc2577e40019936459ef198d363a56",
+      "size": 5143
+    },
+    "publish_fine_alpha.py": {
+      "sha256": "5ab47258b4946f46f2f70e45c7b092cc5a11d58c0eb322eb408c35fd48cba2c0",
+      "size": 5346
+    },
+    "publish_fine_alpha_v2.py": {
+      "sha256": "236b69a19b539d2f8f410d74624c070eee345bfe966c9ecb9e6a5e11a8af5746",
+      "size": 8855
+    },
+    "publish_fine_alpha_v3.py": {
+      "sha256": "7576245ae5f31d62516d6bce3c1a58cfa4cb9edd800bc60a09a1c0606ee93bd1",
+      "size": 7779
+    },
+    "publish_fine_alpha_v4.py": {
+      "sha256": "ba35467489fafd5b18c440ac581a96725c73b206a7790e52f1726ce96614e2c2",
+      "size": 8594
+    },
+    "release_fine_alpha_753729_once.py": {
+      "sha256": "fda4989745675a4ae47fbf3e4fd93cf7a38f7afba3e5bfdd70a9d6fe681ff0b2",
+      "size": 11800
+    },
+    "release_fine_alpha_v3_once.py": {
+      "sha256": "080ef5cb505bf834cd6a129f0ebd31cc789ee3ce18d66a76097e11d40fe7d3c9",
+      "size": 21487
+    },
+    "release_fine_alpha_v4_once.py": {
+      "sha256": "891dda3248572882e591aa0d5de6790799a8a523380a833ffe3e0ed3a0eeefe6",
+      "size": 21487
+    },
+    "review_fine_alpha_v3_queue.py": {
+      "sha256": "3aac66a26263eb36350332ce6e35205d74af59c30ccf542be15bd761d0082908",
+      "size": 9339
+    },
+    "review_fine_alpha_v4_queue.py": {
+      "sha256": "2bca478e4b4335099f7219b5129d6d4d4d4ac23c5206ccde87eaa24581a96697",
+      "size": 9203
+    },
+    "run_fine_alpha.sbatch": {
+      "sha256": "f3ef33973d73dfb2bcdecaa301abaaf84a2708737182c635c5a75f3618a6ca99",
+      "size": 866
+    },
+    "status_fine_alpha_753729.py": {
+      "sha256": "ad90a9fcbd65f3c1e36239f8b5a4dc102b81bac0ada2bb1c37f3db6f5e5fb816",
+      "size": 7111
+    },
+    "status_fine_alpha_v3.py": {
+      "sha256": "c492ea95b4a213d1eaef004b4b7e3b4b97dfd4367e92cd76a1dddc744682ec5e",
+      "size": 9182
+    },
+    "status_fine_alpha_v4.py": {
+      "sha256": "3b66576d2d5c2f2c96443e06783443330c61cb5dec3a9cea5827da0039bf27d0",
+      "size": 9170
+    },
+    "submit_fine_alpha_authorized.py": {
+      "sha256": "62cc69d2961783ef2c10c6f62960c5299adf682b6fa1134ecc246dac3605d993",
+      "size": 13504
+    },
+    "submit_fine_alpha_v3.py": {
+      "sha256": "866c1ee4948ff6e0bd8da7d161b8c0c183e685ad7e6017234d2c6120f8a1fee8",
+      "size": 23591
+    },
+    "submit_fine_alpha_v4.py": {
+      "sha256": "9f58b0666d0f8e0bc56444aeeadd2960c488be56c4f67064b84cf17c7c584592",
+      "size": 23606
+    },
+    "test_fine_alpha.py": {
+      "sha256": "afd3921fd8f2a2ebe044e777adbb97126c758cd7ab3c580184462bceffcaf1bd",
+      "size": 13849
+    },
+    "test_fine_alpha_archive.py": {
+      "sha256": "bc149b32277464b44116df740d2f464253a0c79e5af0faf19646f9e95b9aca08",
+      "size": 8505
+    },
+    "test_fine_alpha_authorized.py": {
+      "sha256": "a3dfb5a1254b29ecf023fad062d72cc85a144cd008d492d9283c3f6105b80b6d",
+      "size": 6635
+    },
+    "test_fine_alpha_correction.py": {
+      "sha256": "ffade95b2596bbfea8da571d29c52088daf5994cc3f0eec0e3884e01387be7c7",
+      "size": 3310
+    },
+    "test_fine_alpha_followup.py": {
+      "sha256": "c4deccc018ec63f7bf205fbc031f764a5d8b2e2d5c9fd8c2be8f158ac1bbc537",
+      "size": 3983
+    },
+    "test_fine_alpha_preflight.py": {
+      "sha256": "191bcf3a67a5d1f30de2955d12571b866a7c9beaa23abaa3fbb88087aa1cff2b",
+      "size": 2847
+    },
+    "test_fine_alpha_preflight_v2.py": {
+      "sha256": "9976c18d209f2d4577a9c52f95dec7c9e460d46ffc8d8df7094ae92564289370",
+      "size": 4716
+    },
+    "test_fine_alpha_preflight_v3.py": {
+      "sha256": "9e69d0b0d625c9533fae428677a4bf1d67428d754e0e154d9c08a026e0b31e36",
+      "size": 4872
+    },
+    "test_fine_alpha_provenance.py": {
+      "sha256": "187278acbe8bcd5348504f6033063427b5bd9d5e29307d3610b760c6f0c67109",
+      "size": 10988
+    },
+    "test_fine_alpha_release.py": {
+      "sha256": "e7ea279dbb98d5107acdb6a2dc474531f8d0812b6a5a4dc5a1ebb92873c5d049",
+      "size": 2619
+    },
+    "test_fine_alpha_statistics.py": {
+      "sha256": "fb3a934ce59199201d8bd74b7e5ef4272fb6b89a30410bff5fba628988f497cb",
+      "size": 2786
+    },
+    "test_fine_alpha_submission.py": {
+      "sha256": "13692d70c4dc431595968d8856b4375ce1620e852a24975e24cbadf6e985160f",
+      "size": 6478
+    },
+    "test_fine_alpha_submission_queue.py": {
+      "sha256": "85b8e918c4106fff07024e9cf70e817351101b24c44ccc172de2ed330bef2184",
+      "size": 15273
+    },
+    "test_fine_alpha_upload.py": {
+      "sha256": "7a9f6dc73e0b7ae89b7cdb6c41684e75b87b6fcae6caa8ca4ead017fdeb7ca45",
+      "size": 3543
+    },
+    "test_fine_alpha_upload_queue.py": {
+      "sha256": "b863352f65d0e8a6ae079ccc73697a5d99c0b24cd30c04a76a456e6f7614fb0a",
+      "size": 4854
+    },
+    "test_fine_alpha_upload_v2.py": {
+      "sha256": "1b47b42679018cfa1960655a92330f4a59455363ad6857fd640dfbd6abed99ce",
+      "size": 4388
+    },
+    "test_fine_alpha_upload_v3.py": {
+      "sha256": "a30b1adbdf67514676c248a99c3be0f19dfead12e3f5888702396c4e58937492",
+      "size": 6506
+    },
+    "test_fine_alpha_upload_v4.py": {
+      "sha256": "ce1e9ec2c91afb257b5a79ee225999109522b86a13215c73cff191a8dce7d061",
+      "size": 7069
+    },
+    "test_fine_alpha_v3_chain.py": {
+      "sha256": "672f35102a514ebc69d6f25c6d6147094c15dcc0bc5512f362531b37cf7f51c2",
+      "size": 33042
+    },
+    "test_fine_alpha_v3_followup.py": {
+      "sha256": "959b82bf0bfce36d063564a4aa6e18d8d3298b1692e5f888f0871005a1f12abe",
+      "size": 3699
+    },
+    "test_fine_alpha_v4_anchor.py": {
+      "sha256": "5e44586ae9d7f9f0b62dea31130702886e7e7a0f1e9999ab43f34cab33bcb94b",
+      "size": 1614
+    },
+    "test_fine_alpha_v4_chain.py": {
+      "sha256": "4cc91de5d9463fb6a9761223acfc7bb19f585d0fa5b439fee8d22d63ff47d446",
+      "size": 33788
+    },
+    "test_fine_alpha_v4_followup.py": {
+      "sha256": "dee36e00da11820d653a891daf41e8a475b8b809b75f43b6283ec56a507f7dfe",
+      "size": 3980
+    },
+    "watch_fine_alpha_753729.py": {
+      "sha256": "81ecb9cea96ca20e5926915d1cb6203381b141f017a9cc70ebe24237bc91fb5f",
+      "size": 2268
+    },
+    "watch_fine_alpha_v3.py": {
+      "sha256": "180daf4bc710af674c06cbc2f8f8f34ada1b8d9a8de99f4dd6db8c9a1c0b28d7",
+      "size": 6727
+    },
+    "watch_fine_alpha_v4.py": {
+      "sha256": "757f52daf924662e81d1c1dee092e78623e01fae35746ed708495197e56772ed",
+      "size": 6727
+    }
+  },
+  "status": "FINE_ALPHA_LOCAL_CANDIDATE_VERIFIED_NOT_GPU_AUTHORIZED",
+  "tests": 577
+}

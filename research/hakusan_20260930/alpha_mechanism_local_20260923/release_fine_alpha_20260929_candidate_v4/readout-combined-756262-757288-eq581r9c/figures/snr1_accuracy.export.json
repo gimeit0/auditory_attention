@@ -1,0 +1,58 @@
+{
+  "notice": "Export completed with explicit settings. This report does not establish visual, accessibility, scientific-integrity, or journal-submission compliance.",
+  "outputs": [
+    {
+      "format": "png",
+      "kind": "raster",
+      "path": "/Users/gigi/发表/超算/alpha_mechanism_local_20260923/release_fine_alpha_20260929_candidate_v4/readout-combined-756262-757288-eq581r9c/figures/snr1_accuracy.png",
+      "size_bytes": 309550
+    },
+    {
+      "format": "pdf",
+      "kind": "vector-container",
+      "path": "/Users/gigi/发表/超算/alpha_mechanism_local_20260923/release_fine_alpha_20260929_candidate_v4/readout-combined-756262-757288-eq581r9c/figures/snr1_accuracy.pdf",
+      "size_bytes": 39544
+    }
+  ],
+  "provenance": {
+    "figure_script_sha256": "bc60577fffe7c3ecd94a2d547e16dab5783cf47299a420f85cb8c5e0cbb3a409",
+    "helper_sha256": {
+      "_common.py": "1bbbfb48500af7dd6df98076584085b2b2a24aee3024a7d9ce91dcb27ebd4b15",
+      "figure_export.py": "5fc7dd947621b861b12fad2c053f80f465f686b92258c9a7991db618d62b8627",
+      "style_presets.py": "3c811ecb16c012691b69e9f27993ef096977754c3a6e73d247e816a674efff21"
+    },
+    "jobs": {
+      "new": "757288",
+      "old": "756262"
+    },
+    "raw_data": "release_fine_alpha_20260929_candidate_v4/readout-combined-756262-757288-eq581r9c/REPORT.json",
+    "raw_data_sha256": "63237f76c1e8661921413d522baebd87dce21dd627d1e39891dabb552a7e0ae4",
+    "transformations": [
+      "per-alpha trial means; no smoothing",
+      "0-0.75 connected (0.01 grid); >=0.80 separate points"
+    ],
+    "uncertainty": "pointwise 95% target_speaker cluster bootstrap, seed 20260926, 10000 draws; not simultaneous"
+  },
+  "schema_version": "1.0",
+  "settings": {
+    "bbox_inches": null,
+    "dpi": 600.0,
+    "facecolor": "white",
+    "figure_size_inches": [
+      6.889763779527559,
+      3.149606299212598
+    ],
+    "font_mode": "truetype",
+    "formats": [
+      "png",
+      "pdf"
+    ],
+    "pad_inches": 0.1,
+    "transparent": false
+  },
+  "versions": {
+    "matplotlib": "3.11.0",
+    "pillow": "12.2.0"
+  },
+  "warnings": []
+}

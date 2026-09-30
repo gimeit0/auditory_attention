@@ -1,0 +1,51 @@
+{
+  "accumulate_grad_batches": 9,
+  "amp_overflows": 1,
+  "base_config_relative_path": "selftrain/configs/full.yaml",
+  "base_config_sha256": "5e270475c612e8596d935c3b8a807236007950a2f50ae45d758f48c1db79da65",
+  "batch_size": 32,
+  "checkpoint": "/home/s2510040/selective_listening_repro/code/auditory_attention_seed20260928/selftrain/numerics_preflight_runs/754073/numerics_preflight/checkpoints/rolling.ckpt",
+  "checkpoint_sha256": "15c35b42e16a67db517b38e02182a0e1121b2880e13998a9099bccbe73fc7259",
+  "confirmed_amp_skip_backoffs": 1,
+  "created_at": "2026-09-28T17:01:25.016154+00:00",
+  "effective_batch_size": 288,
+  "environment": {
+    "gpu": {
+      "capability": [
+        8,
+        0
+      ],
+      "name": "NVIDIA A100-PCIE-40GB"
+    },
+    "nvidia_driver": "575.57.08",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "chcochleagram": "1.0",
+      "numpy": "1.26.0",
+      "pandas": "2.1.3",
+      "pytorch-lightning": "2.1.1",
+      "scipy": "1.11.3",
+      "soundfile": "0.13.1",
+      "torch": "2.1.1+cu118",
+      "torchaudio": "2.1.1+cu118"
+    },
+    "platform": "Linux-5.15.0-69-generic-x86_64-with-glibc2.31",
+    "python": "3.11.5",
+    "schema_version": 1,
+    "torch_cuda": "11.8",
+    "torch_cudnn": 8700
+  },
+  "expected_optimizer_attempts": 3000,
+  "expected_train_batches": 27000,
+  "expected_train_examples": 864000,
+  "generated_config_sha256": "ed41653aaaa032a3a9676a25d73fedac286741c7663e84df9999447503b63a0f",
+  "global_step": 3000,
+  "grad_scaler_scale": 65536.0,
+  "job_id": "754073",
+  "precision": "16-mixed",
+  "schema_version": 3,
+  "source_provenance_sha256": "1b3931bdd014c44128adb88d263f8079202b793982434e03fe000de2ee2ae181",
+  "source_semantic_sha256": "ccddb1f3c03bfe68fbcbaeb19f00ec7c3397536c2fdd0db8dc608cfba7258d3c",
+  "status": "PASS",
+  "successful_optimizer_steps": 2999
+}

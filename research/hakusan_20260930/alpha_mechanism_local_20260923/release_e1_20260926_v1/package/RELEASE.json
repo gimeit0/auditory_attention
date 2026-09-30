@@ -1,0 +1,717 @@
+{
+  "authorization": "THIS_MANIFEST_IS_NOT_GPU_AUTHORIZATION",
+  "budget": {
+    "coordinator_deadline_seconds": 9900,
+    "cpus": 8,
+    "gpus": 1,
+    "host_memory_gib": 64,
+    "wall_minutes": 180,
+    "worker_deadline_seconds": 9000
+  },
+  "contract_sha256": "f3fcacec3efb77962091ae58cbecde59de6b79ee503399c9ae8c0a120398b843",
+  "execution": {
+    "alpha_grid": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "clean_passes": [
+      "original",
+      "explicit_bypass",
+      "alpha_0",
+      "alpha_025",
+      "alpha_05",
+      "alpha_075",
+      "alpha_1"
+    ],
+    "historical_bridge": "E0 job746603; E1 endpoints use the NEW same-layout reference",
+    "main_passes": [
+      "original",
+      "explicit_bypass",
+      "alpha_0",
+      "alpha_025",
+      "alpha_05",
+      "alpha_075",
+      "alpha_1",
+      "uniform_05",
+      "conv_only_05",
+      "fc_mean_preserved_05"
+    ],
+    "model_id": "formal40",
+    "process_order": [
+      "A",
+      "B",
+      "VERIFY"
+    ],
+    "records": [
+      {
+        "key": [
+          "A",
+          "main",
+          "original",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "original",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "original",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "original",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "explicit_bypass",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "explicit_bypass",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "explicit_bypass",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "explicit_bypass",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_0",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_0",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_0",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_0",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_025",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_025",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_025",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_025",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_05",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_05",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_05",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_05",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_075",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_075",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_075",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_075",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_1",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_1",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_1",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "alpha_1",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "uniform_05",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "uniform_05",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "uniform_05",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "uniform_05",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "conv_only_05",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "conv_only_05",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "conv_only_05",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "conv_only_05",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "fc_mean_preserved_05",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "fc_mean_preserved_05",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "fc_mean_preserved_05",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "main",
+          "fc_mean_preserved_05",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "original",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "original",
+          "zero_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "explicit_bypass",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "explicit_bypass",
+          "zero_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_0",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_0",
+          "zero_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_025",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_025",
+          "zero_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_05",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_05",
+          "zero_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_075",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_075",
+          "zero_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_1",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "A",
+          "clean",
+          "alpha_1",
+          "zero_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "B",
+          "main",
+          "alpha_1",
+          "correct"
+        ],
+        "predictions": 2000
+      },
+      {
+        "key": [
+          "B",
+          "main",
+          "alpha_1",
+          "shuffled"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "B",
+          "main",
+          "alpha_1",
+          "silent"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "B",
+          "main",
+          "alpha_1",
+          "distractor"
+        ],
+        "predictions": 400
+      },
+      {
+        "key": [
+          "B",
+          "clean",
+          "alpha_1",
+          "correct_cue"
+        ],
+        "predictions": 200
+      },
+      {
+        "key": [
+          "B",
+          "clean",
+          "alpha_1",
+          "zero_cue"
+        ],
+        "predictions": 200
+      }
+    ],
+    "runtime": {
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "cudnn_tf32": false,
+      "deterministic_algorithms": true,
+      "matmul_precision": "highest",
+      "matmul_tf32": false,
+      "mode": "eager_fp32",
+      "seed": 20260829
+    },
+    "scope": "REUSED_VALIDATION_BANK_DEVELOPMENT_NOT_INDEPENDENT_TEST"
+  },
+  "files": {
+    "E1_CANDIDATE_2000_20260926.json": {
+      "sha256": "be2011fdd6489777521a5f54af8d8f4fc39a73b14c6669b636e674f844bbb69b",
+      "size": 234278
+    },
+    "E1_CONTRACT.json": {
+      "sha256": "f3fcacec3efb77962091ae58cbecde59de6b79ee503399c9ae8c0a120398b843",
+      "size": 67948
+    },
+    "E1_DATA_FREEZE_20260926_v1.json": {
+      "sha256": "6c4df571e897a2c13aa6c693a86783c83ac8620b1f24b7f932ddbe6d93ab62fe",
+      "size": 354741
+    },
+    "alpha_gain.py": {
+      "sha256": "4d0dcd6b838f3ce844668e4c26a13f4fd00b8030677f0f5546430036a410bc8d",
+      "size": 2508
+    },
+    "architecture_adapter.py": {
+      "sha256": "6a1eac6208a2796f1cc017e6bb654101719cd01c4084efccb4ade9fe538c7c8b",
+      "size": 4509
+    },
+    "check_e0_proposal.py": {
+      "sha256": "537a49995873a8a89a330fc6e67cd3736a8b0666b706d03494117a6e70f274e7",
+      "size": 2105
+    },
+    "e0_archive_harness.py": {
+      "sha256": "938e99b45009b77941a088c2f9e544ed08cc697d902231abdfd0ff6077c9cab2",
+      "size": 8560
+    },
+    "e0_layout_reference.py": {
+      "sha256": "dcde4a371e527d2ea44f1c6c4ee82ed5777645abe279449d545fc18eac378a6f",
+      "size": 6673
+    },
+    "e1_audited_session.py": {
+      "sha256": "a9090605105b06de429652b9853ae9bb4587aa4c1241dcf82df9dd45bff6ceb0",
+      "size": 9790
+    },
+    "e1_clean_input_v2.py": {
+      "sha256": "1bd244b5c71aeed62c14a0da6c2f4b981c5201ccf7953b6d445225ca58231e7b",
+      "size": 3163
+    },
+    "e1_entry.py": {
+      "sha256": "4bd2f1d8c34097fa42a4961bc38d931e4c272a0b39b4963104311b22618c8443",
+      "size": 5664
+    },
+    "e1_execution.py": {
+      "sha256": "8539dbae2b6b16db3bd31d1495500f540947dd10359bea16ced035d6dfcbe898",
+      "size": 6096
+    },
+    "e1_input_check.py": {
+      "sha256": "1afc867c0875fee85455d0f34ce334bf29c5403bac560350738578b4e5a258d6",
+      "size": 1723
+    },
+    "e1_inputs.py": {
+      "sha256": "554e9cb2192814edfdcf1fe3f2a8515c7925275cd74e051a892a99c0e2d0148c",
+      "size": 2242
+    },
+    "e1_provider.py": {
+      "sha256": "045d4a191c05f38f2c25a056e95ec5fea7a03aa08401210fc2c4112926b6551a",
+      "size": 1701
+    },
+    "e1_supervisor.py": {
+      "sha256": "fbcf72588b97b60c7e04a9a4a13c14b108c8d3ba352ee4982bfe8856f5bbff4c",
+      "size": 2605
+    },
+    "e1_worker_archive.py": {
+      "sha256": "71f4914533a5fc8ae1c3a46966cba700c89b8aae9a376038e792f946f757e073",
+      "size": 5785
+    },
+    "eager_compare.py": {
+      "sha256": "09cb0c4816d001d172215ead49a1a0c9efde07b794125da4980dd822883a4d5b",
+      "size": 39861
+    },
+    "frozen_bank.tsv": {
+      "sha256": "d03404f2bca5aeb8a5d096b84f6ef758b6b07d0ee5efbd44ded59135bced0091",
+      "size": 10803199
+    },
+    "gain_formula_check.py": {
+      "sha256": "023ddb2880b4271a8dee08617cb31997a1675e5151573b9e2fbd49f80bf10f02",
+      "size": 4351
+    },
+    "loaded_model_adapter.py": {
+      "sha256": "7e3b105b481fd432d2b9486d4091a7f6792397d4b5e8aed4a597fbdd397fa583",
+      "size": 4498
+    },
+    "native_batch_provider.py": {
+      "sha256": "45c7a4ec0153cabc705c7ebdfe080393cded3f667f12a1a5105d891810d476cd",
+      "size": 3044
+    },
+    "production_e1.py": {
+      "sha256": "a42c936afc957b68010ae8cd0ec46ba887df0317b2bca8715794379f6b926603",
+      "size": 5618
+    },
+    "run_e1.sbatch": {
+      "sha256": "5fa0901bf329ec54ec5a3076ccfc995e2c54949f15ee2a16767eff728dd1b877",
+      "size": 836
+    },
+    "snapshot_source_import.py": {
+      "sha256": "71a4159189423683643cb0ad3bfdac2a0d4f68b9a1c85d46c4cd01184877c03b",
+      "size": 2804
+    },
+    "submit_e1_once.py": {
+      "sha256": "520be8ac182a067e6c02f7173865469c015eaa2328ee8440200d36f9e1f84d9b",
+      "size": 3752
+    },
+    "two_process_supervisor.py": {
+      "sha256": "4621db8c5d1689e2c33231c0577b7672fd034e1c46c30388b7905a4bd51b2044",
+      "size": 3193
+    }
+  },
+  "predictions": 38400,
+  "schema_version": 1,
+  "scientific_status": "DEVELOPMENT_PROTOCOL_STATISTICS_APPROVAL_PENDING",
+  "scope": "E1_FORMAL40_NATIVE_20260926_V1",
+  "submission": "held_once_manual_review_required"
+}

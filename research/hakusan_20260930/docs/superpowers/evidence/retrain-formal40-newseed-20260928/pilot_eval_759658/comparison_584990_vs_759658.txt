@@ -1,0 +1,51 @@
+decision: GO | GO
+engineering: PASS | PASS
+bank_sha256 d03404f2bca5 d03404f2bca5 SAME
+config_sha256 3efe0f455d7c 5e270475c612 DIFF
+evaluator_sha256 29414207e3fa 29414207e3fa SAME
+source_semantic_sha256 496cf41c8abe ccddb1f3c03b DIFF
+pilot ckpt: c61af82c1ce3 c0cf676757af {'global_step': (6944, 6944), 'successful_optimizer_steps': (6941, 6941), 'amp_overflows': (3, 3)}
+runtime: {'gpu': ('NVIDIA A100-PCIE-40GB', 'NVIDIA A100-PCIE-40GB'), 'torch': ('2.1.1+cu118', '2.1.1+cu118'), 'batch_size': (16, 16), 'seed': (20260816, 20260816)}
+
+== paired improvements pilot - stage0 (acc pp / CE nats) ==
+overall_accuracy | +27.98 [+25.99, +29.99] | +33.60 [+31.57, +35.62]
+mixed_accuracy | +24.60 [+22.64, +26.58] | +30.44 [+28.48, +32.36]
+overall_cross_entropy | 2.9529 [2.8346, 3.0711] | 3.3248 [3.2059, 3.4398]
+mixed_cross_entropy | 2.7278 [2.6070, 2.8491] | 3.1175 [2.9973, 3.2346]
+clean_final_accuracy | +58.40 [+54.41, +62.50] | +62.00 [+57.94, +65.83]
+
+== cue controls (2000) ==
+correct_accuracy | 23.65 | 30.4
+shuffled_accuracy | 11.05 | 14.15
+silent_accuracy | 17.0 | 21.0
+correct_minus_max_shuffled_silent | 6.65 | 9.4
+pairwise_ci_lower_min | 4.9 | 7.5
+correct_minus_shuffled | +12.60 [+10.64, +14.61] | +16.25 [+14.14, +18.33]
+correct_minus_silent | +6.65 [+4.90, +8.43] | +9.40 [+7.50, +11.33]
+distractor_cue_p_probe_delta | +4.11 [+3.54, +4.70] | +6.38 [+5.64, +7.12]
+
+== gates ==
+clean_accuracy_ci_lower_gt_chance True True
+cue_correct_minus_max_control_ge_0_05 True True
+cue_pairwise_ci_lower_min_gt_zero True True
+mixed_accuracy_improvement_ci_lower_gt_zero True True
+mixed_ce_improvement_ci_lower_gt_zero True True
+overall_accuracy_improvement_ci_lower_gt_zero True True
+overall_ce_improvement_ci_lower_gt_zero True True
+
+== strata keys == ['by_distractor_count', 'by_distractor_count_and_snr_bin', 'by_snr_bin', 'by_target_gender', 'clean', 'mixed', 'overall']
+-- by_snr_bin
+  0: acc 8.28 | 12.00   CE 5.4910 | 5.1305   n=1800
+  1: acc 15.00 | 20.39   CE 4.6871 | 4.2946   n=1800
+  2: acc 23.83 | 29.50   CE 3.8592 | 3.4179   n=1800
+  3: acc 33.67 | 40.61   CE 3.1136 | 2.7481   n=1800
+  4: acc 43.56 | 50.22   CE 2.6252 | 2.2535   n=1800
+-- by_distractor_count
+  1: acc 29.47 | 36.04   CE 3.6080 | 3.1727   n=2250
+  2: acc 24.93 | 29.64   CE 3.9858 | 3.6032   n=2250
+  3: acc 22.18 | 28.84   CE 4.1054 | 3.7240   n=2250
+  4: acc 22.89 | 27.64   CE 4.1216 | 3.7758   n=2250
+-- by_target_gender
+  female: acc 30.66 | 36.72   CE 3.4436 | 3.0976   n=5000
+  male: acc 25.78 | 30.66   CE 4.0168 | 3.6257   n=5000
+-- overall/mixed/clean pilot acc if present: {'clean': {'pilot_accuracy': 0.62, 'pilot_cross_entropy': 1.4964293887865352, 'stage0_accuracy': 0.0, 'stage0_cross_entropy': 6.687160085201263, 'trials': 1000}, 'mixed': {'pilot_accuracy': 0.30544444444444446, 'pilot_cross_entropy': 3.568911988037357, 'stage0_accuracy': 0.001, 'stage0_cross_entropy': 6.686365472634633, 'trials': 9000}, 'overall': {'pilot_accuracy': 0.3369, 'pilot_cross_entropy': 3.361663728112275, 'stage0_accuracy': 0.0009, 'stage0_cross_entropy': 6.686444933891297, 'trials': 10000}}

@@ -1,0 +1,209 @@
+{
+  "gpu_jobs_submitted": 0,
+  "legacy_files_verified": 214,
+  "network_access": false,
+  "package_check": {
+    "argv": [
+      "/opt/anaconda3/envs/audattn/bin/python",
+      "-I",
+      "-B",
+      "/Users/gigi/发表/超算/alpha_mechanism_local_20260923/release_fine_alpha_20260928_candidate_v3/package/fine_alpha_entry.py",
+      "check",
+      "1644b8bd3e9eea855476f123e904707f82c9d1465f4345f43432c847893e87d7"
+    ],
+    "elapsed_seconds": 0.40046629204880446,
+    "log": {
+      "sha256": "51a12404e341b03da89d189a295d032c630288570b6611b88a753b2e525285a4",
+      "size": 236
+    },
+    "returncode": 0
+  },
+  "pending": [
+    "remote_publish",
+    "native_source_check",
+    "gpu_budget",
+    "single_held_submit",
+    "resource_review",
+    "separate_release_authorization",
+    "inference",
+    "offline_verification",
+    "science_readout"
+  ],
+  "production_checkpoint_loaded": false,
+  "regression": {
+    "argv": [
+      "/opt/anaconda3/envs/audattn/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/Users/gigi/发表/超算/alpha_mechanism_local_20260923",
+      "-v"
+    ],
+    "elapsed_seconds": 66.33473779202905,
+    "log": {
+      "sha256": "f427fc6ece53761f5d44d52008ba6194cb9581caeea939bcfe98f5de7e8d1a28",
+      "size": 57438
+    },
+    "returncode": 0
+  },
+  "release_sha256": "1644b8bd3e9eea855476f123e904707f82c9d1465f4345f43432c847893e87d7",
+  "scientific_results_obtained": false,
+  "source_files": {
+    "build_fine_alpha_package.py": {
+      "sha256": "2becbb1e2c60c883ce0f0a8e79521fa0a76aff35dd2e7e7d7f183e142561f3d6",
+      "size": 3323
+    },
+    "check_fine_alpha_v2_native_cpu.py": {
+      "sha256": "911551d8cd8936cd5d93f8d10973fefdacc2a6f7453d4285f6ad13afe320c7db",
+      "size": 4789
+    },
+    "collect_fine_alpha_753729.py": {
+      "sha256": "11bfa5db88139535608c0a4a236d27d0f9480e025e1526f0b9f884c471af24be",
+      "size": 7534
+    },
+    "correct_fine_alpha_753729_once.py": {
+      "sha256": "651f6f409ba2a3fb78abb6cd83a713f6e5726938ca3826ed0c2a4050b4621e1b",
+      "size": 11975
+    },
+    "fine_alpha_archive.py": {
+      "sha256": "6ed25d6b343eef6adb4d1d9a29dca7f16cec09d6a9421e2200f2ad94207d7b41",
+      "size": 11639
+    },
+    "fine_alpha_contract.py": {
+      "sha256": "6aa389e52d101e9666251639e82da965f7bd23ca9d6b9057bb5cb68bab51cf61",
+      "size": 2895
+    },
+    "fine_alpha_entry.py": {
+      "sha256": "5f32220cefd9d5e40ce96ca9bfb2a50e5a6245049ee971530e2235ba79963a66",
+      "size": 6665
+    },
+    "fine_alpha_execution.py": {
+      "sha256": "52095a60ee686b0e452f1f29342c05fee39581b494fc6372e7cfa8f40b58f019",
+      "size": 6725
+    },
+    "fine_alpha_gain.py": {
+      "sha256": "7904c23f33506390157e14a5fc6fe300cf7e8c25d0fdc7c84b5cbc5e050b73be",
+      "size": 3907
+    },
+    "fine_alpha_pipeline.py": {
+      "sha256": "1d747f3bf0c7dcca3b4c4a1908683db5836d9942ec9c41a2dd9fbf2836ea42ea",
+      "size": 2124
+    },
+    "fine_alpha_provenance_cpu_probe.py": {
+      "sha256": "febae186451f0926c39f340529fe78e23d17904d6319393fbb0fdcc4d482baaf",
+      "size": 4085
+    },
+    "fine_alpha_submission_queue.py": {
+      "sha256": "ecd4772acc304d79c8d7509189e5f233a9b5f6a938cf0853a9791132e2c3be1d",
+      "size": 6698
+    },
+    "fine_alpha_submit_once.py": {
+      "sha256": "c22cd18940d2b5f8c0a70056e9905780f5c9df4c144d625f2781a8a3b03336ce",
+      "size": 6269
+    },
+    "fine_alpha_upload_transport.py": {
+      "sha256": "5234db7684e93c631be158557039d855a17d0b27cd3cb33458d94e5ee5215bd5",
+      "size": 7628
+    },
+    "preflight_fine_alpha.py": {
+      "sha256": "f939ea1f9669d61606d4c95ee009d1d8233b542b838a1b6f02dadcda60ce9299",
+      "size": 6925
+    },
+    "preflight_fine_alpha_v2.py": {
+      "sha256": "a767d1c285dace8b294f7d50f7d221191d01742566e7ed9b9996a0f017ce091f",
+      "size": 2323
+    },
+    "prepare_fine_alpha_local.py": {
+      "sha256": "43c1c980ed15a1c6e2c07c3aa63bb0dfcd92a06e64e0e4c270e92c832e3e72eb",
+      "size": 4277
+    },
+    "publish_fine_alpha.py": {
+      "sha256": "5ab47258b4946f46f2f70e45c7b092cc5a11d58c0eb322eb408c35fd48cba2c0",
+      "size": 5346
+    },
+    "publish_fine_alpha_v2.py": {
+      "sha256": "236b69a19b539d2f8f410d74624c070eee345bfe966c9ecb9e6a5e11a8af5746",
+      "size": 8855
+    },
+    "release_fine_alpha_753729_once.py": {
+      "sha256": "732d87b8fdc47fdd4511de1f0179d6703fb52873ed6f1de917860d59d32aeb53",
+      "size": 11672
+    },
+    "run_fine_alpha.sbatch": {
+      "sha256": "f3ef33973d73dfb2bcdecaa301abaaf84a2708737182c635c5a75f3618a6ca99",
+      "size": 866
+    },
+    "status_fine_alpha_753729.py": {
+      "sha256": "ad90a9fcbd65f3c1e36239f8b5a4dc102b81bac0ada2bb1c37f3db6f5e5fb816",
+      "size": 7111
+    },
+    "submit_fine_alpha_authorized.py": {
+      "sha256": "14ab037208b184a14dfecd19138466435613659425485ed3c9a98aa7aada9d20",
+      "size": 13026
+    },
+    "test_fine_alpha.py": {
+      "sha256": "c2a1794ea9c0c8551477883ca2fb8af4e3fd357694b7679de9a48cb04b43e966",
+      "size": 13000
+    },
+    "test_fine_alpha_archive.py": {
+      "sha256": "eebefee8515b59795acf5387acad4e4c8f755aa1c08280b78cea76c03a63bbf0",
+      "size": 8322
+    },
+    "test_fine_alpha_authorized.py": {
+      "sha256": "13f94a111edf5e016678a73f8ccb2e79beb5b40ceacbd7099ca12a01b9b0062b",
+      "size": 5081
+    },
+    "test_fine_alpha_correction.py": {
+      "sha256": "ffade95b2596bbfea8da571d29c52088daf5994cc3f0eec0e3884e01387be7c7",
+      "size": 3310
+    },
+    "test_fine_alpha_followup.py": {
+      "sha256": "c4deccc018ec63f7bf205fbc031f764a5d8b2e2d5c9fd8c2be8f158ac1bbc537",
+      "size": 3983
+    },
+    "test_fine_alpha_preflight.py": {
+      "sha256": "191bcf3a67a5d1f30de2955d12571b866a7c9beaa23abaa3fbb88087aa1cff2b",
+      "size": 2847
+    },
+    "test_fine_alpha_preflight_v2.py": {
+      "sha256": "9976c18d209f2d4577a9c52f95dec7c9e460d46ffc8d8df7094ae92564289370",
+      "size": 4716
+    },
+    "test_fine_alpha_provenance.py": {
+      "sha256": "74ee59b787e443f07cd01a2a2efd5b5ff702a319ab8e721e4a38d4b5ba3ba2e6",
+      "size": 10947
+    },
+    "test_fine_alpha_release.py": {
+      "sha256": "e7ea279dbb98d5107acdb6a2dc474531f8d0812b6a5a4dc5a1ebb92873c5d049",
+      "size": 2619
+    },
+    "test_fine_alpha_submission.py": {
+      "sha256": "b6601af1ba48d1df3ce19ff49322bfd177a1351b69a7442110a4c30d42ea186c",
+      "size": 5858
+    },
+    "test_fine_alpha_submission_queue.py": {
+      "sha256": "36ea6c5e1ca183687ab6b9470fc75cc0b1b2a6ca4b1070e0566fe573ed08c80d",
+      "size": 13625
+    },
+    "test_fine_alpha_upload.py": {
+      "sha256": "7a9f6dc73e0b7ae89b7cdb6c41684e75b87b6fcae6caa8ca4ead017fdeb7ca45",
+      "size": 3543
+    },
+    "test_fine_alpha_upload_queue.py": {
+      "sha256": "b863352f65d0e8a6ae079ccc73697a5d99c0b24cd30c04a76a456e6f7614fb0a",
+      "size": 4854
+    },
+    "test_fine_alpha_upload_v2.py": {
+      "sha256": "1b47b42679018cfa1960655a92330f4a59455363ad6857fd640dfbd6abed99ce",
+      "size": 4388
+    },
+    "watch_fine_alpha_753729.py": {
+      "sha256": "81ecb9cea96ca20e5926915d1cb6203381b141f017a9cc70ebe24237bc91fb5f",
+      "size": 2268
+    }
+  },
+  "status": "FINE_ALPHA_LOCAL_CANDIDATE_VERIFIED_NOT_GPU_AUTHORIZED",
+  "tests": 497
+}

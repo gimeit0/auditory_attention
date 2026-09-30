@@ -1,0 +1,9 @@
+{
+  "files": 40,
+  "jobs_submitted": 0,
+  "package": "/Users/gigi/发表/超算/alpha_mechanism_local_20260923/release_fine_alpha_20260928_candidate_v1/package",
+  "predictions": 219600,
+  "release_sha256": "b0bd8b4269b5542b65bbf6d3982b7484838f983d0c5fe7a9538551ea9a076b8f",
+  "science_predictions": 194400,
+  "status": "FINE_ALPHA_LOCAL_PACKAGE_BUILT"
+}
